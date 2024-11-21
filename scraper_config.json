@@ -1,0 +1,24 @@
+{
+  "websites": [
+    {
+      "url": "https://www.ign.com/articles/the-best-100-video-games-of-all-time",
+      "name_selector": "h2[data-cy='title2'] strong",
+      "rank_selector": "h2[data-cy='title2'] strong"
+    },
+    {
+      "url": "https://www.rockpapershotgun.com/the-rps-100-2024",
+      "name_selector": "span.top-video-game-name",
+      "rank_selector": "span.top-video-game-pill--rank"
+    },
+    {
+      "url": "https://www.eurogamer.net/the-eurogamer-100",
+      "name_selector": "span.top-video-game-name",
+      "rank_selector": "span.top-video-game-pill--rank"
+    },
+    {
+      "url": "https://www.pcgamer.com/games/the-top-100-pc-games-2024/",
+      "name_selector": "h2[id]",
+      "rank_selector": "h2[id]"
+    }
+  ]
+}
