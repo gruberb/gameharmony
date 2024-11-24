@@ -1,5 +1,4 @@
 use crate::error::Result;
-use crate::matcher::GameMatcher;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
@@ -7,7 +6,7 @@ use std::collections::HashMap;
 #[derive(Debug)]
 pub struct SteamClient {
     client: Client,
-    steam_apps: Vec<SteamApp>,
+    pub steam_apps: Vec<SteamApp>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -93,11 +92,6 @@ impl SteamClient {
         let url = "https://api.steampowered.com/ISteamApps/GetAppList/v2/";
         let response: SteamResponse = client.get(url).send().await?.json().await?;
         Ok(response.applist.apps)
-    }
-
-    pub fn find_steam_id(&self, game_name: &str) -> Option<String> {
-        let mut normalizer = GameMatcher::new();
-        normalizer.find_steam_id(game_name, &self.steam_apps)
     }
 
     pub async fn get_store_info(&self, app_id: u64) -> Result<Option<SteamStoreInfo>> {

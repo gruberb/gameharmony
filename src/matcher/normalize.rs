@@ -39,6 +39,21 @@ pub fn normalize_title(title: &str) -> String {
 
     // Map of Roman numerals to numbers (case-insensitive)
     let roman_numerals = vec![
+        ("(?i)\\bXXV\\b", "25"),
+        ("(?i)\\bXXIV\\b", "24"),
+        ("(?i)\\bXXIII\\b", "23"),
+        ("(?i)\\bXXII\\b", "22"),
+        ("(?i)\\bXXI\\b", "21"),
+        ("(?i)\\bXX\\b", "20"),
+        ("(?i)\\bXIX\\b", "19"),
+        ("(?i)\\bXVIII\\b", "18"),
+        ("(?i)\\bXVII\\b", "17"),
+        ("(?i)\\bXVI\\b", "16"),
+        ("(?i)\\bXV\\b", "15"),
+        ("(?i)\\bXIV\\b", "14"),
+        ("(?i)\\bXIII\\b", "13"),
+        ("(?i)\\bXII\\b", "12"),
+        ("(?i)\\bXI\\b", "11"),
         ("(?i)\\bX\\b", "10"),
         ("(?i)\\bIX\\b", "9"),
         ("(?i)\\bVIII\\b", "8"),
@@ -84,8 +99,19 @@ pub fn normalize_title(title: &str) -> String {
 
     // Remove stop words
     let stop_words = vec![
-        "the", "and", "of", "edition", "remastered", "definitive", "part", "collection",
-        "remake", "reincarnation", "rebirth", "ultra", "deluxe",
+        "the",
+        "and",
+        "of",
+        "edition",
+        "remastered",
+        "definitive",
+        "part",
+        "collection",
+        "remake",
+        "reincarnation",
+        "rebirth",
+        "ultra",
+        "deluxe",
     ];
     let mut words: Vec<&str> = title.split_whitespace().collect();
     words.retain(|word| !stop_words.contains(word));

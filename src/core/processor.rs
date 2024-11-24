@@ -3,21 +3,22 @@ use crate::clients::rawg::RawgClient;
 use crate::clients::steam::SteamClient;
 use crate::config::{Config, Website};
 use crate::error::{GameError, Result};
-use crate::matcher::{Game, MergedGame, WebsiteGames, normalize_title};
+use crate::matcher::normalize::normalize_source;
+use crate::matcher::{normalize_title, Game, GameMatcher, MergedGame, WebsiteGames};
 use crate::scrapers::{
     eurogamer::EurogamerScraper, ign::IGNScraper, pcgamer::PCGamerScraper,
     rockpapershotgun::RPSScraper, Selectors, WebsiteScraper,
 };
+use regex::Regex;
 use reqwest::Client;
 use scraper::Html;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::path::PathBuf;
-use regex::Regex;
+use rayon::prelude::IntoParallelIterator;
 use tokio::time::sleep;
-use tracing::{info, trace};
-use crate::matcher::normalize::normalize_source;
-
+use tracing::info;
+use rayon::iter::ParallelIterator;
 
 #[derive(Debug, Serialize, Deserialize)]
 struct GameWithSteamId {
@@ -64,11 +65,11 @@ impl GameProcessor {
     }
 
     pub async fn process(&self) -> Result<Vec<GameEntry>> {
+        let game_matcher = GameMatcher::new(self.steam_client.steam_apps.clone());
+
         // Step 1: Scrape websites
         info!("Step 1: Getting website data...");
         let website_games = self.scrape_websites().await?;
-
-        trace!("Found websites: {:#?}", website_games);
 
         // Step 2: Merge games
         info!("Step 2: Getting merged games...");
@@ -76,7 +77,7 @@ impl GameProcessor {
 
         // Step 3: Add Steam IDs
         info!("Step 3: Getting games with Steam IDs...");
-        let games_with_ids = self.add_steam_ids(merged_games).await?;
+        let games_with_ids = self.add_steam_ids(game_matcher, merged_games).await?;
 
         // Step 4: Enrich with additional data
         info!("Step 4: Adding additional data...");
@@ -146,7 +147,7 @@ impl GameProcessor {
         let cache_path = self.cache_dir.join(filename);
 
         if cache_path.exists() {
-            println!("Loading cached data for {}", filename);
+            info!("Loading cached data for {}", filename);
             let cached_data = std::fs::read_to_string(cache_path.clone())?;
             let merged_games: Vec<MergedGame> = serde_json::from_str(&cached_data)?;
             return Ok(merged_games);
@@ -157,20 +158,24 @@ impl GameProcessor {
         // Precompute normalized titles and tokens
         for website in website_games {
             let source = normalize_source(&website.source);
-            println!("Processing games from {}", source);
+            info!("Processing games from {}", source);
 
             for game in website.games {
                 let normalized_title = normalize_title(&game.name);
 
                 // Extract numeric tokens
                 let numbers_re = Regex::new(r"\b\d+\b").unwrap();
-                let numeric_tokens: Vec<String> = numbers_re.find_iter(&normalized_title)
+                let numeric_tokens: Vec<String> = numbers_re
+                    .find_iter(&normalized_title)
                     .map(|m| m.as_str().to_string())
                     .collect();
 
                 // Remove numeric tokens to get non-numeric title
                 let non_numeric_title = numbers_re.replace_all(&normalized_title, "").to_string();
-                let non_numeric_title = non_numeric_title.split_whitespace().collect::<Vec<&str>>().join(" ");
+                let non_numeric_title = non_numeric_title
+                    .split_whitespace()
+                    .collect::<Vec<&str>>()
+                    .join(" ");
 
                 games_data.push(GameData {
                     original_name: game.name.clone(),
@@ -187,7 +192,8 @@ impl GameProcessor {
         let mut title_groups: HashMap<String, Vec<GameData>> = HashMap::new();
 
         for game in games_data {
-            title_groups.entry(game.non_numeric_title.clone())
+            title_groups
+                .entry(game.non_numeric_title.clone())
                 .or_default()
                 .push(game);
         }
@@ -203,18 +209,25 @@ impl GameProcessor {
 
                 if let Some(existing_game) = merged_group.get_mut(&key) {
                     if !existing_game.original_names.contains(&game.original_name) {
-                        existing_game.original_names.push(game.original_name.clone());
+                        existing_game
+                            .original_names
+                            .push(game.original_name.clone());
                     }
-                    existing_game.rankings.insert(game.source.clone(), game.rank);
+                    existing_game
+                        .rankings
+                        .insert(game.source.clone(), game.rank);
                 } else {
                     let mut rankings = HashMap::new();
                     rankings.insert(game.source.clone(), game.rank);
 
-                    merged_group.insert(key.clone(), MergedGame {
-                        normalized_name: game.normalized_title.clone(),
-                        original_names: vec![game.original_name.clone()],
-                        rankings,
-                    });
+                    merged_group.insert(
+                        key.clone(),
+                        MergedGame {
+                            normalized_name: game.normalized_title.clone(),
+                            original_names: vec![game.original_name.clone()],
+                            rankings,
+                        },
+                    );
                 }
             }
 
@@ -226,7 +239,11 @@ impl GameProcessor {
         Ok(merged_games)
     }
 
-    async fn add_steam_ids(&self, merged_games: Vec<MergedGame>) -> Result<Vec<GameWithSteamId>> {
+    async fn add_steam_ids(
+        &self,
+        game_matcher: GameMatcher,
+        merged_games: Vec<MergedGame>,
+    ) -> Result<Vec<GameWithSteamId>> {
         let cache_path = self.cache_dir.join("merged_with_steam_id.json");
 
         if cache_path.exists() {
@@ -234,25 +251,28 @@ impl GameProcessor {
             return Ok(serde_json::from_str(&std::fs::read_to_string(cache_path)?)?);
         }
 
-        info!("Adding Steam IDs to games");
-        let mut games_with_steam_ids = Vec::new();
+        info!("Adding Steam IDs to games in parallel");
 
-        for game in merged_games {
-            let steam_id = self.steam_client.find_steam_id(&game.original_names[0]);
+        // Process all games in parallel
+        let games_with_steam_ids: Vec<GameWithSteamId> = merged_games
+            .into_par_iter()  // Parallel iterator
+            .map(|game| {
+                let steam_id = game_matcher.find_steam_id(&game.original_names[0]);
+                info!("Game: {} - SteamID: {:?}", game.original_names[0], steam_id);
 
-            let game_with_id = GameWithSteamId {
-                name: game.original_names[0].clone(),
-                rankings: game
-                    .rankings
-                    .into_iter()
-                    .map(|(k, v)| (k, v as i32))
-                    .collect(),
-                steam_id,
-            };
+                GameWithSteamId {
+                    name: game.original_names[0].clone(),
+                    rankings: game
+                        .rankings
+                        .into_iter()
+                        .map(|(k, v)| (k, v as i32))
+                        .collect(),
+                    steam_id,
+                }
+            })
+            .collect();
 
-            games_with_steam_ids.push(game_with_id);
-        }
-
+        // Cache the results
         std::fs::write(
             &cache_path,
             serde_json::to_string_pretty(&games_with_steam_ids)?,

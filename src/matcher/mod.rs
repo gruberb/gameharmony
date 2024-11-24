@@ -1,15 +1,22 @@
-mod mapping;
 pub mod normalize;
 
+use crate::clients::steam::SteamApp;
+use std::sync::Arc;
+use once_cell::sync::OnceCell;
+use rayon::prelude::*;
+use regex::Regex;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use ahash::AHashMap;
+use rustc_hash::FxHashMap;
 use strsim::normalized_levenshtein;
-use crate::clients::steam::SteamApp;
+use tracing::info;
 
 pub use normalize::normalize_title;
 
 pub struct GameMatcher {
-    mapping_config: MappingConfig,
+    name_index: FxHashMap<String, Arc<SteamApp>>,
+    letter_index: AHashMap<char, Vec<Arc<SteamApp>>>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -31,192 +38,67 @@ pub struct MergedGame {
     pub rankings: HashMap<String, usize>,
 }
 
-pub use self::mapping::MappingConfig;
-
 impl GameMatcher {
-    pub fn new() -> Self {
-        Self {
-            mapping_config: MappingConfig::load(),
-        }
-    }
+    pub fn new(steam_apps: Vec<SteamApp>) -> Self {
+        static DLC_PATTERN: OnceCell<Regex> = OnceCell::new();
+        let dlc_regex = DLC_PATTERN.get_or_init(|| {
+            Regex::new(r"(?i)(DLC|Soundtrack|OST|Bonus|Season Pass|Content Pack|\bVR\b|\bBeta\b|\bDemo\b|\bArt\sof\b|\bUpgrade\b|\bEdition\b|\bPack\b|\bBundle\b)").unwrap()
+        });
 
-    pub fn remember_match(
-        &mut self,
-        original: String,
-        normalized: String,
-        steam_id: Option<String>,
-    ) {
-        self.mapping_config.add_mapping(original, normalized, steam_id);
-        if let Err(e) = self.mapping_config.save() {
-            tracing::warn!("Failed to save game mappings: {}", e);
-        }
-    }
-
-    fn is_likely_dlc_or_extra(&self, app_name: &str) -> bool {
-        let dlc_indicators = [
-            "dlc",
-            "soundtrack",
-            "ost",
-            "playtest",
-            "demo",
-            "art of",
-            "dimension",
-            "trailer",
-            "upgrade",
-            "edition",
-            "content",
-            "pack",
-            "bundle",
-            "season pass",
-            "skin",
-            "cosmetic",
-            "vr",
-            "beta",
-            "intro",
-            "video",
-            "documentary",
-            "making of",
-            "digital deluxe",
-            "bonus",
-            "collection",
-            "complete",
-            "definitive",
-            "guide",              // Added for Prima Guide cases
-            "manual",            // Added for game manuals
-            "handbook",          // Added for handbooks
-            "strategy",          // Added for strategy guides
-            "companion",         // Added for companion apps/books
-            "artbook",           // Added for art books
-            "Prima",             // Specific to Prima guides
-            "official guide",    // Generic guide indicator
-        ];
-
-        let clean_name = self.clean_name_for_comparison(app_name);
-
-        // Check for common DLC patterns
-        if dlc_indicators.iter().any(|&indicator| clean_name.contains(indicator)) {
-            return true;
-        }
-
-        // Additional pattern checks
-        let patterns = [
-            // Books/Guides pattern
-            r"(?i)(guide|book|manual|handbook)s?$",
-            // Additional content pattern
-            r"(?i)(add-?on|expansion|dlc|pack)s?$",
-            // Soundtrack/OST pattern
-            r"(?i)(soundtrack|ost|music|theme)s?$",
-            // Bonus content pattern
-            r"(?i)(bonus|extra|additional)s?\s+content",
-        ];
-
-        for pattern in patterns {
-            if regex::Regex::new(pattern).unwrap().is_match(&clean_name) {
-                return true;
-            }
-        }
-
-        false
-    }
-
-    fn clean_name_for_comparison(&self, name: &str) -> String {
-        // Keep "The" at the start of the name for better matching
-        let name = if name.to_lowercase().starts_with("the ") {
-            name.to_string()
-        } else {
-            name.replace("The ", "")
-        };
-
-        name.to_lowercase()
-            .replace(['™', ':', '®', '(', ')', '-', '.', '\'', '"'], " ")
-            .split_whitespace()
-            .collect::<Vec<_>>()
-            .join(" ")
-    }
-
-    pub fn find_steam_id(
-        &mut self,
-        game_name: &str,
-        steam_apps: &[SteamApp],
-    ) -> Option<String> {
-        // Check if we already have a mapping
-        if let Some(steam_id) = self.mapping_config.get_steam_id(game_name) {
-            return Some(steam_id);
-        }
-
-        // Normalize the game name
-        let normalized_game_name = normalize_title(game_name);
-
-        // Build a HashMap of normalized app names to SteamApp
-        // For performance, we can cache this map if it's used multiple times
-        let app_map: HashMap<String, &SteamApp> = steam_apps
-            .iter()
-            .map(|app| {
-                let normalized_app_name = normalize_title(&app.name);
-                (normalized_app_name, app)
-            })
+        info!("Build filtered apps");
+        let filtered_apps: Vec<_> = steam_apps
+            .into_iter()
+            .filter(|app| !dlc_regex.is_match(&app.name))
             .collect();
 
-        // First, attempt an exact match
-        if let Some(app) = app_map.get(&normalized_game_name) {
-            tracing::info!(
-                "Exact match found for '{}' with appid {}",
-                game_name,
-                app.appid
-            );
+        let apps = Arc::new(filtered_apps);
+        let mut name_index = FxHashMap::default();
+        let mut letter_index = AHashMap::new();
 
-            self.remember_match(
-                game_name.to_string(),
-                app.name.clone(),
-                Some(app.appid.to_string()),
-            );
+        info!("Build letter index");
+        for app in apps.iter() {
+            let app = Arc::new(app.clone());
+            let normalized = normalize_title(&app.name);
 
-            return Some(app.appid.to_string());
-        }
+            name_index.insert(normalized.clone(), Arc::clone(&app));
 
-        // If no exact match, proceed to fuzzy matching
-        // Calculate similarity with all app names
-        let mut best_match: Option<(&SteamApp, f64)> = None;
-
-        for (normalized_app_name, app) in &app_map {
-            // Skip DLCs or extras if needed
-            if self.is_likely_dlc_or_extra(&app.name) {
-                continue;
-            }
-
-            let similarity = normalized_levenshtein(&normalized_game_name, normalized_app_name);
-
-            // Adjust the threshold as needed (e.g., 0.8)
-            if similarity > 0.8 {
-                if let Some((_, best_similarity)) = best_match {
-                    if similarity > best_similarity {
-                        best_match = Some((app, similarity));
-                    }
-                } else {
-                    best_match = Some((app, similarity));
-                }
+            if let Some(first_char) = normalized.chars().next() {
+                letter_index.entry(first_char)
+                    .or_insert_with(Vec::new)
+                    .push(Arc::clone(&app));
             }
         }
 
-        if let Some((app, similarity)) = best_match {
-            tracing::info!(
-                "Fuzzy match found for '{}' with appid {} (similarity: {:.2})",
-                game_name,
-                app.appid,
-                similarity
-            );
+        Self {
+            name_index,
+            letter_index,
+        }
+    }
 
-            self.remember_match(
-                game_name.to_string(),
-                app.name.clone(),
-                Some(app.appid.to_string()),
-            );
+    pub fn find_steam_id(&self, game_name: &str) -> Option<String> {
+        info!("Find SteamID for: {game_name}");
+        let normalized_search = normalize_title(game_name);
 
+        // 1. Try exact match first
+        if let Some(app) = self.name_index.get(&normalized_search) {
             return Some(app.appid.to_string());
         }
 
-        // If still no match, return None
-        tracing::warn!("No match found for '{}'", game_name);
-        None
+        // 2. Fuzzy match only on relevant subset
+        const SIMILARITY_THRESHOLD: f64 = 0.9;
+        let first_char = normalized_search.chars().next()?;
+
+        // Get candidates sharing the same first letter
+        let candidates = self.letter_index.get(&first_char)?;
+
+        // Parallel fuzzy matching on the subset
+        candidates.par_iter()
+            .map(|app| {
+                let similarity = normalized_levenshtein(&normalized_search, &normalize_title(&app.name));
+                (app, similarity)
+            })
+            .filter(|(_, similarity)| *similarity > SIMILARITY_THRESHOLD)
+            .max_by(|a, b| a.1.partial_cmp(&b.1).unwrap_or(std::cmp::Ordering::Equal))
+            .map(|(app, _)| app.appid.to_string())
     }
 }

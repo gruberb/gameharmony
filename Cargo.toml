@@ -20,3 +20,5 @@ thiserror = "2.0"
 strsim = "0.11"
 lazy_static = "1.4"
 unicode-normalization = "0.1.24"
+rustc-hash = "2.0"  # Fast HashMap implementation
+ahash = "0.8"      # Another fast hashing algorithm
