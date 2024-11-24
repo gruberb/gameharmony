@@ -1,5 +1,6 @@
 use regex::Regex;
 use serde::{Deserialize, Serialize};
+use unicode_normalization::UnicodeNormalization;
 
 #[derive(Debug, Deserialize, Serialize)]
 struct Game {
@@ -32,19 +33,66 @@ pub fn normalize_source(source: &str) -> String {
 pub fn normalize_title(title: &str) -> String {
     let mut title = title.to_lowercase();
 
-    // Remove apostrophes
-    title = title.replace("'", "");
+    // Insert spaces around numbers to ensure they're separate tokens
+    let numbers_re = Regex::new(r"(\d+)").unwrap();
+    title = numbers_re.replace_all(&title, " $1 ").to_string();
 
-    // Replace hyphens with spaces
-    title = title.replace("-", " ");
+    // Map of Roman numerals to numbers (case-insensitive)
+    let roman_numerals = vec![
+        ("(?i)\\bX\\b", "10"),
+        ("(?i)\\bIX\\b", "9"),
+        ("(?i)\\bVIII\\b", "8"),
+        ("(?i)\\bVII\\b", "7"),
+        ("(?i)\\bVI\\b", "6"),
+        ("(?i)\\bV\\b", "5"),
+        ("(?i)\\bIV\\b", "4"),
+        ("(?i)\\bIII\\b", "3"),
+        ("(?i)\\bII\\b", "2"),
+        ("(?i)\\bI\\b", "1"),
+    ];
 
-    // Remove all non-alphanumeric characters except spaces
-    let re = Regex::new(r"[^a-z0-9\s]").unwrap();
+    // Apply Roman numeral replacements using regex
+    for (roman_pattern, num) in roman_numerals {
+        let re = Regex::new(roman_pattern).unwrap();
+        title = re.replace_all(&title, num).to_string();
+    }
+
+    // Replace word numbers with digits
+    let word_numbers = vec![
+        (" zero ", " 0 "),
+        (" one ", " 1 "),
+        (" two ", " 2 "),
+        (" three ", " 3 "),
+        (" four ", " 4 "),
+        (" five ", " 5 "),
+        (" six ", " 6 "),
+        (" seven ", " 7 "),
+        (" eight ", " 8 "),
+        (" nine ", " 9 "),
+        (" ten ", " 10 "),
+    ];
+    for (word, num) in word_numbers {
+        title = title.replace(word, num);
+    }
+
+    // Remove punctuation
+    let re = Regex::new(r"[^\w\s]").unwrap();
     title = re.replace_all(&title, "").to_string();
 
-    // Collapse multiple spaces into a single space
-    let re_spaces = Regex::new(r"\s+").unwrap();
-    title = re_spaces.replace_all(&title, " ").trim().to_string();
+    // Remove extra whitespace
+    title = title.split_whitespace().collect::<Vec<&str>>().join(" ");
 
-    title
+    // Remove stop words
+    let stop_words = vec![
+        "the", "and", "of", "edition", "remastered", "definitive", "part", "collection",
+        "remake", "reincarnation", "rebirth", "ultra", "deluxe",
+    ];
+    let mut words: Vec<&str> = title.split_whitespace().collect();
+    words.retain(|word| !stop_words.contains(word));
+    title = words.join(" ");
+
+    // Unicode normalization
+    title = title.nfkd().collect::<String>();
+
+    title.trim().to_string()
 }
