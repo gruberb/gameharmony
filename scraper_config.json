@@ -16,7 +16,7 @@
       "rank_selector": "span.top-video-game-pill--rank"
     },
     {
-      "url": "https://www.pcgamer.com/games/the-top-100-pc-games-2024/",
+      "url": "https://www.pcgamer.com/games/the-top-100-pc-games-2024",
       "name_selector": "h2[id]",
       "rank_selector": "h2[id]"
     }

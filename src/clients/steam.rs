@@ -1,8 +1,5 @@
 use crate::error::Result;
-use crate::utils::{get_steam_id_map, normalize_title};
-use fuzzy_matcher::skim::SkimMatcherV2;
-use fuzzy_matcher::FuzzyMatcher;
-use once_cell::sync::OnceCell;
+use crate::matcher::GameMatcher;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
@@ -47,7 +44,7 @@ pub struct PriceOverview {
     pub final_formatted: String,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct StorePlatforms {
     pub windows: bool,
     pub macos: bool,
@@ -76,6 +73,16 @@ pub struct SteamStoreInfo {
     pub total_reviews: i32,
 }
 
+#[derive(Debug, Deserialize)]
+pub struct SteamDeckVerifiedResponse {
+    pub results: Option<VerificationResults>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct VerificationResults {
+    pub resolved_category: i32,
+}
+
 impl SteamClient {
     pub async fn new(client: Client) -> Result<Self> {
         let steam_apps = Self::fetch_steam_apps(&client).await?;
@@ -89,53 +96,8 @@ impl SteamClient {
     }
 
     pub fn find_steam_id(&self, game_name: &str) -> Option<String> {
-        static MATCHER: OnceCell<SkimMatcherV2> = OnceCell::new();
-        let matcher = MATCHER.get_or_init(SkimMatcherV2::default);
-
-        let normalized_title = normalize_title(game_name);
-        let variations = [
-            normalized_title.clone(),
-            normalized_title.replace('2', "II"),
-            normalized_title.replace("II", "2"),
-            normalized_title.replace("III", "3"),
-            normalized_title.replace('3', "III"),
-            normalized_title.replace('4', "IV"),
-            normalized_title.replace("IV", "4"),
-        ];
-
-        let steam_id_map = get_steam_id_map();
-
-        // Check direct mapping first
-        if let Some(steam_id) = steam_id_map.get(game_name) {
-            return Some(steam_id.to_string());
-        }
-
-        use rayon::prelude::*;
-
-        self.steam_apps
-            .par_iter()
-            .map(|app| {
-                let max_score = variations
-                    .iter()
-                    .map(|variation| {
-                        matcher
-                            .fuzzy_match(&app.name.to_lowercase(), &variation.to_lowercase())
-                            .unwrap_or(0)
-                    })
-                    .max()
-                    .unwrap_or(0);
-                (app, max_score)
-            })
-            .filter(|(_, score)| *score > 90)
-            .max_by_key(|(_, score)| *score)
-            .map(|(app, _)| {
-                tracing::info!(
-                    "Steam match found for '{}' with appid {}",
-                    game_name,
-                    app.appid
-                );
-                app.appid.to_string()
-            })
+        let mut normalizer = GameMatcher::new();
+        normalizer.find_steam_id(game_name, &self.steam_apps)
     }
 
     pub async fn get_store_info(&self, app_id: u64) -> Result<Option<SteamStoreInfo>> {
@@ -209,5 +171,17 @@ impl SteamClient {
         }
 
         Ok(Some(info))
+    }
+
+    pub async fn get_deck_verified(&self, app_id: String) -> Result<SteamDeckVerifiedResponse> {
+        let response: SteamDeckVerifiedResponse = self.client
+            .get(format!(
+                "https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID={app_id}"
+            ))
+            .send()
+            .await?
+            .json()
+            .await?;
+        Ok(response)
     }
 }
