@@ -31,7 +31,13 @@ pub fn normalize_source(source: &str) -> String {
 /// Normalizes a game title by converting it to lowercase, removing apostrophes,
 /// replacing hyphens with spaces, removing punctuation, and collapsing multiple spaces.
 pub fn normalize_title(title: &str) -> String {
-    // First convert to lowercase
+    // Remove year suffixes in parentheses
+    let year_suffix_re = Regex::new(r"\s*\(\d{4}\)").unwrap();
+    let title = year_suffix_re
+        .replace_all(&title.to_lowercase(), "")
+        .to_string();
+
+    // Convert to lowercase
     let mut title = title.to_lowercase();
 
     let specific_game_replacements = [
@@ -145,6 +151,29 @@ pub fn normalize_title(title: &str) -> String {
     title.nfkd().collect::<String>().trim().to_string()
 }
 
+pub fn format_display_title(title: &str) -> String {
+    // List of words that should not be capitalized
+    let lowercase_words = ["the", "of", "and", "in", "on", "at", "to", "for", "with"];
+
+    title
+        .split_whitespace()
+        .enumerate()
+        .map(|(i, word)| {
+            if i == 0 || !lowercase_words.contains(&word.to_lowercase().as_str()) {
+                // Capitalize first letter, keep rest of the case
+                let mut chars = word.chars();
+                match chars.next() {
+                    None => String::new(),
+                    Some(first) => first.to_uppercase().chain(chars).collect(),
+                }
+            } else {
+                word.to_lowercase()
+            }
+        })
+        .collect::<Vec<String>>()
+        .join(" ")
+}
+
 #[test]
 fn test_title_normalization() {
     assert_eq!(normalize_title("Baldur's Gate III"), "baldurs gate 3");
@@ -160,4 +189,13 @@ fn test_title_normalization() {
     assert_eq!(normalize_title("HalfLife 2"), "halflife 2");
     assert_eq!(normalize_title("Counter-Strike 2"), "counterstrike 2");
     assert_eq!(normalize_title("Counter Strike 2"), "counterstrike 2");
+    assert_eq!(normalize_title("God of War (2018)"), "god of war");
+    assert_eq!(normalize_title("God of War"), "god of war");
+}
+
+#[test]
+fn test_title_formatting() {
+    assert_eq!(format_display_title("dave the diver"), "Dave the Diver");
+    assert_eq!(format_display_title("god of war"), "God of War");
+    assert_eq!(format_display_title("control"), "Control");
 }

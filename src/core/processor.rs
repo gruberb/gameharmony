@@ -3,7 +3,7 @@ use crate::clients::rawg::RawgClient;
 use crate::clients::steam::SteamClient;
 use crate::config::{Config, Website};
 use crate::error::{GameError, Result};
-use crate::matcher::normalize::normalize_source;
+use crate::matcher::normalize::{format_display_title, normalize_source};
 use crate::matcher::{normalize_title, Game, GameMatcher, MergedGame, WebsiteGames};
 use crate::scrapers::{
     eurogamer::EurogamerScraper, ign::IGNScraper, pcgamer::PCGamerScraper,
@@ -344,6 +344,7 @@ impl GameProcessor {
                 entry.metacritic_url = detailed.metacritic_url;
             }
 
+            entry.title = format_display_title(&entry.title);
             enriched_games.push(entry);
             sleep(std::time::Duration::from_millis(650)).await;
         }
