@@ -1,14 +1,14 @@
 pub mod normalize;
 
 use crate::clients::steam::SteamApp;
-use std::sync::Arc;
+use ahash::AHashMap;
 use once_cell::sync::OnceCell;
 use rayon::prelude::*;
 use regex::Regex;
+use rustc_hash::FxHashMap;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use ahash::AHashMap;
-use rustc_hash::FxHashMap;
+use std::sync::Arc;
 use strsim::normalized_levenshtein;
 use tracing::info;
 
@@ -63,7 +63,8 @@ impl GameMatcher {
             name_index.insert(normalized.clone(), Arc::clone(&app));
 
             if let Some(first_char) = normalized.chars().next() {
-                letter_index.entry(first_char)
+                letter_index
+                    .entry(first_char)
                     .or_insert_with(Vec::new)
                     .push(Arc::clone(&app));
             }
@@ -92,9 +93,11 @@ impl GameMatcher {
         let candidates = self.letter_index.get(&first_char)?;
 
         // Parallel fuzzy matching on the subset
-        candidates.par_iter()
+        candidates
+            .par_iter()
             .map(|app| {
-                let similarity = normalized_levenshtein(&normalized_search, &normalize_title(&app.name));
+                let similarity =
+                    normalized_levenshtein(&normalized_search, &normalize_title(&app.name));
                 (app, similarity)
             })
             .filter(|(_, similarity)| *similarity > SIMILARITY_THRESHOLD)

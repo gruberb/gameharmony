@@ -10,6 +10,7 @@ use crate::clients::rawg::RawgClient;
 use crate::clients::steam::SteamClient;
 use crate::config::Config;
 use crate::error::{GameError, Result};
+use chrono::Utc;
 use reqwest::Client;
 use std::path::PathBuf;
 
@@ -66,10 +67,15 @@ impl GameHarmony {
 
     fn save_manifest(&self, games: Vec<GameEntry>) -> Result<()> {
         let manifest = Manifest::new(games);
-        std::fs::write(
-            self.data_dir.join("manifest.json"),
-            serde_json::to_string_pretty(&manifest)?,
-        )?;
+
+        // Get current timestamp
+        let timestamp = Utc::now().timestamp();
+        let filename = format!("manifest_{}.json", timestamp);
+        let manifest_path = self.data_dir.join(&filename);
+
+        // Write the manifest with timestamp in filename
+        std::fs::write(manifest_path, serde_json::to_string_pretty(&manifest)?)?;
+
         Ok(())
     }
 }

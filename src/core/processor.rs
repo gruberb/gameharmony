@@ -9,16 +9,16 @@ use crate::scrapers::{
     eurogamer::EurogamerScraper, ign::IGNScraper, pcgamer::PCGamerScraper,
     rockpapershotgun::RPSScraper, Selectors, WebsiteScraper,
 };
+use rayon::iter::ParallelIterator;
+use rayon::prelude::IntoParallelIterator;
 use regex::Regex;
 use reqwest::Client;
 use scraper::Html;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::path::PathBuf;
-use rayon::prelude::IntoParallelIterator;
 use tokio::time::sleep;
 use tracing::info;
-use rayon::iter::ParallelIterator;
 
 #[derive(Debug, Serialize, Deserialize)]
 struct GameWithSteamId {
@@ -255,7 +255,7 @@ impl GameProcessor {
 
         // Process all games in parallel
         let games_with_steam_ids: Vec<GameWithSteamId> = merged_games
-            .into_par_iter()  // Parallel iterator
+            .into_par_iter() // Parallel iterator
             .map(|game| {
                 let steam_id = game_matcher.find_steam_id(&game.original_names[0]);
                 info!("Game: {} - SteamID: {:?}", game.original_names[0], steam_id);

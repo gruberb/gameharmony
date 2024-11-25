@@ -144,8 +144,8 @@ impl SteamClient {
                 windows: store_details.platforms.windows,
                 macos: store_details.platforms.macos,
                 linux: store_details.platforms.linux,
-                steamdeck: String::new(), // This will be filled by ProtonDB
-                switch: false,            // This will be filled by RAWG
+                steamdeck: String::new(),
+                switch: false, // This will be filled by RAWG
             },
             header_image: store_details.header_image.clone(),
             user_score: if reviews_data.query_summary.total_reviews > 0 {

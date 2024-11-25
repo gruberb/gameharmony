@@ -31,13 +31,34 @@ pub fn normalize_source(source: &str) -> String {
 /// Normalizes a game title by converting it to lowercase, removing apostrophes,
 /// replacing hyphens with spaces, removing punctuation, and collapsing multiple spaces.
 pub fn normalize_title(title: &str) -> String {
+    // First convert to lowercase
     let mut title = title.to_lowercase();
 
-    // Insert spaces around numbers to ensure they're separate tokens
+    let specific_game_replacements = [
+        // Use word boundaries to ensure we match complete words
+        (r"\bhalf[\s-]life\b", "halflife"),
+        (r"\bcounter[\s-]strike\b", "counterstrike"),
+        // Add other specific cases as needed
+    ];
+
+    // Remove apostrophes and normalize possessives first
+    let possessive_re = Regex::new(r"(?:'\s*s|\s+s)\b").unwrap();
+    title = possessive_re.replace_all(&title, "s").to_string();
+
+    // Remove all punctuation except hyphens initially
+    let punctuation_re = Regex::new(r"[^\w\s-]").unwrap();
+    title = punctuation_re.replace_all(&title, "").to_string();
+
+    // Insert spaces around numbers
     let numbers_re = Regex::new(r"(\d+)").unwrap();
     title = numbers_re.replace_all(&title, " $1 ").to_string();
 
-    // Map of Roman numerals to numbers (case-insensitive)
+    for (pattern, replacement) in specific_game_replacements {
+        let re = Regex::new(pattern).unwrap();
+        title = re.replace_all(&title, replacement).to_string();
+    }
+
+    // Convert Roman numerals to Arabic numbers
     let roman_numerals = vec![
         ("(?i)\\bXXV\\b", "25"),
         ("(?i)\\bXXIV\\b", "24"),
@@ -66,7 +87,7 @@ pub fn normalize_title(title: &str) -> String {
         ("(?i)\\bI\\b", "1"),
     ];
 
-    // Apply Roman numeral replacements using regex
+    // Apply Roman numeral replacements
     for (roman_pattern, num) in roman_numerals {
         let re = Regex::new(roman_pattern).unwrap();
         title = re.replace_all(&title, num).to_string();
@@ -86,16 +107,14 @@ pub fn normalize_title(title: &str) -> String {
         (" nine ", " 9 "),
         (" ten ", " 10 "),
     ];
+
     for (word, num) in word_numbers {
         title = title.replace(word, num);
     }
 
-    // Remove punctuation
-    let re = Regex::new(r"[^\w\s]").unwrap();
-    title = re.replace_all(&title, "").to_string();
-
-    // Remove extra whitespace
-    title = title.split_whitespace().collect::<Vec<&str>>().join(" ");
+    // Remove all remaining punctuation
+    let punctuation_re = Regex::new(r"[^\w\s]").unwrap();
+    title = punctuation_re.replace_all(&title, "").to_string();
 
     // Remove stop words
     let stop_words = vec![
@@ -113,12 +132,32 @@ pub fn normalize_title(title: &str) -> String {
         "ultra",
         "deluxe",
     ];
-    let mut words: Vec<&str> = title.split_whitespace().collect();
-    words.retain(|word| !stop_words.contains(word));
-    title = words.join(" ");
 
-    // Unicode normalization
-    title = title.nfkd().collect::<String>();
+    let words: Vec<String> = title
+        .split_whitespace()
+        .filter(|word| !stop_words.contains(&word.to_lowercase().as_str()))
+        .map(|s| s.to_string())
+        .collect();
 
-    title.trim().to_string()
+    let title = words.join(" ");
+
+    // Unicode normalization for consistency
+    title.nfkd().collect::<String>().trim().to_string()
+}
+
+#[test]
+fn test_title_normalization() {
+    assert_eq!(normalize_title("Baldur's Gate III"), "baldurs gate 3");
+    assert_eq!(normalize_title("baldur s gate 3"), "baldurs gate 3");
+    assert_eq!(normalize_title("Baldur's Gate"), "baldurs gate");
+    assert_eq!(normalize_title("baldur s gate"), "baldurs gate");
+    assert_eq!(normalize_title("Final Fantasy VII"), "final fantasy 7");
+    assert_eq!(normalize_title("Final Fantasy 7"), "final fantasy 7");
+    assert_eq!(normalize_title("Grand Theft Auto V"), "grand theft auto 5");
+    assert_eq!(normalize_title("Grand Theft Auto 5"), "grand theft auto 5");
+    assert_eq!(normalize_title("Half-Life 2"), "halflife 2");
+    assert_eq!(normalize_title("Half Life 2"), "halflife 2");
+    assert_eq!(normalize_title("HalfLife 2"), "halflife 2");
+    assert_eq!(normalize_title("Counter-Strike 2"), "counterstrike 2");
+    assert_eq!(normalize_title("Counter Strike 2"), "counterstrike 2");
 }
