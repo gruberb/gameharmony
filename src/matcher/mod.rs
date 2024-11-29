@@ -1,17 +1,20 @@
 pub mod normalize;
 
 use crate::clients::steam::SteamApp;
+use crate::error::{GameError, Result};
 use ahash::AHashMap;
+use once_cell::sync::Lazy;
+use rayon::prelude::*;
 use regex::Regex;
 use rustc_hash::FxHashMap;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use std::path::PathBuf;
 use std::sync::Arc;
-use rayon::prelude::*;
+use std::time::{SystemTime, UNIX_EPOCH};
 use strsim::normalized_levenshtein;
-use tracing::info;
-use once_cell::sync::Lazy;
 use tokio::time::Instant;
+use tracing::info;
 
 pub use normalize::normalize_title;
 
@@ -37,10 +40,49 @@ pub struct MergedGame {
     pub normalized_name: String,
     pub original_names: Vec<String>,
     pub rankings: HashMap<String, usize>,
+    pub total_score: f64,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+struct CacheableSteamApp {
+    appid: u64,
+    name: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+struct CachedIndex {
+    created_at: u64,
+    // Using standard HashMap for serialization
+    name_index: HashMap<String, CacheableSteamApp>,
+    // Using standard HashMap for serialization
+    letter_index: HashMap<char, Vec<(CacheableSteamApp, String)>>,
 }
 
 impl GameMatcher {
-    pub fn new(steam_apps: Vec<SteamApp>) -> Self {
+    pub fn new(steam_apps: Vec<SteamApp>) -> Result<Self> {
+        let cache_path = PathBuf::from("cache/index_apps.json");
+
+        // Try to load from cache first
+        if let Ok(cached_data) = Self::load_cache(&cache_path) {
+            info!("Using cached index from {:?}", cache_path);
+            return Ok(Self {
+                name_index: cached_data.name_index,
+                letter_index: cached_data.letter_index,
+            });
+        }
+
+        // If cache isn't available or valid, build new index
+        info!("Building new index for {} apps", steam_apps.len());
+        let matcher = Self::build_index(steam_apps)?;
+
+        // Save the new index to cache
+        matcher.save_cache(&cache_path)?;
+
+        Ok(matcher)
+    }
+
+    // Main index building function
+    fn build_index(steam_apps: Vec<SteamApp>) -> Result<Self> {
         static DLC_PATTERN: Lazy<Regex> = Lazy::new(|| {
             Regex::new(
                 r"(?i)(DLC|Soundtrack|OST|Bonus|Season Pass|Content Pack|\bVR\b|\bBeta\b|\bDemo\b|\bArt\sof\b|\bUpgrade\b|\bEdition\b|\bPack\b|\bBundle\b)"
@@ -50,15 +92,13 @@ impl GameMatcher {
         let total_start = Instant::now();
         let mut last_checkpoint = total_start;
 
-        // Logging helper
+        // Helper function for logging checkpoints
         let checkpoint = |name: &str, last: &mut Instant| {
             let elapsed = last.elapsed();
             let total = total_start.elapsed();
             info!("{}: {:?} (total: {:?})", name, elapsed, total);
             *last = Instant::now();
         };
-
-        info!("Starting index build for {} apps", steam_apps.len());
 
         // Step 1: Parallel filtering and normalization
         let processed_apps: Vec<_> = steam_apps
@@ -76,20 +116,19 @@ impl GameMatcher {
         // Step 2: Create indices with pre-allocated capacity
         let capacity = processed_apps.len();
         let mut name_index = FxHashMap::with_capacity_and_hasher(capacity, Default::default());
-        let mut letter_index: AHashMap<char, Vec<(Arc<SteamApp>, String)>> = AHashMap::with_capacity(27); // 26 letters + numbers
+        let mut letter_index: AHashMap<char, Vec<(Arc<SteamApp>, String)>> =
+            AHashMap::with_capacity(27);
 
-        // Pre-initialize letter_index buckets
+        // Pre-initialize letter buckets
         for c in 'a'..='z' {
             letter_index.insert(c, Vec::with_capacity(capacity / 26));
         }
-        letter_index.insert('0', Vec::with_capacity(capacity / 26)); // For numbers
+        letter_index.insert('0', Vec::with_capacity(capacity / 26));
 
         // Build both indices in a single pass
         for (app, normalized) in processed_apps {
-            // Insert into name_index
             name_index.insert(normalized.clone(), Arc::clone(&app));
 
-            // Insert into letter_index with normalized name
             if let Some(first_char) = normalized.chars().next() {
                 if let Some(vec) = letter_index.get_mut(&first_char) {
                     vec.push((Arc::clone(&app), normalized.clone()));
@@ -99,47 +138,131 @@ impl GameMatcher {
 
         checkpoint("Index building", &mut last_checkpoint);
 
-        // Sort letter_index vectors by normalized name for potential binary search later
+        // Sort letter indices for potential binary search
         letter_index.par_iter_mut().for_each(|(_, apps)| {
             apps.sort_by(|(_, a), (_, b)| a.cmp(b));
         });
 
         checkpoint("Sorting letter indices", &mut last_checkpoint);
 
-        info!(
-            "Built indices in {:?}. Stats: {} filtered apps, {} unique names, {} first letters",
-            total_start.elapsed(),
-            name_index.len(),
-            name_index.len(),
-            letter_index.len()
-        );
-
-        Self {
+        Ok(Self {
             name_index,
             letter_index,
-        }
+        })
     }
 
+    // Cache loading function
+    fn load_cache(cache_path: &PathBuf) -> Result<Self> {
+        // First check if cache file exists and read it
+        let cache_data = std::fs::read_to_string(cache_path)?;
+        let cached: CachedIndex = serde_json::from_str(&cache_data)?;
+
+        // Convert back to runtime format
+        let name_index = cached
+            .name_index
+            .into_iter()
+            .map(|(k, v)| {
+                (
+                    k,
+                    Arc::new(SteamApp {
+                        appid: v.appid,
+                        name: v.name,
+                    }),
+                )
+            })
+            .collect();
+
+        let letter_index = cached
+            .letter_index
+            .into_iter()
+            .map(|(k, v)| {
+                let converted = v
+                    .into_iter()
+                    .map(|(app, s)| {
+                        (
+                            Arc::new(SteamApp {
+                                appid: app.appid,
+                                name: app.name,
+                            }),
+                            s,
+                        )
+                    })
+                    .collect();
+                (k, converted)
+            })
+            .collect();
+
+        Ok(Self {
+            name_index,
+            letter_index,
+        })
+    }
+
+    fn save_cache(&self, cache_path: &PathBuf) -> Result<()> {
+        // Convert to cacheable format
+        let cacheable = CachedIndex {
+            created_at: SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .map_err(|e| GameError::Other(e.to_string()))?
+                .as_secs(),
+            name_index: self
+                .name_index
+                .iter()
+                .map(|(k, v)| {
+                    (
+                        k.clone(),
+                        CacheableSteamApp {
+                            appid: v.appid,
+                            name: v.name.clone(),
+                        },
+                    )
+                })
+                .collect(),
+            letter_index: self
+                .letter_index
+                .iter()
+                .map(|(k, v)| {
+                    let converted = v
+                        .iter()
+                        .map(|(app, s)| {
+                            (
+                                CacheableSteamApp {
+                                    appid: app.appid,
+                                    name: app.name.clone(),
+                                },
+                                s.clone(),
+                            )
+                        })
+                        .collect();
+                    (*k, converted)
+                })
+                .collect(),
+        };
+
+        std::fs::write(cache_path, serde_json::to_string_pretty(&cacheable)?)?;
+
+        Ok(())
+    }
+
+    // Game lookup function with fuzzy matching
     pub fn find_steam_id(&self, game_name: &str) -> Option<String> {
         info!("Find SteamID for: {game_name}");
-
         let normalized_search = normalize_title(game_name);
 
-        // Exact match
+        // Try exact match first
         if let Some(app) = self.name_index.get(&normalized_search) {
             return Some(app.appid.to_string());
         }
 
+        // Fuzzy matching if exact match fails
         let first_char = normalized_search.chars().next()?;
         let candidates = self.letter_index.get(&first_char)?;
 
         const SIMILARITY_THRESHOLD: f64 = 0.9;
 
-        // Now we use the cached normalized names
         candidates
             .par_iter()
             .map(|(app, normalized_name)| {
-                // Use cached normalized name instead of computing it again
                 let similarity = normalized_levenshtein(&normalized_search, normalized_name);
                 (app, similarity)
             })

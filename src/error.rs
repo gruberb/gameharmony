@@ -12,6 +12,8 @@ pub enum GameError {
     Selector(String),
     #[error("Parse error: {0}")]
     Parse(String),
+    #[error("{0}")]
+    Other(String),
 }
 
 pub type Result<T> = std::result::Result<T, GameError>;

@@ -23,6 +23,8 @@ pub fn normalize_source(source: &str) -> String {
         "Eurogamer".to_string()
     } else if source.contains("ign") {
         "IGN".to_string()
+    } else if source.contains("https://www.polygon.com/ps5/21720698/best-ps5-games-playstation-5") {
+        "Polygon - PS5 Top 25".to_string()
     } else {
         source.to_string()
     }
@@ -137,6 +139,11 @@ pub fn normalize_title(title: &str) -> String {
         "rebirth",
         "ultra",
         "deluxe",
+        "ultimate",
+        "complete",
+        "enhanced",
+        "goty",
+        "expanded",
     ];
 
     let words: Vec<String> = title

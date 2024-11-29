@@ -19,6 +19,11 @@
       "url": "https://www.pcgamer.com/games/the-top-100-pc-games-2024",
       "name_selector": "h2[id]",
       "rank_selector": "h2[id]"
+    },
+    {
+      "url": "https://www.polygon.com/ps5/21720698/best-ps5-games-playstation-5",
+      "name_selector": "a._1fpkjp5k",
+      "rank_selector": ""
     }
   ]
 }

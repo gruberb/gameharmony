@@ -14,7 +14,7 @@ impl WebsiteScraper for RPSScraper {
             .collect();
 
         let ranks: Vec<i32> = document
-            .select(&selectors.rank)
+            .select(selectors.rank.as_ref().unwrap())
             .filter_map(|el| {
                 let rank_str = el.text().collect::<String>();
                 rank_str.trim().parse::<i32>().ok()

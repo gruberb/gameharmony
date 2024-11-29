@@ -7,7 +7,7 @@ use crate::matcher::normalize::{format_display_title, normalize_source};
 use crate::matcher::{normalize_title, Game, GameMatcher, MergedGame, WebsiteGames};
 use crate::scrapers::{
     eurogamer::EurogamerScraper, ign::IGNScraper, pcgamer::PCGamerScraper,
-    rockpapershotgun::RPSScraper, Selectors, WebsiteScraper,
+    polygon_ps5_top25::PolygonPS5Top25, rockpapershotgun::RPSScraper, Selectors, WebsiteScraper,
 };
 use rayon::iter::ParallelIterator;
 use rayon::prelude::IntoParallelIterator;
@@ -25,6 +25,7 @@ struct GameWithSteamId {
     name: String,
     rankings: HashMap<String, i32>,
     steam_id: Option<String>,
+    total_score: f64,
 }
 
 pub struct GameProcessor {
@@ -65,8 +66,6 @@ impl GameProcessor {
     }
 
     pub async fn process(&self) -> Result<Vec<GameEntry>> {
-        let game_matcher = GameMatcher::new(self.steam_client.steam_apps.clone());
-
         // Step 1: Scrape websites
         info!("Step 1: Getting website data...");
         let website_games = self.scrape_websites().await?;
@@ -74,6 +73,8 @@ impl GameProcessor {
         // Step 2: Merge games
         info!("Step 2: Getting merged games...");
         let merged_games = self.merge_games(website_games)?;
+
+        let game_matcher = GameMatcher::new(self.steam_client.steam_apps.clone())?;
 
         // Step 3: Add Steam IDs
         info!("Step 3: Getting games with Steam IDs...");
@@ -93,6 +94,8 @@ impl GameProcessor {
             Box::new(EurogamerScraper)
         } else if url.contains("pcgamer.com") {
             Box::new(PCGamerScraper)
+        } else if url.contains("best-ps5-games-playstation-5") {
+            Box::new(PolygonPS5Top25)
         } else {
             Box::new(RPSScraper)
         }
@@ -216,9 +219,11 @@ impl GameProcessor {
                     existing_game
                         .rankings
                         .insert(game.source.clone(), game.rank);
+                    existing_game.total_score = calculate_score(&existing_game.rankings);
                 } else {
                     let mut rankings = HashMap::new();
                     rankings.insert(game.source.clone(), game.rank);
+                    let total_score = calculate_score(&rankings);
 
                     merged_group.insert(
                         key.clone(),
@@ -226,6 +231,7 @@ impl GameProcessor {
                             normalized_name: game.normalized_title.clone(),
                             original_names: vec![game.original_name.clone()],
                             rankings,
+                            total_score,
                         },
                     );
                 }
@@ -251,14 +257,31 @@ impl GameProcessor {
             return Ok(serde_json::from_str(&std::fs::read_to_string(cache_path)?)?);
         }
 
-        info!("Adding Steam IDs to games in parallel");
+        info!("Adding Steam IDs and calculating scores for games in parallel");
 
         // Process all games in parallel
         let games_with_steam_ids: Vec<GameWithSteamId> = merged_games
-            .into_par_iter() // Parallel iterator
+            .into_par_iter()
             .map(|game| {
                 let steam_id = game_matcher.find_steam_id(&game.original_names[0]);
-                info!("Game: {} - SteamID: {:?}", game.original_names[0], steam_id);
+
+                // Calculate total score based on rankings
+                let total_score = game
+                    .rankings
+                    .values()
+                    .map(|&rank| {
+                        if rank <= 100 {
+                            (101 - rank) as f64 // 100 points for #1, down to 1 point for #100
+                        } else {
+                            0.0
+                        }
+                    })
+                    .sum();
+
+                info!(
+                    "Game: {} - SteamID: {:?} - Score: {:.1}",
+                    game.original_names[0], steam_id, total_score
+                );
 
                 GameWithSteamId {
                     name: game.original_names[0].clone(),
@@ -267,25 +290,31 @@ impl GameProcessor {
                         .into_iter()
                         .map(|(k, v)| (k, v as i32))
                         .collect(),
+                    total_score,
                     steam_id,
                 }
             })
             .collect();
 
-        // Cache the results
-        std::fs::write(
-            &cache_path,
-            serde_json::to_string_pretty(&games_with_steam_ids)?,
-        )?;
+        // Sort by total score before caching
+        let mut sorted_games = games_with_steam_ids;
+        sorted_games.sort_by(|a, b| {
+            b.total_score
+                .partial_cmp(&a.total_score)
+                .unwrap_or(std::cmp::Ordering::Equal)
+        });
 
-        Ok(games_with_steam_ids)
+        // Cache the results
+        std::fs::write(&cache_path, serde_json::to_string_pretty(&sorted_games)?)?;
+
+        Ok(sorted_games)
     }
 
     async fn enrich_games(&self, games_with_ids: Vec<GameWithSteamId>) -> Result<Vec<GameEntry>> {
         let mut enriched_games = Vec::new();
 
         for game in games_with_ids {
-            let mut entry = GameEntry::new(game.name, game.rankings);
+            let mut entry = GameEntry::new(game.name, game.rankings, game.total_score);
 
             if let Some(steam_id) = game.steam_id {
                 let steam_id_num = steam_id
@@ -349,6 +378,24 @@ impl GameProcessor {
             sleep(std::time::Duration::from_millis(650)).await;
         }
 
+        enriched_games.sort_by(|a, b| {
+            b.total_score
+                .partial_cmp(&a.total_score)
+                .unwrap_or(std::cmp::Ordering::Equal)
+        });
+
         Ok(enriched_games)
     }
+}
+
+fn calculate_score(rankings: &HashMap<String, usize>) -> f64 {
+    rankings.values()
+        .map(|&rank| {
+            if rank <= 100 {
+                (101 - rank) as f64  // Gives 100 points for #1, 99 for #2, etc.
+            } else {
+                0.0
+            }
+        })
+        .sum()
 }

@@ -28,10 +28,11 @@ pub struct GameEntry {
     pub metacritic_url: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protondb_url: Option<String>,
+    pub total_score: f64,
 }
 
 impl GameEntry {
-    pub fn new(title: String, rankings: HashMap<String, i32>) -> Self {
+    pub fn new(title: String, rankings: HashMap<String, i32>, total_score: f64) -> Self {
         Self {
             title,
             rankings,
@@ -47,6 +48,7 @@ impl GameEntry {
             reddit_url: None,
             metacritic_url: None,
             protondb_url: None,
+            total_score,
         }
     }
 }
