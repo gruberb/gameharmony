@@ -144,6 +144,9 @@ pub fn normalize_title(title: &str) -> String {
         "enhanced",
         "goty",
         "expanded",
+        "final",
+        "cut",
+        "directors",
     ];
 
     let words: Vec<String> = title

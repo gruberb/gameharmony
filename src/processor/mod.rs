@@ -4,22 +4,22 @@ mod processor;
 
 pub use self::game_entry::GameEntry;
 use self::manifest::Manifest;
-use self::processor::GameProcessor;
+use processor::GameProcessor;
 
 use crate::clients::rawg::RawgClient;
 use crate::clients::steam::SteamClient;
-use crate::config::Config;
 use crate::error::{GameError, Result};
+use crate::scrapers::config::Config;
 use chrono::Utc;
 use reqwest::Client;
 use std::path::PathBuf;
 
-pub struct GameHarmony {
+pub struct Processor {
     processor: GameProcessor,
     data_dir: PathBuf,
 }
 
-impl GameHarmony {
+impl Processor {
     pub async fn new(config_file: &str) -> Result<Self> {
         let config: Config = serde_json::from_str(&std::fs::read_to_string(config_file)?)?;
 

@@ -40,7 +40,7 @@ pub struct MergedGame {
     pub normalized_name: String,
     pub original_names: Vec<String>,
     pub rankings: HashMap<String, usize>,
-    pub total_score: f64,
+    pub harmony_score: i32,
 }
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -258,7 +258,7 @@ impl GameMatcher {
         let first_char = normalized_search.chars().next()?;
         let candidates = self.letter_index.get(&first_char)?;
 
-        const SIMILARITY_THRESHOLD: f64 = 0.9;
+        const SIMILARITY_THRESHOLD: f64 = 0.87;
 
         candidates
             .par_iter()

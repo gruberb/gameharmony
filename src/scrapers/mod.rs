@@ -1,6 +1,7 @@
 use crate::error::Result;
 use scraper::{Html, Selector};
 
+pub mod config;
 pub(crate) mod eurogamer;
 pub(crate) mod ign;
 pub(crate) mod pcgamer;

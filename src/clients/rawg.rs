@@ -55,6 +55,7 @@ pub struct StoreInfo {
     pub name: String,
 }
 
+#[derive(Debug)]
 pub struct RawgClient {
     client: Client,
     api_key: String,

@@ -1,10 +1,10 @@
 use super::GameEntry;
 use crate::clients::rawg::RawgClient;
 use crate::clients::steam::SteamClient;
-use crate::config::{Config, Website};
 use crate::error::{GameError, Result};
 use crate::matcher::normalize::{format_display_title, normalize_source};
 use crate::matcher::{normalize_title, Game, GameMatcher, MergedGame, WebsiteGames};
+use crate::scrapers::config::{Config, Website};
 use crate::scrapers::{
     eurogamer::EurogamerScraper, ign::IGNScraper, pcgamer::PCGamerScraper,
     polygon_ps5_top25::PolygonPS5Top25, rockpapershotgun::RPSScraper, Selectors, WebsiteScraper,
@@ -25,9 +25,10 @@ struct GameWithSteamId {
     name: String,
     rankings: HashMap<String, i32>,
     steam_id: Option<String>,
-    total_score: f64,
+    harmony_score: i32,
 }
 
+#[derive(Debug)]
 pub struct GameProcessor {
     config: Config,
     client: Client,
@@ -219,11 +220,11 @@ impl GameProcessor {
                     existing_game
                         .rankings
                         .insert(game.source.clone(), game.rank);
-                    existing_game.total_score = calculate_score(&existing_game.rankings);
+                    existing_game.harmony_score = calculate_score(&existing_game.rankings);
                 } else {
                     let mut rankings = HashMap::new();
                     rankings.insert(game.source.clone(), game.rank);
-                    let total_score = calculate_score(&rankings);
+                    let harmony_score = calculate_score(&rankings);
 
                     merged_group.insert(
                         key.clone(),
@@ -231,7 +232,7 @@ impl GameProcessor {
                             normalized_name: game.normalized_title.clone(),
                             original_names: vec![game.original_name.clone()],
                             rankings,
-                            total_score,
+                            harmony_score,
                         },
                     );
                 }
@@ -259,28 +260,17 @@ impl GameProcessor {
 
         info!("Adding Steam IDs and calculating scores for games in parallel");
 
-        // Process all games in parallel
         let games_with_steam_ids: Vec<GameWithSteamId> = merged_games
             .into_par_iter()
             .map(|game| {
                 let steam_id = game_matcher.find_steam_id(&game.original_names[0]);
 
-                // Calculate total score based on rankings
-                let total_score = game
-                    .rankings
-                    .values()
-                    .map(|&rank| {
-                        if rank <= 100 {
-                            (101 - rank) as f64 // 100 points for #1, down to 1 point for #100
-                        } else {
-                            0.0
-                        }
-                    })
-                    .sum();
+                // Use the calculate_score function instead of inline calculation
+                let harmony_score = calculate_score(&game.rankings);
 
                 info!(
                     "Game: {} - SteamID: {:?} - Score: {:.1}",
-                    game.original_names[0], steam_id, total_score
+                    game.original_names[0], steam_id, harmony_score
                 );
 
                 GameWithSteamId {
@@ -290,31 +280,25 @@ impl GameProcessor {
                         .into_iter()
                         .map(|(k, v)| (k, v as i32))
                         .collect(),
-                    total_score,
+                    harmony_score,
                     steam_id,
                 }
             })
             .collect();
-
-        // Sort by total score before caching
-        let mut sorted_games = games_with_steam_ids;
-        sorted_games.sort_by(|a, b| {
-            b.total_score
-                .partial_cmp(&a.total_score)
-                .unwrap_or(std::cmp::Ordering::Equal)
-        });
-
         // Cache the results
-        std::fs::write(&cache_path, serde_json::to_string_pretty(&sorted_games)?)?;
+        std::fs::write(
+            &cache_path,
+            serde_json::to_string_pretty(&games_with_steam_ids)?,
+        )?;
 
-        Ok(sorted_games)
+        Ok(games_with_steam_ids)
     }
 
     async fn enrich_games(&self, games_with_ids: Vec<GameWithSteamId>) -> Result<Vec<GameEntry>> {
         let mut enriched_games = Vec::new();
 
         for game in games_with_ids {
-            let mut entry = GameEntry::new(game.name, game.rankings, game.total_score);
+            let mut entry = GameEntry::new(game.name, game.rankings, game.harmony_score);
 
             if let Some(steam_id) = game.steam_id {
                 let steam_id_num = steam_id
@@ -322,65 +306,29 @@ impl GameProcessor {
                     .map_err(|_| GameError::Parse("Cannot parse SteamId".to_string()))?;
                 entry.steam_id = Some(steam_id_num);
 
-                if let Ok(deck_status) = self.steam_client.get_deck_verified(steam_id.clone()).await
-                {
-                    if let Some(results) = deck_status.results {
-                        if results.resolved_category > 0 {
-                            entry.platforms.steamdeck = "verified".to_string();
-                            entry.protondb_url =
-                                Some(format!("https://www.protondb.com/app/{}", steam_id));
-                        }
-                    }
+                if let Ok(Some(store_info)) = self.steam_client.get_store_info(steam_id_num).await {
+                    entry.update_steam_info(store_info);
                 }
 
-                if let Ok(Some(store_info)) = self.steam_client.get_store_info(steam_id_num).await {
-                    entry.price = store_info.price;
-                    entry.platforms = store_info.platforms;
-                    entry.user_score = store_info.user_score;
-                    entry.total_reviews = store_info.total_reviews;
-                    entry.header_image = store_info.header_image;
-                    entry.stores.push("Steam".to_string());
+                if let Ok(deck_status) = self.steam_client.get_deck_verified(steam_id.clone()).await
+                {
+                    entry.update_steam_deck_info(deck_status, steam_id);
                 }
             }
 
             if let Ok(Some((basic, detailed))) = self.rawg_client.get_game_info(&entry.title).await
             {
-                if entry.header_image.is_none() {
-                    entry.header_image = basic.background_image;
-                }
-
-                for platform in &basic.platforms {
-                    match platform.platform.name.as_str() {
-                        "PC" => entry.platforms.windows = true,
-                        "macOS" => entry.platforms.macos = true,
-                        "Linux" => entry.platforms.linux = true,
-                        "Nintendo Switch" => entry.platforms.switch = true,
-                        _ => {}
-                    }
-                }
-
-                if let Some(stores) = basic.stores {
-                    entry
-                        .stores
-                        .extend(stores.into_iter().map(|s| s.store.name));
-                    entry.stores.sort();
-                    entry.stores.dedup();
-                }
-
-                entry.metacritic = detailed.metacritic;
-                entry.release_date = detailed.released;
-                entry.reddit_url = detailed.reddit_url;
-                entry.metacritic_url = detailed.metacritic_url;
+                entry.update_rawg_info(&basic, &detailed);
             }
 
             entry.title = format_display_title(&entry.title);
             enriched_games.push(entry);
-            sleep(std::time::Duration::from_millis(650)).await;
+            sleep(std::time::Duration::from_millis(200)).await;
         }
 
         enriched_games.sort_by(|a, b| {
-            b.total_score
-                .partial_cmp(&a.total_score)
+            b.harmony_score
+                .partial_cmp(&a.harmony_score)
                 .unwrap_or(std::cmp::Ordering::Equal)
         });
 
@@ -388,14 +336,33 @@ impl GameProcessor {
     }
 }
 
-fn calculate_score(rankings: &HashMap<String, usize>) -> f64 {
-    rankings.values()
+fn calculate_score(rankings: &HashMap<String, usize>) -> i32 {
+    if rankings.is_empty() {
+        return 0;
+    }
+
+    // Average position score (0-100)
+    let position_score: i32 = rankings
+        .values()
         .map(|&rank| {
             if rank <= 100 {
-                (101 - rank) as f64  // Gives 100 points for #1, 99 for #2, etc.
+                (101 - rank) as i32 // Gives 100 points for #1, down to 1 point for #100
             } else {
-                0.0
+                0
             }
         })
-        .sum()
+        .sum::<i32>()
+        / rankings.len() as i32;
+
+    // Appearance multiplier (1.0 to 2.0)
+    // With 5 sites, this gives:
+    // 1 site:   no bonus (multiplier 1.0)
+    // 2 sites:  25% bonus (multiplier 1.25)
+    // 3 sites:  50% bonus (multiplier 1.5)
+    // 4 sites:  75% bonus (multiplier 1.75)
+    // 5 sites:  100% bonus (multiplier 2.0)
+    let appearance_multiplier = 100 + (25 * (rankings.len() - 1)) as i32;
+
+    // Final score: position_score * appearance_multiplier / 100
+    position_score * appearance_multiplier / 100
 }
