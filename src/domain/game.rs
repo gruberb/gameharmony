@@ -1,10 +1,11 @@
-use crate::clients::rawg::{RawgGameBasic, RawgGameDetailed};
-use crate::clients::steam::{ExtendedPlatforms, SteamDeckVerifiedResponse, StoreInfo};
+use crate::infrastructure::{
+    ExtendedPlatforms, RawgGameBasic, RawgGameDetailed, SteamDeckVerifiedResponse, StoreInfo,
+};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-#[derive(Debug, Serialize, Deserialize)]
-pub struct GameEntry {
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Game {
     pub title: String,
     pub rankings: HashMap<String, i32>,
     pub platforms: ExtendedPlatforms,
@@ -32,7 +33,7 @@ pub struct GameEntry {
     pub harmony_score: i32,
 }
 
-impl GameEntry {
+impl Game {
     pub fn new(title: String, rankings: HashMap<String, i32>, harmony_score: i32) -> Self {
         Self {
             title,
@@ -53,7 +54,7 @@ impl GameEntry {
         }
     }
 
-    pub fn update_steam_info(&mut self, store_info: StoreInfo) {
+    pub fn with_steam_info(mut self, store_info: StoreInfo) -> Self {
         self.price = store_info.price;
         self.platforms = store_info.platforms;
         self.user_score = Some(store_info.user_score);
@@ -62,29 +63,28 @@ impl GameEntry {
         self.metacritic = store_info.metacritic_score;
         self.metacritic_url = store_info.metacritic_url;
         self.stores.push("Steam".to_string());
+        self
     }
 
-    pub fn update_steam_deck_info(
-        &mut self,
+    pub fn with_steam_deck_info(
+        mut self,
         deck_status: SteamDeckVerifiedResponse,
         steam_id: String,
-    ) {
-
+    ) -> Self {
         if let Some(results) = deck_status.results {
             if results.resolved_category > 0 {
                 self.platforms.steamdeck = "verified".to_string();
                 self.protondb_url = Some(format!("https://www.protondb.com/app/{}", steam_id));
             }
         }
+        self
     }
 
-    pub fn update_rawg_info(&mut self, basic: &RawgGameBasic, detailed: &RawgGameDetailed) {
-        // Only update header image if none exists
+    pub fn with_rawg_info(mut self, basic: &RawgGameBasic, detailed: &RawgGameDetailed) -> Self {
         if self.header_image.is_none() {
             self.header_image = basic.background_image.clone();
         }
 
-        // Update Switch platform if not already set
         if !self.platforms.switch {
             self.platforms.switch = basic
                 .platforms
@@ -92,17 +92,17 @@ impl GameEntry {
                 .any(|p| p.platform.name == "Nintendo Switch");
         }
 
-        // Add new stores
         if let Some(stores) = &basic.stores {
+            let mut updated_stores = self.stores.clone();
             for store in stores {
-                if !self.stores.contains(&store.store.name) {
-                    self.stores.push(store.store.name.clone());
+                if !updated_stores.contains(&store.store.name) {
+                    updated_stores.push(store.store.name.clone());
                 }
             }
-            self.stores.sort();
+            updated_stores.sort();
+            self.stores = updated_stores;
         }
 
-        // Update other fields only if they don't exist
         if self.metacritic.is_none() {
             self.metacritic = detailed.metacritic;
         }
@@ -115,5 +115,46 @@ impl GameEntry {
         if self.metacritic_url.is_none() {
             self.metacritic_url = detailed.metacritic_url.clone();
         }
+
+        self
     }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct WebsiteGames {
+    pub source: String,
+    pub games: Vec<ScrapedGame>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ScrapedGame {
+    pub name: String,
+    pub rank: i32,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct MergedGame {
+    pub normalized_name: String,
+    pub original_names: Vec<String>,
+    pub rankings: HashMap<String, i32>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct GameWithSteamId {
+    pub name: String,
+    pub rankings: HashMap<String, i32>,
+    pub steam_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct IndexedGames {
+    pub created_at: u64,
+    pub name_index: HashMap<String, IndexedGame>,
+    pub letter_index: HashMap<char, Vec<(IndexedGame, String)>>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct IndexedGame {
+    pub appid: u64,
+    pub name: String,
 }

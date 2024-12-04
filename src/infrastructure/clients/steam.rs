@@ -1,14 +1,10 @@
+use crate::domain::storage::Storage;
 use crate::error::Result;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use std::sync::Arc;
 use tracing::info;
-
-#[derive(Debug)]
-pub struct SteamClient {
-    client: Client,
-    pub steam_apps: Vec<SteamApp>,
-}
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SteamApp {
@@ -92,7 +88,7 @@ pub struct DeckResultItem {
     pub loc_token: String,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct StoreInfo {
     pub price: Option<String>,
     pub platforms: ExtendedPlatforms,
@@ -103,7 +99,7 @@ pub struct StoreInfo {
     pub metacritic_url: Option<String>,
 }
 
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ExtendedPlatforms {
     pub windows: bool,
     pub macos: bool,
@@ -124,10 +120,21 @@ impl From<Platforms> for ExtendedPlatforms {
     }
 }
 
+pub struct SteamClient {
+    client: Client,
+    store: Arc<dyn Storage>,
+    pub steam_apps: Vec<SteamApp>,
+}
+
 impl SteamClient {
-    pub async fn new(client: Client) -> Result<Self> {
+    pub async fn new(client: Client, store: Arc<dyn Storage>) -> Result<Self> {
         let steam_apps = Self::fetch_steam_apps(&client).await?;
-        Ok(Self { client, steam_apps })
+        info!("Created new Steam client and fetched steam apps");
+        Ok(Self {
+            client,
+            store,
+            steam_apps,
+        })
     }
 
     async fn fetch_steam_apps(client: &Client) -> Result<Vec<SteamApp>> {
@@ -139,19 +146,9 @@ impl SteamClient {
     pub async fn get_store_info(&self, app_id: u64) -> Result<Option<StoreInfo>> {
         info!("Get store info for: {app_id}");
 
-        let cache_dir = std::path::Path::new("cache");
-        if !cache_dir.exists() {
-            std::fs::create_dir_all(cache_dir)?;
-        }
-
-        let cache_path = cache_dir.join(format!("steam_store_{}.json", app_id));
-        if cache_path.exists() {
-            if let Ok(cached) = std::fs::read_to_string(&cache_path) {
-                if let Ok(info) = serde_json::from_str(&cached) {
-                    info!("Using cached data");
-                    return Ok(Some(info));
-                }
-            }
+        if let Some(cached) = self.store.load_app_info(app_id)? {
+            info!("Using cached data for Steam app {}", app_id);
+            return Ok(Some(cached));
         }
 
         let store_data = self.fetch_store_data(app_id).await?;
@@ -170,12 +167,8 @@ impl SteamClient {
             _ => None,
         };
 
-        if let Some(info) = &info {
-            if let Ok(cache_data) = serde_json::to_string_pretty(info) {
-                if let Err(e) = std::fs::write(&cache_path, cache_data) {
-                    info!("Failed to write cache: {}", e);
-                }
-            }
+        if let Some(store_info) = info.clone() {
+            self.store.save_app_info(app_id, store_info)?;
         }
 
         Ok(info)
