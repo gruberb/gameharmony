@@ -142,10 +142,10 @@ impl SteamClient {
         let legacy_apps = Self::fetch_steam_apps_legacy(client).await?;
 
         info!(
-        "Fetched {} apps from v2 and {} apps from legacy",
-        v2_apps.len(),
-        legacy_apps.len()
-    );
+            "Fetched {} apps from v2 and {} apps from legacy",
+            v2_apps.len(),
+            legacy_apps.len()
+        );
 
         let mut unique_apps = HashMap::new();
 

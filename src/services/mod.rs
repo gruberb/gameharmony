@@ -1,7 +1,8 @@
 pub mod enrichment;
 pub(crate) mod game_service;
-pub mod matching;
+pub(crate) mod matching;
 pub(crate) mod merging;
+pub(crate) mod publish;
 pub(crate) mod scoring;
 pub(crate) mod scraping;
-pub mod text_utils;
+pub(crate) mod text_utils;
