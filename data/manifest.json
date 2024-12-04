@@ -1,15 +1,15 @@
 {
   "total_games": 280,
-  "last_updated": "2024-12-03T21:31:58.350924-05:00",
+  "last_updated": "2024-12-03T21:57:12.612698-05:00",
   "games": [
     {
       "title": "Disco Elysium",
       "rankings": {
-        "Polygon - PS5 Top 25": 8,
-        "Eurogamer": 54,
         "IGN": 10,
+        "Eurogamer": 54,
+        "PCGamer": 2,
         "RPS": 16,
-        "PCGamer": 2
+        "Polygon - PS5 Top 25": 8
       },
       "platforms": {
         "windows": true,
@@ -41,9 +41,9 @@
     {
       "title": "Baldur's Gate 3",
       "rankings": {
-        "PCGamer": 1,
-        "RPS": 2,
         "Eurogamer": 6,
+        "RPS": 2,
+        "PCGamer": 1,
         "Polygon - PS5 Top 25": 5
       },
       "platforms": {
@@ -60,7 +60,7 @@
       ],
       "steam_id": 1086940,
       "user_score": 9,
-      "total_reviews": 377288,
+      "total_reviews": 377328,
       "price": "CDN$ 63.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/header.jpg?t=1725654125",
       "metacritic": 96,
@@ -74,9 +74,9 @@
       "title": "Elden Ring",
       "rankings": {
         "PCGamer": 3,
-        "Polygon - PS5 Top 25": 9,
         "RPS": 3,
-        "Eurogamer": 8
+        "Eurogamer": 8,
+        "Polygon - PS5 Top 25": 9
       },
       "platforms": {
         "windows": true,
@@ -105,11 +105,11 @@
     {
       "title": "Resident Evil 4",
       "rankings": {
-        "Eurogamer": 50,
+        "IGN": 40,
         "PCGamer": 63,
         "Polygon - PS5 Top 25": 21,
-        "IGN": 40,
-        "RPS": 17
+        "RPS": 17,
+        "Eurogamer": 50
       },
       "platforms": {
         "windows": true,
@@ -125,7 +125,7 @@
       "steam_id": 254700,
       "user_score": 8,
       "total_reviews": 21437,
-      "price": "$4.99",
+      "price": "CDN$ 4.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/254700/header.jpg?t=1700452857",
       "metacritic": 79,
       "release_date": "2023-03-24",
@@ -138,9 +138,9 @@
       "title": "Minecraft",
       "rankings": {
         "IGN": 33,
-        "RPS": 1,
         "Eurogamer": 28,
-        "PCGamer": 4
+        "PCGamer": 4,
+        "RPS": 1
       },
       "platforms": {
         "windows": false,
@@ -168,9 +168,9 @@
       "title": "Hades",
       "rankings": {
         "PCGamer": 20,
-        "Eurogamer": 34,
+        "Polygon - PS5 Top 25": 13,
         "IGN": 13,
-        "Polygon - PS5 Top 25": 13
+        "Eurogamer": 34
       },
       "platforms": {
         "windows": true,
@@ -236,15 +236,15 @@
       "title": "Hollow Knight",
       "rankings": {
         "RPS": 32,
-        "Eurogamer": 29,
         "IGN": 54,
+        "Eurogamer": 29,
         "PCGamer": 22
       },
       "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": true,
-        "steamdeck": "verified",
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
         "switch": true
       },
       "stores": [
@@ -254,24 +254,20 @@
         "Steam",
         "Xbox Store"
       ],
-      "steam_id": 367520,
-      "user_score": 9,
-      "total_reviews": 120643,
-      "price": "CDN$ 9.74",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/header.jpg?t=1695270428",
-      "metacritic": 87,
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/4cf/4cfc6b7f1850590a4634b08bfab308ab.jpg",
+      "metacritic": 88,
       "release_date": "2017-02-23",
       "reddit_url": "https://www.reddit.com/r/HollowKnight/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/hollow-knight?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/367520",
+      "metacritic_url": "https://www.metacritic.com/game/switch/hollow-knight",
       "harmony_score": 467
     },
     {
       "title": "The Witcher 3: Wild Hunt",
       "rankings": {
-        "PCGamer": 6,
+        "IGN": 16,
         "RPS": 4,
-        "IGN": 16
+        "PCGamer": 6
       },
       "platforms": {
         "windows": true,
@@ -302,9 +298,9 @@
     {
       "title": "Helldivers 2",
       "rankings": {
-        "PCGamer": 14,
+        "Eurogamer": 23,
         "Polygon - PS5 Top 25": 14,
-        "Eurogamer": 23
+        "PCGamer": 14
       },
       "platforms": {
         "windows": true,
@@ -318,7 +314,7 @@
       ],
       "steam_id": 553850,
       "user_score": 8,
-      "total_reviews": 530210,
+      "total_reviews": 530247,
       "price": "CDN$ 39.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/553850/header.jpg?t=1730884635",
       "release_date": "2024-02-08",
@@ -331,9 +327,9 @@
       "title": "Persona 5 Royal",
       "rankings": {
         "RPS": 27,
-        "PCGamer": 5,
         "IGN": 81,
-        "Eurogamer": 79
+        "Eurogamer": 79,
+        "PCGamer": 5
       },
       "platforms": {
         "windows": true,
@@ -362,8 +358,8 @@
     {
       "title": "Half-Life 2",
       "rankings": {
-        "IGN": 9,
         "PCGamer": 7,
+        "IGN": 9,
         "RPS": 49
       },
       "platforms": {
@@ -379,8 +375,8 @@
       ],
       "steam_id": 220,
       "user_score": 9,
-      "total_reviews": 76096,
-      "price": "CDN$ 2.59",
+      "total_reviews": 76099,
+      "price": "$1.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220/header.jpg?t=1732327147",
       "metacritic": 96,
       "release_date": "2004-11-16",
@@ -392,9 +388,9 @@
     {
       "title": "Final Fantasy XIV",
       "rankings": {
-        "IGN": 30,
         "PCGamer": 34,
-        "Polygon - PS5 Top 25": 10
+        "Polygon - PS5 Top 25": 10,
+        "IGN": 30
       },
       "platforms": {
         "windows": false,
@@ -415,9 +411,9 @@
     {
       "title": "Hitman World of Assassination",
       "rankings": {
-        "RPS": 11,
         "Polygon - PS5 Top 25": 15,
-        "PCGamer": 50
+        "PCGamer": 50,
+        "RPS": 11
       },
       "platforms": {
         "windows": true,
@@ -447,8 +443,8 @@
     {
       "title": "Animal Well",
       "rankings": {
-        "Polygon - PS5 Top 25": 2,
         "PCGamer": 43,
+        "Polygon - PS5 Top 25": 2,
         "Eurogamer": 36
       },
       "platforms": {
@@ -463,7 +459,7 @@
       ],
       "steam_id": 813230,
       "user_score": 9,
-      "total_reviews": 10007,
+      "total_reviews": 10012,
       "price": "CDN$ 25.59",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813230/header.jpg?t=1731525669",
       "metacritic": 91,
@@ -505,9 +501,9 @@
     {
       "title": "Mass Effect: Legendary Edition",
       "rankings": {
+        "RPS": 7,
         "Eurogamer": 67,
-        "PCGamer": 18,
-        "RPS": 7
+        "PCGamer": 18
       },
       "platforms": {
         "windows": true,
@@ -537,8 +533,8 @@
       "title": "Red Dead Redemption 2",
       "rankings": {
         "IGN": 8,
-        "RPS": 79,
-        "PCGamer": 15
+        "PCGamer": 15,
+        "RPS": 79
       },
       "platforms": {
         "windows": true,
@@ -555,8 +551,8 @@
       ],
       "steam_id": 1174180,
       "user_score": 8,
-      "total_reviews": 213261,
-      "price": "CDN$ 26.39",
+      "total_reviews": 213266,
+      "price": "₩ 24,090",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg?t=1720558643",
       "metacritic": 93,
       "release_date": "2018-10-26",
@@ -568,9 +564,9 @@
     {
       "title": "Dwarf Fortress",
       "rankings": {
+        "Eurogamer": 39,
         "RPS": 47,
-        "PCGamer": 16,
-        "Eurogamer": 39
+        "PCGamer": 16
       },
       "platforms": {
         "windows": true,
@@ -598,9 +594,9 @@
     {
       "title": "Outer Wilds",
       "rankings": {
+        "RPS": 20,
         "Eurogamer": 3,
-        "PCGamer": 90,
-        "RPS": 20
+        "PCGamer": 90
       },
       "platforms": {
         "windows": true,
@@ -619,7 +615,7 @@
       "steam_id": 753640,
       "user_score": 9,
       "total_reviews": 38565,
-      "price": "CDN$ 19.79",
+      "price": "$14.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/753640/header.jpg?t=1729097431",
       "metacritic": 85,
       "release_date": "2019-05-29",
@@ -631,8 +627,8 @@
     {
       "title": "Half-Life: Alyx",
       "rankings": {
-        "Eurogamer": 20,
         "IGN": 26,
+        "Eurogamer": 20,
         "RPS": 67
       },
       "platforms": {
@@ -656,8 +652,8 @@
     {
       "title": "Spelunky 2",
       "rankings": {
-        "IGN": 75,
         "RPS": 22,
+        "IGN": 75,
         "Eurogamer": 21
       },
       "platforms": {
@@ -683,8 +679,8 @@
       "title": "Alan Wake 2",
       "rankings": {
         "PCGamer": 21,
-        "Polygon - PS5 Top 25": 1,
-        "Eurogamer": 97
+        "Eurogamer": 97,
+        "Polygon - PS5 Top 25": 1
       },
       "platforms": {
         "windows": false,
@@ -712,10 +708,10 @@
         "Eurogamer": 10
       },
       "platforms": {
-        "windows": true,
-        "macos": true,
+        "windows": false,
+        "macos": false,
         "linux": false,
-        "steamdeck": "verified",
+        "steamdeck": "",
         "switch": true
       },
       "stores": [
@@ -726,31 +722,27 @@
         "Xbox Store",
         "itch.io"
       ],
-      "steam_id": 653530,
-      "user_score": 9,
-      "total_reviews": 15015,
-      "price": "CDN$ 25.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/653530/header.jpg?t=1686697594",
-      "metacritic": 89,
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/052/052f9afc7aaeea3e2c5d46eafa92c64e.jpg",
+      "metacritic": 88,
       "release_date": "2018-10-17",
       "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/return-of-the-obra-dinn?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/653530",
+      "metacritic_url": "https://www.metacritic.com/game/pc/return-of-the-obra-dinn",
       "harmony_score": 270
     },
     {
       "title": "Dishonored 2",
       "rankings": {
         "RPS": 38,
-        "PCGamer": 76,
         "IGN": 60,
+        "PCGamer": 76,
         "Eurogamer": 76
       },
       "platforms": {
-        "windows": true,
+        "windows": false,
         "macos": false,
         "linux": false,
-        "steamdeck": "verified",
+        "steamdeck": "",
         "switch": false
       },
       "stores": [
@@ -759,16 +751,12 @@
         "Steam",
         "Xbox Store"
       ],
-      "steam_id": 403640,
-      "user_score": 8,
-      "total_reviews": 17723,
-      "price": "CDN$ 3.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/403640/header.jpg?t=1726161101",
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/f6b/f6bed028b02369d4cab548f4f9337e81.jpg",
       "metacritic": 86,
       "release_date": "2016-11-10",
       "reddit_url": "https://www.reddit.com/r/dishonored2/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/dishonored-2?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/403640",
+      "metacritic_url": "",
       "harmony_score": 269
     },
     {
@@ -779,7 +767,7 @@
         "RPS": 72
       },
       "platforms": {
-        "windows": false,
+        "windows": true,
         "macos": false,
         "linux": false,
         "steamdeck": "verified",
@@ -793,21 +781,52 @@
         "Xbox Store"
       ],
       "steam_id": 271590,
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
-      "metacritic": 92,
+      "user_score": 8,
+      "total_reviews": 541438,
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg?t=1726606628",
+      "metacritic": 96,
       "release_date": "2013-09-17",
       "reddit_url": "https://www.reddit.com/r/GrandTheftAutoV/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/grand-theft-auto-v",
+      "metacritic_url": "https://www.metacritic.com/game/pc/grand-theft-auto-v?ftag=MCD-06-10aaa1f",
       "protondb_url": "https://www.protondb.com/app/271590",
       "harmony_score": 261
     },
     {
+      "title": "Halo: the Master Chief Collection",
+      "rankings": {
+        "PCGamer": 30,
+        "Eurogamer": 85,
+        "RPS": 15
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 976730,
+      "user_score": 8,
+      "total_reviews": 146683,
+      "price": "CDN$ 12.49",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/976730/header.jpg?t=1670458602",
+      "metacritic": 85,
+      "release_date": "2014-11-11",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/xbox-one/halo-the-master-chief-collection",
+      "protondb_url": "https://www.protondb.com/app/976730",
+      "harmony_score": 259
+    },
+    {
       "title": "Yakuza 0",
       "rankings": {
-        "RPS": 8,
         "Eurogamer": 90,
-        "PCGamer": 32
+        "PCGamer": 32,
+        "RPS": 8
       },
       "platforms": {
         "windows": false,
@@ -831,42 +850,12 @@
       "harmony_score": 259
     },
     {
-      "title": "Halo: the Master Chief Collection",
-      "rankings": {
-        "PCGamer": 30,
-        "RPS": 15,
-        "Eurogamer": 85
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 976730,
-      "user_score": 8,
-      "total_reviews": 146677,
-      "price": "CDN$ 12.49",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/976730/header.jpg?t=1670458602",
-      "metacritic": 85,
-      "release_date": "2014-11-11",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/xbox-one/halo-the-master-chief-collection",
-      "protondb_url": "https://www.protondb.com/app/976730",
-      "harmony_score": 259
-    },
-    {
       "title": "Titanfall 2",
       "rankings": {
-        "PCGamer": 68,
-        "RPS": 36,
+        "Eurogamer": 65,
         "IGN": 87,
-        "Eurogamer": 65
+        "PCGamer": 68,
+        "RPS": 36
       },
       "platforms": {
         "windows": true,
@@ -882,7 +871,7 @@
       ],
       "steam_id": 1237970,
       "user_score": 9,
-      "total_reviews": 79377,
+      "total_reviews": 79378,
       "price": "CDN$ 7.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1237970/header.jpg?t=1726160226",
       "metacritic": 86,
@@ -919,9 +908,9 @@
     {
       "title": "Stardew Valley",
       "rankings": {
-        "RPS": 97,
         "Eurogamer": 35,
-        "PCGamer": 9
+        "PCGamer": 9,
+        "RPS": 97
       },
       "platforms": {
         "windows": true,
@@ -941,8 +930,8 @@
       ],
       "steam_id": 413150,
       "user_score": 9,
-      "total_reviews": 331961,
-      "price": "CDN$ 11.89",
+      "total_reviews": 331994,
+      "price": "$10.49",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg?t=1711128146",
       "metacritic": 89,
       "release_date": "2016-02-25",
@@ -954,8 +943,8 @@
     {
       "title": "Portal 2",
       "rankings": {
-        "RPS": 74,
         "IGN": 3,
+        "RPS": 74,
         "Eurogamer": 77
       },
       "platforms": {
@@ -987,8 +976,8 @@
       "title": "Counter-Strike 2",
       "rankings": {
         "RPS": 84,
-        "Eurogamer": 38,
-        "PCGamer": 35
+        "PCGamer": 35,
+        "Eurogamer": 38
       },
       "platforms": {
         "windows": true,
@@ -1002,7 +991,7 @@
       ],
       "steam_id": 730,
       "user_score": 8,
-      "total_reviews": 1268274,
+      "total_reviews": 1268276,
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1729703045",
       "release_date": "2023-09-27",
       "reddit_url": "https://www.reddit.com/r/GlobalOffensive/",
@@ -1011,38 +1000,10 @@
       "harmony_score": 219
     },
     {
-      "title": "Street Fighter 6",
-      "rankings": {
-        "Polygon - PS5 Top 25": 24,
-        "Eurogamer": 11
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "Steam"
-      ],
-      "steam_id": 1364780,
-      "user_score": 8,
-      "total_reviews": 15603,
-      "price": "CDN$ 39.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/header.jpg?t=1730961389",
-      "metacritic": 92,
-      "release_date": "2023-06-01",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/street-fighter-6?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/1364780",
-      "harmony_score": 208
-    },
-    {
       "title": "Sekiro: Shadows Die Twice",
       "rankings": {
-        "PCGamer": 23,
-        "RPS": 12
+        "RPS": 12,
+        "PCGamer": 23
       },
       "platforms": {
         "windows": true,
@@ -1069,10 +1030,38 @@
       "harmony_score": 208
     },
     {
+      "title": "Street Fighter 6",
+      "rankings": {
+        "Eurogamer": 11,
+        "Polygon - PS5 Top 25": 24
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "Steam"
+      ],
+      "steam_id": 1364780,
+      "user_score": 8,
+      "total_reviews": 15603,
+      "price": "CDN$ 39.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1364780/header.jpg?t=1730961389",
+      "metacritic": 92,
+      "release_date": "2023-06-01",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/street-fighter-6?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/1364780",
+      "harmony_score": 208
+    },
+    {
       "title": "Bloodborne",
       "rankings": {
-        "IGN": 19,
-        "Eurogamer": 27
+        "Eurogamer": 27,
+        "IGN": 19
       },
       "platforms": {
         "windows": false,
@@ -1095,8 +1084,8 @@
     {
       "title": "Portal",
       "rankings": {
-        "PCGamer": 24,
-        "IGN": 23
+        "IGN": 23,
+        "PCGamer": 24
       },
       "platforms": {
         "windows": true,
@@ -1124,15 +1113,15 @@
     {
       "title": "The Elder Scrolls V: Skyrim",
       "rankings": {
-        "RPS": 100,
+        "PCGamer": 37,
         "IGN": 41,
-        "PCGamer": 37
+        "RPS": 100
       },
       "platforms": {
-        "windows": true,
+        "windows": false,
         "macos": false,
         "linux": false,
-        "steamdeck": "verified",
+        "steamdeck": "",
         "switch": true
       },
       "stores": [
@@ -1141,46 +1130,13 @@
         "Steam",
         "Xbox 360 Store"
       ],
-      "steam_id": 72850,
-      "user_score": 8,
-      "total_reviews": 101537,
-      "price": "CDN$ 21.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/72850/header.jpg?t=1721923139",
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg",
       "metacritic": 94,
       "release_date": "2011-11-11",
       "reddit_url": "https://www.reddit.com/r/skyrim/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/the-elder-scrolls-v-skyrim?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/72850",
+      "metacritic_url": "https://www.metacritic.com/game/pc/the-elder-scrolls-v-skyrim",
       "harmony_score": 187
-    },
-    {
-      "title": "Returnal",
-      "rankings": {
-        "Eurogamer": 32,
-        "Polygon - PS5 Top 25": 22
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "PlayStation Store",
-        "Steam"
-      ],
-      "steam_id": 1649240,
-      "user_score": 8,
-      "total_reviews": 3391,
-      "price": "CDN$ 39.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1649240/header.jpg?t=1717621387",
-      "metacritic": 86,
-      "release_date": "2021-04-30",
-      "reddit_url": "https://www.reddit.com/r/Returnal/",
-      "metacritic_url": "https://www.metacritic.com/game/playstation-5/returnal?ref=hp",
-      "protondb_url": "https://www.protondb.com/app/1649240",
-      "harmony_score": 185
     },
     {
       "title": "A Short Hike",
@@ -1215,6 +1171,35 @@
       "harmony_score": 185
     },
     {
+      "title": "Returnal",
+      "rankings": {
+        "Eurogamer": 32,
+        "Polygon - PS5 Top 25": 22
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "PlayStation Store",
+        "Steam"
+      ],
+      "steam_id": 1649240,
+      "user_score": 8,
+      "total_reviews": 3391,
+      "price": "CDN$ 39.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1649240/header.jpg?t=1717621387",
+      "metacritic": 86,
+      "release_date": "2021-04-30",
+      "reddit_url": "https://www.reddit.com/r/Returnal/",
+      "metacritic_url": "https://www.metacritic.com/game/playstation-5/returnal?ref=hp",
+      "protondb_url": "https://www.protondb.com/app/1649240",
+      "harmony_score": 185
+    },
+    {
       "title": "Crusader Kings III",
       "rankings": {
         "PCGamer": 25,
@@ -1245,8 +1230,8 @@
     {
       "title": "Fortnite",
       "rankings": {
-        "Eurogamer": 45,
         "IGN": 79,
+        "Eurogamer": 45,
         "PCGamer": 58
       },
       "platforms": {
@@ -1331,14 +1316,14 @@
     {
       "title": "Chrono Trigger",
       "rankings": {
-        "IGN": 24,
-        "RPS": 37
+        "RPS": 37,
+        "IGN": 24
       },
       "platforms": {
-        "windows": false,
+        "windows": true,
         "macos": false,
         "linux": false,
-        "steamdeck": "",
+        "steamdeck": "verified",
         "switch": false
       },
       "stores": [
@@ -1348,26 +1333,30 @@
         "PlayStation Store",
         "Steam"
       ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/ae4/ae404f4e0f504131199703c09111bb78.jpg",
+      "steam_id": 613830,
+      "user_score": 8,
+      "total_reviews": 5211,
+      "price": "CDN$ 9.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613830/header.jpg?t=1719545360",
       "metacritic": 82,
       "release_date": "1995-03-11",
       "reddit_url": "",
       "metacritic_url": "https://www.metacritic.com/game/ds/chrono-trigger",
+      "protondb_url": "https://www.protondb.com/app/613830",
       "harmony_score": 176
     },
     {
       "title": "Undertale",
       "rankings": {
-        "IGN": 20,
+        "Eurogamer": 74,
         "RPS": 93,
-        "Eurogamer": 74
+        "IGN": 20
       },
       "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": true,
-        "steamdeck": "verified",
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
         "switch": true
       },
       "stores": [
@@ -1377,16 +1366,12 @@
         "Steam",
         "Xbox Store"
       ],
-      "steam_id": 391540,
-      "user_score": 9,
-      "total_reviews": 125143,
-      "price": "CDN$ 2.74",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/391540/header.jpg?t=1579096091",
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/ffe/ffed87105b14f5beff72ff44a7793fd5.jpg",
       "metacritic": 92,
       "release_date": "2015-09-14",
       "reddit_url": "https://www.reddit.com/r/Undertale/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/undertale?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/391540",
+      "metacritic_url": "",
       "harmony_score": 174
     },
     {
@@ -1423,8 +1408,8 @@
     {
       "title": "Apex Legends",
       "rankings": {
-        "IGN": 55,
-        "RPS": 13
+        "RPS": 13,
+        "IGN": 55
       },
       "platforms": {
         "windows": true,
@@ -1453,8 +1438,8 @@
     {
       "title": "Team Fortress 2",
       "rankings": {
-        "PCGamer": 61,
-        "RPS": 10
+        "RPS": 10,
+        "PCGamer": 61
       },
       "platforms": {
         "windows": true,
@@ -1476,30 +1461,6 @@
       "metacritic_url": "https://www.metacritic.com/game/pc/team-fortress-2?ftag=MCD-06-10aaa1f",
       "protondb_url": "https://www.protondb.com/app/440",
       "harmony_score": 163
-    },
-    {
-      "title": "Super Mario World",
-      "rankings": {
-        "IGN": 2,
-        "Eurogamer": 72
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [
-        "Nintendo Store"
-      ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/3bb/3bb2c8d774c3a83eb2c17d0d3d51f020.jpg",
-      "metacritic": 92,
-      "release_date": "1990-11-21",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/game-boy-advance/super-mario-world-super-mario-advance-2",
-      "harmony_score": 160
     },
     {
       "title": "Mario Kart 8 Deluxe",
@@ -1526,10 +1487,34 @@
       "harmony_score": 160
     },
     {
+      "title": "Super Mario World",
+      "rankings": {
+        "Eurogamer": 72,
+        "IGN": 2
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [
+        "Nintendo Store"
+      ],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/3bb/3bb2c8d774c3a83eb2c17d0d3d51f020.jpg",
+      "metacritic": 92,
+      "release_date": "1990-11-21",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/game-boy-advance/super-mario-world-super-mario-advance-2",
+      "harmony_score": 160
+    },
+    {
       "title": "XCOM 2",
       "rankings": {
-        "PCGamer": 13,
-        "IGN": 65
+        "IGN": 65,
+        "PCGamer": 13
       },
       "platforms": {
         "windows": true,
@@ -1591,8 +1576,8 @@
     {
       "title": "Super Smash Bros. Ultimate",
       "rankings": {
-        "IGN": 76,
-        "Eurogamer": 4
+        "Eurogamer": 4,
+        "IGN": 76
       },
       "platforms": {
         "windows": false,
@@ -1613,41 +1598,17 @@
       "harmony_score": 152
     },
     {
-      "title": "Armored Core 6 Fires of Rubicon",
+      "title": "Doom",
       "rankings": {
-        "Polygon - PS5 Top 25": 3,
-        "PCGamer": 78
+        "RPS": 85,
+        "IGN": 29,
+        "Eurogamer": 88
       },
       "platforms": {
         "windows": false,
         "macos": false,
         "linux": false,
         "steamdeck": "",
-        "switch": false
-      },
-      "stores": [
-        "PlayStation Store",
-        "Steam"
-      ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/c97/c97aba78a97038867d4b32a81fe48567.jpg",
-      "release_date": "2023-08-25",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/playstation-5/armored-core-vi-fires-of-rubicon",
-      "harmony_score": 151
-    },
-    {
-      "title": "Doom",
-      "rankings": {
-        "Eurogamer": 88,
-        "IGN": 29,
-        "RPS": 85
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
         "switch": true
       },
       "stores": [
@@ -1656,16 +1617,41 @@
         "Steam",
         "Xbox Store"
       ],
-      "steam_id": 379720,
-      "user_score": 9,
-      "total_reviews": 74978,
-      "price": "CDN$ 4.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/header.jpg?t=1692892793",
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/587/587588c64afbff80e6f444eb2e46f9da.jpg",
       "metacritic": 85,
       "release_date": "2016-05-13",
       "reddit_url": "https://www.reddit.com/r/Doom/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/doom?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/379720",
+      "metacritic_url": "",
+      "harmony_score": 151
+    },
+    {
+      "title": "Armored Core 6 Fires of Rubicon",
+      "rankings": {
+        "PCGamer": 78,
+        "Polygon - PS5 Top 25": 3
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "PlayStation Store",
+        "Steam"
+      ],
+      "steam_id": 1888160,
+      "user_score": 8,
+      "total_reviews": 34821,
+      "price": "CDN$ 79.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888160/header.jpg?t=1726158706",
+      "metacritic": 86,
+      "release_date": "2023-08-25",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/armored-core-vi-fires-of-rubicon?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/1888160",
       "harmony_score": 151
     },
     {
@@ -1742,8 +1728,8 @@
     {
       "title": "Dark Souls",
       "rankings": {
-        "IGN": 80,
-        "RPS": 6
+        "RPS": 6,
+        "IGN": 80
       },
       "platforms": {
         "windows": false,
@@ -1767,30 +1753,26 @@
     {
       "title": "NieR: Automata",
       "rankings": {
-        "RPS": 26,
-        "PCGamer": 62
+        "PCGamer": 62,
+        "RPS": 26
       },
       "platforms": {
-        "windows": true,
+        "windows": false,
         "macos": false,
         "linux": false,
-        "steamdeck": "verified",
+        "steamdeck": "",
         "switch": true
       },
       "stores": [
         "Steam",
         "Xbox Store"
       ],
-      "steam_id": 524220,
-      "user_score": 8,
-      "total_reviews": 43223,
-      "price": "CDN$ 21.40",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/524220/header.jpg?t=1727790045",
-      "metacritic": 84,
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg",
+      "metacritic": 86,
       "release_date": "2017-03-17",
       "reddit_url": "https://www.reddit.com/r/nier/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/nier-automata?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/524220",
+      "metacritic_url": "https://www.metacritic.com/game/playstation-4/nier-automata",
       "harmony_score": 142
     },
     {
@@ -1825,8 +1807,8 @@
     {
       "title": "What Remains of Edith Finch",
       "rankings": {
-        "Eurogamer": 18,
-        "RPS": 71
+        "RPS": 71,
+        "Eurogamer": 18
       },
       "platforms": {
         "windows": true,
@@ -1859,8 +1841,8 @@
     {
       "title": "Gran Turismo 7",
       "rankings": {
-        "Eurogamer": 78,
-        "Polygon - PS5 Top 25": 12
+        "Polygon - PS5 Top 25": 12,
+        "Eurogamer": 78
       },
       "platforms": {
         "windows": false,
@@ -1883,8 +1865,8 @@
     {
       "title": "OlliOlli World",
       "rankings": {
-        "Eurogamer": 41,
-        "RPS": 52
+        "RPS": 52,
+        "Eurogamer": 41
       },
       "platforms": {
         "windows": true,
@@ -1941,8 +1923,8 @@
     {
       "title": "XCOM: Enemy Unknown",
       "rankings": {
-        "RPS": 39,
-        "Eurogamer": 57
+        "Eurogamer": 57,
+        "RPS": 39
       },
       "platforms": {
         "windows": true,
@@ -1960,7 +1942,7 @@
       "steam_id": 200510,
       "user_score": 8,
       "total_reviews": 23422,
-      "price": "CDN$ 6.59",
+      "price": "$5.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200510/header.jpg?t=1587584126",
       "metacritic": 89,
       "release_date": "2012-10-09",
@@ -1972,8 +1954,8 @@
     {
       "title": "Death Stranding",
       "rankings": {
-        "Polygon - PS5 Top 25": 7,
-        "PCGamer": 89
+        "PCGamer": 89,
+        "Polygon - PS5 Top 25": 7
       },
       "platforms": {
         "windows": true,
@@ -1991,7 +1973,7 @@
       "steam_id": 1850570,
       "user_score": 8,
       "total_reviews": 9572,
-      "price": "CDN$ 27.49",
+      "price": "$19.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1850570/header.jpg?t=1728989088",
       "metacritic": 85,
       "release_date": "2019-11-08",
@@ -2030,8 +2012,8 @@
     {
       "title": "Animal Crossing: New Horizons",
       "rankings": {
-        "Eurogamer": 7,
-        "IGN": 91
+        "IGN": 91,
+        "Eurogamer": 7
       },
       "platforms": {
         "windows": false,
@@ -2081,10 +2063,42 @@
       "harmony_score": 123
     },
     {
+      "title": "BioShock",
+      "rankings": {
+        "RPS": 87,
+        "IGN": 18
+      },
+      "platforms": {
+        "windows": true,
+        "macos": true,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "App Store",
+        "PlayStation Store",
+        "Steam",
+        "Xbox 360 Store",
+        "Xbox Store"
+      ],
+      "steam_id": 409710,
+      "user_score": 8,
+      "total_reviews": 22444,
+      "price": "CDN$ 5.49",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/409710/header.jpg?t=1730219360",
+      "metacritic": 80,
+      "release_date": "2007-08-21",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/bioshock-the-collection?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/409710",
+      "harmony_score": 121
+    },
+    {
       "title": "Deus Ex",
       "rankings": {
-        "RPS": 61,
-        "PCGamer": 44
+        "PCGamer": 44,
+        "RPS": 61
       },
       "platforms": {
         "windows": false,
@@ -2122,38 +2136,6 @@
       "release_date": "2002-11-17",
       "reddit_url": "",
       "metacritic_url": "https://www.metacritic.com/game/gamecube/metroid-prime",
-      "harmony_score": 121
-    },
-    {
-      "title": "BioShock",
-      "rankings": {
-        "RPS": 87,
-        "IGN": 18
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "App Store",
-        "PlayStation Store",
-        "Steam",
-        "Xbox 360 Store",
-        "Xbox Store"
-      ],
-      "steam_id": 409710,
-      "user_score": 8,
-      "total_reviews": 22444,
-      "price": "CDN$ 5.49",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/409710/header.jpg?t=1730219360",
-      "metacritic": 80,
-      "release_date": "2007-08-21",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/bioshock-the-collection?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/409710",
       "harmony_score": 121
     },
     {
@@ -2202,8 +2184,8 @@
       ],
       "steam_id": 550,
       "user_score": 9,
-      "total_reviews": 200708,
-      "price": "CDN$ 2.59",
+      "total_reviews": 200714,
+      "price": "$1.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/550/header.jpg?t=1731457037",
       "metacritic": 89,
       "release_date": "2009-11-17",
@@ -2235,33 +2217,6 @@
       "harmony_score": 111
     },
     {
-      "title": "Into the Breach",
-      "rankings": {
-        "PCGamer": 46,
-        "Eurogamer": 71
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": true
-      },
-      "stores": [
-        "Epic Games",
-        "GOG",
-        "Nintendo Store",
-        "Steam"
-      ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/800/800d07ca648a9778a8230f40088e0866.jpg",
-      "metacritic": 90,
-      "release_date": "2018-02-26",
-      "reddit_url": "https://www.reddit.com/r/IntoTheBreach/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/into-the-breach",
-      "harmony_score": 106
-    },
-    {
       "title": "Control",
       "rankings": {
         "PCGamer": 53,
@@ -2291,6 +2246,33 @@
       "reddit_url": "https://www.reddit.com/r/controlgame/",
       "metacritic_url": "https://www.metacritic.com/game/pc/control?ftag=MCD-06-10aaa1f",
       "protondb_url": "https://www.protondb.com/app/870780",
+      "harmony_score": 106
+    },
+    {
+      "title": "Into the Breach",
+      "rankings": {
+        "Eurogamer": 71,
+        "PCGamer": 46
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": true
+      },
+      "stores": [
+        "Epic Games",
+        "GOG",
+        "Nintendo Store",
+        "Steam"
+      ],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/800/800d07ca648a9778a8230f40088e0866.jpg",
+      "metacritic": 90,
+      "release_date": "2018-02-26",
+      "reddit_url": "https://www.reddit.com/r/IntoTheBreach/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/into-the-breach",
       "harmony_score": 106
     },
     {
@@ -2339,8 +2321,8 @@
     {
       "title": "Hotline Miami",
       "rankings": {
-        "PCGamer": 82,
-        "Eurogamer": 42
+        "Eurogamer": 42,
+        "PCGamer": 82
       },
       "platforms": {
         "windows": true,
@@ -2368,6 +2350,37 @@
       "harmony_score": 97
     },
     {
+      "title": "Subnautica",
+      "rankings": {
+        "RPS": 5
+      },
+      "platforms": {
+        "windows": true,
+        "macos": true,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": true
+      },
+      "stores": [
+        "Epic Games",
+        "Nintendo Store",
+        "PlayStation Store",
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 264710,
+      "user_score": 9,
+      "total_reviews": 151086,
+      "price": "£8.24",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/header.jpg?t=1729208919",
+      "metacritic": 87,
+      "release_date": "2018-01-23",
+      "reddit_url": "https://www.reddit.com/r/subnautica/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/subnautica?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/264710",
+      "harmony_score": 96
+    },
+    {
       "title": "Super Metroid",
       "rankings": {
         "IGN": 5
@@ -2390,43 +2403,12 @@
       "harmony_score": 96
     },
     {
-      "title": "Subnautica",
-      "rankings": {
-        "RPS": 5
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": true
-      },
-      "stores": [
-        "Epic Games",
-        "Nintendo Store",
-        "PlayStation Store",
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 264710,
-      "user_score": 9,
-      "total_reviews": 151086,
-      "price": "CDN$ 13.19",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/header.jpg?t=1729208919",
-      "metacritic": 87,
-      "release_date": "2018-01-23",
-      "reddit_url": "https://www.reddit.com/r/subnautica/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/subnautica?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/264710",
-      "harmony_score": 96
-    },
-    {
       "title": "Mass Effect 2",
       "rankings": {
         "IGN": 6
       },
       "platforms": {
-        "windows": false,
+        "windows": true,
         "macos": false,
         "linux": false,
         "steamdeck": "",
@@ -2438,13 +2420,15 @@
         "Xbox 360 Store",
         "Xbox Store"
       ],
-      "steam_id": 24999,
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/3cf/3cff89996570cf29a10eb9cd967dcf73.jpg",
+      "steam_id": 2362420,
+      "user_score": 5,
+      "total_reviews": 85,
+      "price": "CDN$ 6.39",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2362420/header.jpg?t=1708017054",
       "metacritic": 94,
       "release_date": "2010-01-26",
       "reddit_url": "https://www.reddit.com/r/masseffect/",
-      "metacritic_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/mass-effect-2?ftag=MCD-06-10aaa1f",
       "harmony_score": 95
     },
     {
@@ -2487,7 +2471,7 @@
       ],
       "steam_id": 2379780,
       "user_score": 9,
-      "total_reviews": 47980,
+      "total_reviews": 48076,
       "price": "CDN$ 16.14",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/header.jpg?t=1732730257",
       "metacritic": 90,
@@ -2503,10 +2487,10 @@
         "Eurogamer": 9
       },
       "platforms": {
-        "windows": true,
+        "windows": false,
         "macos": false,
         "linux": false,
-        "steamdeck": "verified",
+        "steamdeck": "",
         "switch": false
       },
       "stores": [
@@ -2514,16 +2498,12 @@
         "PlayStation Store",
         "Steam"
       ],
-      "steam_id": 404540,
-      "user_score": 8,
-      "total_reviews": 849,
-      "price": "CDN$ 21.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/404540/header.jpg?t=1591699254",
-      "metacritic": 84,
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/ec6/ec615a8bee92ca26c14950712f19753b.jpg",
+      "metacritic": 89,
       "release_date": "2017-06-19",
       "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/nex-machina-death-machine?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/404540",
+      "metacritic_url": "",
       "harmony_score": 92
     },
     {
@@ -2615,7 +2595,7 @@
       "steam_id": 2322010,
       "user_score": 8,
       "total_reviews": 6473,
-      "price": "¥ 398.00",
+      "price": "CDN$ 79.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/header.jpg?t=1728067832",
       "metacritic": 90,
       "release_date": "2022-11-09",
@@ -2674,7 +2654,7 @@
       "steam_id": 1221250,
       "user_score": 8,
       "total_reviews": 1381,
-      "price": "$5.99",
+      "price": "CDN$ 7.79",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1221250/header.jpg?t=1731117274",
       "metacritic": 89,
       "release_date": "2022-03-24",
@@ -2716,10 +2696,10 @@
         "RPS": 14
       },
       "platforms": {
-        "windows": true,
+        "windows": false,
         "macos": false,
         "linux": false,
-        "steamdeck": "verified",
+        "steamdeck": "",
         "switch": true
       },
       "stores": [
@@ -2730,16 +2710,12 @@
         "Steam",
         "Xbox Store"
       ],
-      "steam_id": 377840,
-      "user_score": 8,
-      "total_reviews": 5510,
-      "price": "CDN$ 9.59",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/377840/header.jpg?t=1596707344",
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/826/82626e2d7ee7d96656fb9838c2ef7302.jpg",
       "metacritic": 84,
       "release_date": "2000-07-07",
       "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/final-fantasy-ix?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/377840",
+      "metacritic_url": "",
       "harmony_score": 87
     },
     {
@@ -2790,8 +2766,8 @@
     {
       "title": "The Last of Us Part 2",
       "rankings": {
-        "IGN": 38,
-        "Eurogamer": 95
+        "Eurogamer": 95,
+        "IGN": 38
       },
       "platforms": {
         "windows": false,
@@ -2810,6 +2786,33 @@
       "reddit_url": "https://www.reddit.com/r/thelastofus/",
       "metacritic_url": "https://www.metacritic.com/game/playstation-4/the-last-of-us-part-ii",
       "harmony_score": 86
+    },
+    {
+      "title": "Mediterranea Inferno",
+      "rankings": {
+        "Eurogamer": 16
+      },
+      "platforms": {
+        "windows": true,
+        "macos": true,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "Steam"
+      ],
+      "steam_id": 2103680,
+      "user_score": 8,
+      "total_reviews": 81,
+      "price": "CDN$ 4.87",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2103680/header.jpg?t=1727787632",
+      "metacritic": 84,
+      "release_date": "2023-08-24",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/mediterranea-inferno?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/2103680",
+      "harmony_score": 85
     },
     {
       "title": "Like A Dragon: Infinite Wealth",
@@ -2840,33 +2843,6 @@
       "harmony_score": 85
     },
     {
-      "title": "Mediterranea Inferno",
-      "rankings": {
-        "Eurogamer": 16
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "Steam"
-      ],
-      "steam_id": 2103680,
-      "user_score": 8,
-      "total_reviews": 81,
-      "price": "CDN$ 4.87",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2103680/header.jpg?t=1727787632",
-      "metacritic": 84,
-      "release_date": "2023-08-24",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/mediterranea-inferno?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/2103680",
-      "harmony_score": 85
-    },
-    {
       "title": "Metaphor: ReFantazio",
       "rankings": {
         "Polygon - PS5 Top 25": 17
@@ -2885,7 +2861,7 @@
       ],
       "steam_id": 2679460,
       "user_score": 9,
-      "total_reviews": 7325,
+      "total_reviews": 7335,
       "price": "CDN$ 70.11",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/header.jpg?t=1732700322",
       "metacritic": 92,
@@ -2893,6 +2869,28 @@
       "reddit_url": "https://www.reddit.com/r/MetaphorReFantazio/",
       "metacritic_url": "https://www.metacritic.com/game/pc/metaphor-refantazio?ftag=MCD-06-10aaa1f",
       "protondb_url": "https://www.protondb.com/app/2679460",
+      "harmony_score": 84
+    },
+    {
+      "title": "DoDonPachi Blissful Death Re:Incarnation",
+      "rankings": {
+        "Eurogamer": 17
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [
+        "App Store"
+      ],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/screenshots/fe8/fe888e0123833021c084de585cdbcae9.jpeg",
+      "release_date": "2012-02-09",
+      "reddit_url": "",
+      "metacritic_url": "",
       "harmony_score": 84
     },
     {
@@ -2919,28 +2917,6 @@
       "harmony_score": 84
     },
     {
-      "title": "DoDonPachi Blissful Death Re:Incarnation",
-      "rankings": {
-        "Eurogamer": 17
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [
-        "App Store"
-      ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/screenshots/fe8/fe888e0123833021c084de585cdbcae9.jpeg",
-      "release_date": "2012-02-09",
-      "reddit_url": "",
-      "metacritic_url": "",
-      "harmony_score": 84
-    },
-    {
       "title": "Neva",
       "rankings": {
         "Polygon - PS5 Top 25": 18
@@ -2958,7 +2934,7 @@
       ],
       "steam_id": 2420660,
       "user_score": 9,
-      "total_reviews": 1526,
+      "total_reviews": 1527,
       "price": "CDN$ 20.79",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2420660/header.jpg?t=1729124829",
       "release_date": "2024-10-15",
@@ -2973,10 +2949,10 @@
         "PCGamer": 19
       },
       "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": true,
-        "steamdeck": "verified",
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
         "switch": true
       },
       "stores": [
@@ -2988,16 +2964,32 @@
         "Steam",
         "Xbox Store"
       ],
-      "steam_id": 646570,
-      "user_score": 9,
-      "total_reviews": 61399,
-      "price": "CDN$ 10.87",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/646570/header.jpg?t=1732020340",
-      "metacritic": 89,
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/f52/f5206d55f918edf8ee07803101106fa6.jpg",
+      "metacritic": 86,
       "release_date": "2019-01-22",
       "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/slay-the-spire?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/646570",
+      "metacritic_url": "https://www.metacritic.com/game/pc/slay-the-spire",
+      "harmony_score": 82
+    },
+    {
+      "title": "Super Mario Bros. Wonder",
+      "rankings": {
+        "Eurogamer": 19
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": true
+      },
+      "stores": [],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/1fd/1fd3f030bee73452d46a0678084a7ed9.jpg",
+      "release_date": "2023-10-20",
+      "reddit_url": "",
+      "metacritic_url": "",
       "harmony_score": 82
     },
     {
@@ -3020,26 +3012,6 @@
       "total_reviews": 0,
       "header_image": "https://media.rawg.io/media/games/dda/dda32189c8a4a0231fa9bd8012f72df1.jpg",
       "release_date": "2017-10-19",
-      "reddit_url": "",
-      "metacritic_url": "",
-      "harmony_score": 82
-    },
-    {
-      "title": "Super Mario Bros. Wonder",
-      "rankings": {
-        "Eurogamer": 19
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": true
-      },
-      "stores": [],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/1fd/1fd3f030bee73452d46a0678084a7ed9.jpg",
-      "release_date": "2023-10-20",
       "reddit_url": "",
       "metacritic_url": "",
       "harmony_score": 82
@@ -3187,10 +3159,10 @@
         "Eurogamer": 22
       },
       "platforms": {
-        "windows": true,
+        "windows": false,
         "macos": false,
         "linux": false,
-        "steamdeck": "verified",
+        "steamdeck": "",
         "switch": true
       },
       "stores": [
@@ -3199,16 +3171,33 @@
         "Steam",
         "itch.io"
       ],
-      "steam_id": 1455840,
-      "user_score": 9,
-      "total_reviews": 14169,
-      "price": "CDN$ 9.29",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1455840/header.jpg?t=1725021706",
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/screenshots/b00/b00b7cc04dd09531b631ea4575696276.jpg",
       "release_date": "2022-04-28",
       "reddit_url": "https://www.reddit.com/r/Dorfromantik/",
       "metacritic_url": "https://www.metacritic.com/game/dorfromantik/",
-      "protondb_url": "https://www.protondb.com/app/1455840",
       "harmony_score": 79
+    },
+    {
+      "title": "Spider-Man 2",
+      "rankings": {
+        "Polygon - PS5 Top 25": 23
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/1cc/1cc86be85294d9d3cf2fc95d696ce819.jpg",
+      "metacritic": 42,
+      "release_date": "2004-06-28",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/spider-man-2-the-game",
+      "harmony_score": 78
     },
     {
       "title": "10 Beautiful Postcards",
@@ -3261,53 +3250,28 @@
       "harmony_score": 78
     },
     {
-      "title": "Spider-Man 2",
-      "rankings": {
-        "Polygon - PS5 Top 25": 23
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/1cc/1cc86be85294d9d3cf2fc95d696ce819.jpg",
-      "metacritic": 42,
-      "release_date": "2004-06-28",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/spider-man-2-the-game",
-      "harmony_score": 78
-    },
-    {
       "title": "Divinity: Original Sin 2",
       "rankings": {
         "PCGamer": 41,
         "IGN": 99
       },
       "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": true,
-        "steamdeck": "verified",
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
         "switch": true
       },
       "stores": [
         "GOG",
         "Steam"
       ],
-      "steam_id": 373420,
-      "user_score": 8,
-      "total_reviews": 9897,
-      "price": "CDN$ 8.79",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/373420/header.jpg?t=1725654082",
-      "metacritic": 94,
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/424/424facd40f4eb1f2794fe4b4bb28a277.jpg",
+      "metacritic": 95,
       "release_date": "2017-09-14",
       "reddit_url": "https://www.reddit.com/r/DivinityOriginalSin2/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/divinity-original-sin-enhanced-edition?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/373420",
+      "metacritic_url": "",
       "harmony_score": 77
     },
     {
@@ -3342,6 +3306,34 @@
       "harmony_score": 77
     },
     {
+      "title": "Tetris Effect: Connected",
+      "rankings": {
+        "Polygon - PS5 Top 25": 25
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": true
+      },
+      "stores": [
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 1003590,
+      "user_score": 8,
+      "total_reviews": 4681,
+      "price": "CDN$ 22.74",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/header.jpg?t=1724972876",
+      "metacritic": 93,
+      "release_date": "2020-11-10",
+      "reddit_url": "https://www.reddit.com/r/TetrisEffect/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/tetris-effect-connected?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/1003590",
+      "harmony_score": 76
+    },
+    {
       "title": "Destiny 2",
       "rankings": {
         "PCGamer": 85,
@@ -3372,34 +3364,6 @@
       "harmony_score": 76
     },
     {
-      "title": "Tetris Effect: Connected",
-      "rankings": {
-        "Polygon - PS5 Top 25": 25
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": true
-      },
-      "stores": [
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 1003590,
-      "user_score": 8,
-      "total_reviews": 4681,
-      "price": "CDN$ 22.74",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1003590/header.jpg?t=1724972876",
-      "metacritic": 93,
-      "release_date": "2020-11-10",
-      "reddit_url": "https://www.reddit.com/r/TetrisEffect/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/tetris-effect-connected?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/1003590",
-      "harmony_score": 76
-    },
-    {
       "title": "Factorio",
       "rankings": {
         "RPS": 25
@@ -3418,8 +3382,8 @@
       ],
       "steam_id": 427520,
       "user_score": 9,
-      "total_reviews": 100855,
-      "price": "CDN$ 45.00",
+      "total_reviews": 100863,
+      "price": "1200 руб.",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/427520/header.jpg?t=1730307306",
       "metacritic": 90,
       "release_date": "2020-08-14",
@@ -3435,10 +3399,10 @@
         "IGN": 98
       },
       "platforms": {
-        "windows": true,
+        "windows": false,
         "macos": false,
         "linux": false,
-        "steamdeck": "verified",
+        "steamdeck": "",
         "switch": false
       },
       "stores": [
@@ -3446,16 +3410,12 @@
         "PlayStation Store",
         "Steam"
       ],
-      "steam_id": 39140,
-      "user_score": 8,
-      "total_reviews": 14557,
-      "price": "CDN$ 6.79",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/39140/header.jpg?t=1727788787",
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/d89/d89bd0cf4fcdc10820892980cbba0f49.jpg",
       "metacritic": 87,
       "release_date": "2020-04-10",
       "reddit_url": "",
       "metacritic_url": "https://www.metacritic.com/game/playstation-4/final-fantasy-vii-remake",
-      "protondb_url": "https://www.protondb.com/app/39140",
       "harmony_score": 76
     },
     {
@@ -3513,6 +3473,32 @@
       "harmony_score": 75
     },
     {
+      "title": "Metal Gear Solid 3: Snake Eater",
+      "rankings": {
+        "IGN": 27
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [
+        "PlayStation Store",
+        "Steam"
+      ],
+      "steam_id": 2417610,
+      "user_score": 0,
+      "total_reviews": 0,
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2417610/header.jpg?t=1727404668",
+      "metacritic": 84,
+      "release_date": "2004-11-17",
+      "reddit_url": "https://www.reddit.com/r/http://reddit.com/r/metalgearsolid/",
+      "metacritic_url": "https://www.metacritic.com/game/playstation-2/metal-gear-solid-3-snake-eater",
+      "harmony_score": 74
+    },
+    {
       "title": "Hunt Showdown 1896",
       "rankings": {
         "PCGamer": 27
@@ -3542,29 +3528,6 @@
       "harmony_score": 74
     },
     {
-      "title": "Metal Gear Solid 3: Snake Eater",
-      "rankings": {
-        "IGN": 27
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [
-        "PlayStation Store"
-      ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/2c6/2c60e20bebae94ee080bdf0993253b4d.jpg",
-      "metacritic": 84,
-      "release_date": "2004-11-17",
-      "reddit_url": "https://www.reddit.com/r/http://reddit.com/r/metalgearsolid/",
-      "metacritic_url": "https://www.metacritic.com/game/playstation-2/metal-gear-solid-3-snake-eater",
-      "harmony_score": 74
-    },
-    {
       "title": "Warcraft III: Reign of Chaos",
       "rankings": {
         "RPS": 28
@@ -3583,31 +3546,6 @@
       "release_date": "2002-06-01",
       "reddit_url": "https://www.reddit.com/r/warcraft3/",
       "metacritic_url": "https://www.metacritic.com/game/pc/warcraft-iii-reign-of-chaos",
-      "harmony_score": 73
-    },
-    {
-      "title": "Tetris",
-      "rankings": {
-        "IGN": 28
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "Steam"
-      ],
-      "steam_id": 316750,
-      "user_score": 4,
-      "total_reviews": 197,
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/316750/header.jpg?t=1548953472",
-      "release_date": "1984-06-06",
-      "reddit_url": "",
-      "metacritic_url": "",
-      "protondb_url": "https://www.protondb.com/app/316750",
       "harmony_score": 73
     },
     {
@@ -3636,6 +3574,24 @@
       "reddit_url": "",
       "metacritic_url": "https://www.metacritic.com/game/pc/thief-the-dark-project?ftag=MCD-06-10aaa1f",
       "protondb_url": "https://www.protondb.com/app/211600",
+      "harmony_score": 73
+    },
+    {
+      "title": "Tetris",
+      "rankings": {
+        "IGN": 28
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [],
+      "steam_id": 316750,
+      "total_reviews": 0,
+      "protondb_url": "https://www.protondb.com/app/316750",
       "harmony_score": 73
     },
     {
@@ -3893,7 +3849,7 @@
       ],
       "steam_id": 1175830,
       "user_score": 6,
-      "total_reviews": 536,
+      "total_reviews": 537,
       "price": "CDN$ 15.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1175830/header.jpg?t=1718208725",
       "metacritic": 71,
@@ -3902,32 +3858,6 @@
       "metacritic_url": "https://www.metacritic.com/game/playstation-4/legend-of-mana-remastered",
       "protondb_url": "https://www.protondb.com/app/1175830",
       "harmony_score": 67
-    },
-    {
-      "title": "Sid Meier's Civilization IV",
-      "rankings": {
-        "IGN": 35
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [
-        "Steam"
-      ],
-      "steam_id": 34440,
-      "user_score": 7,
-      "total_reviews": 42,
-      "price": "CDN$ 3.29",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3900/header.jpg?t=1724341287",
-      "metacritic": 94,
-      "release_date": "2005-10-25",
-      "reddit_url": "https://www.reddit.com/r/CivIV/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/sid-meiers-civilization-iv?ftag=MCD-06-10aaa1f",
-      "harmony_score": 66
     },
     {
       "title": "Nidhogg",
@@ -3958,6 +3888,32 @@
       "harmony_score": 66
     },
     {
+      "title": "Sid Meier's Civilization IV",
+      "rankings": {
+        "IGN": 35
+      },
+      "platforms": {
+        "windows": true,
+        "macos": true,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [
+        "Steam"
+      ],
+      "steam_id": 34440,
+      "user_score": 7,
+      "total_reviews": 42,
+      "price": "CDN$ 3.29",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3900/header.jpg?t=1724341287",
+      "metacritic": 94,
+      "release_date": "2005-10-25",
+      "reddit_url": "https://www.reddit.com/r/CivIV/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/sid-meiers-civilization-iv?ftag=MCD-06-10aaa1f",
+      "harmony_score": 66
+    },
+    {
       "title": "Metal Gear Solid",
       "rankings": {
         "IGN": 36
@@ -3980,6 +3936,34 @@
       "reddit_url": "https://www.reddit.com/r/metalgearsolid/",
       "metacritic_url": "https://www.metacritic.com/game/playstation/metal-gear-solid",
       "harmony_score": 65
+    },
+    {
+      "title": "Microsoft Flight Simulator (2020)",
+      "rankings": {
+        "Eurogamer": 37
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 1250410,
+      "user_score": 6,
+      "total_reviews": 39192,
+      "price": "CDN$ 51.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/header.jpg?t=1730994202",
+      "metacritic": 91,
+      "release_date": "2020-08-18",
+      "reddit_url": "https://www.reddit.com/r/MicrosoftFlightSim/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/microsoft-flight-simulator?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/1250410",
+      "harmony_score": 64
     },
     {
       "title": "Red Dead Redemption",
@@ -4012,34 +3996,6 @@
       "harmony_score": 64
     },
     {
-      "title": "Microsoft Flight Simulator (2020)",
-      "rankings": {
-        "Eurogamer": 37
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 1250410,
-      "user_score": 6,
-      "total_reviews": 39192,
-      "price": "CDN$ 51.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1250410/header.jpg?t=1730994202",
-      "metacritic": 91,
-      "release_date": "2020-08-18",
-      "reddit_url": "https://www.reddit.com/r/MicrosoftFlightSim/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/microsoft-flight-simulator?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/1250410",
-      "harmony_score": 64
-    },
-    {
       "title": "Monster Hunter: World",
       "rankings": {
         "IGN": 85,
@@ -4064,6 +4020,36 @@
       "reddit_url": "https://www.reddit.com/r/MonsterHunterWorld/",
       "metacritic_url": "https://www.metacritic.com/game/playstation-4/monster-hunter-world",
       "harmony_score": 62
+    },
+    {
+      "title": "Burnout Paradise Remastered",
+      "rankings": {
+        "Eurogamer": 40
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": true
+      },
+      "stores": [
+        "Nintendo Store",
+        "PlayStation Store",
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 1238080,
+      "user_score": 5,
+      "total_reviews": 3200,
+      "price": "CDN$ 5.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1238080/header.jpg?t=1625518920",
+      "metacritic": 80,
+      "release_date": "2018-03-16",
+      "reddit_url": "https://www.reddit.com/r/Burnout",
+      "metacritic_url": "https://www.metacritic.com/game/playstation-4/burnout-paradise-remastered",
+      "protondb_url": "https://www.protondb.com/app/1238080",
+      "harmony_score": 61
     },
     {
       "title": "Vampire Survivors",
@@ -4121,36 +4107,6 @@
       "harmony_score": 61
     },
     {
-      "title": "Burnout Paradise Remastered",
-      "rankings": {
-        "Eurogamer": 40
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": true
-      },
-      "stores": [
-        "Nintendo Store",
-        "PlayStation Store",
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 1238080,
-      "user_score": 5,
-      "total_reviews": 3200,
-      "price": "CDN$ 5.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1238080/header.jpg?t=1625518920",
-      "metacritic": 80,
-      "release_date": "2018-03-16",
-      "reddit_url": "https://www.reddit.com/r/Burnout",
-      "metacritic_url": "https://www.metacritic.com/game/playstation-4/burnout-paradise-remastered",
-      "protondb_url": "https://www.protondb.com/app/1238080",
-      "harmony_score": 61
-    },
-    {
       "title": "Supreme Commander: Forged Alliance",
       "rankings": {
         "RPS": 41
@@ -4205,6 +4161,27 @@
       "harmony_score": 59
     },
     {
+      "title": "Homeworld: Cataclysm",
+      "rankings": {
+        "RPS": 43
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/screenshots/815/815ff499d68d4e820b51c4ac0c93174e.jpg",
+      "metacritic": 89,
+      "release_date": "2000-09-02",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/homeworld-cataclysm",
+      "harmony_score": 58
+    },
+    {
       "title": "Pokémon Yellow",
       "rankings": {
         "IGN": 43
@@ -4227,27 +4204,6 @@
       "harmony_score": 58
     },
     {
-      "title": "Homeworld: Cataclysm",
-      "rankings": {
-        "RPS": 43
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/screenshots/815/815ff499d68d4e820b51c4ac0c93174e.jpg",
-      "metacritic": 89,
-      "release_date": "2000-09-02",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/homeworld-cataclysm",
-      "harmony_score": 58
-    },
-    {
       "title": "American Truck Simulator",
       "rankings": {
         "RPS": 44
@@ -4265,7 +4221,7 @@
       "steam_id": 270880,
       "user_score": 9,
       "total_reviews": 77183,
-      "price": "$4.99",
+      "price": "CDN$ 6.49",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/270880/header.jpg?t=1731601321",
       "metacritic": 76,
       "release_date": "2016-02-02",
@@ -4361,6 +4317,37 @@
       "harmony_score": 55
     },
     {
+      "title": "Tony Hawk's Pro Skater 1 + 2",
+      "rankings": {
+        "Eurogamer": 46
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": true
+      },
+      "stores": [
+        "Epic Games",
+        "Nintendo Store",
+        "PlayStation Store",
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 2395210,
+      "user_score": 8,
+      "total_reviews": 2362,
+      "price": "CDN$ 23.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2395210/header.jpg?t=1696374771",
+      "metacritic": 88,
+      "release_date": "2020-09-04",
+      "reddit_url": "https://www.reddit.com/r/THPS/",
+      "metacritic_url": "https://www.metacritic.com/game/playstation-4/tony-hawks-pro-skater-1-+-2",
+      "protondb_url": "https://www.protondb.com/app/2395210",
+      "harmony_score": 55
+    },
+    {
       "title": "Star Wars: Knights of the Old Republic",
       "rankings": {
         "IGN": 46
@@ -4394,33 +4381,6 @@
       "harmony_score": 55
     },
     {
-      "title": "Tony Hawk's Pro Skater 1 + 2",
-      "rankings": {
-        "Eurogamer": 46
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": true
-      },
-      "stores": [
-        "Epic Games",
-        "Nintendo Store",
-        "PlayStation Store",
-        "Steam",
-        "Xbox Store"
-      ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/088/0885c48293746aad6df30735f30d0836.jpg",
-      "metacritic": 88,
-      "release_date": "2020-09-04",
-      "reddit_url": "https://www.reddit.com/r/THPS/",
-      "metacritic_url": "https://www.metacritic.com/game/playstation-4/tony-hawks-pro-skater-1-+-2",
-      "harmony_score": 55
-    },
-    {
       "title": "Frostpunk",
       "rankings": {
         "PCGamer": 47
@@ -4440,8 +4400,8 @@
       ],
       "steam_id": 323190,
       "user_score": 8,
-      "total_reviews": 34594,
-      "price": "$4.49",
+      "total_reviews": 34597,
+      "price": "CDN$ 5.84",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/323190/header.jpg?t=1724859064",
       "metacritic": 84,
       "release_date": "2018-04-24",
@@ -4474,27 +4434,6 @@
       "harmony_score": 54
     },
     {
-      "title": "StarCraft",
-      "rankings": {
-        "IGN": 48
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/68a/68a77a21ec04083f3e6af62cdbed9c0a.jpg",
-      "metacritic": 88,
-      "release_date": "1998-03-31",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/starcraft",
-      "harmony_score": 53
-    },
-    {
       "title": "Hades 2",
       "rankings": {
         "RPS": 48
@@ -4521,6 +4460,27 @@
       "harmony_score": 53
     },
     {
+      "title": "StarCraft",
+      "rankings": {
+        "IGN": 48
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/68a/68a77a21ec04083f3e6af62cdbed9c0a.jpg",
+      "metacritic": 88,
+      "release_date": "1998-03-31",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/starcraft",
+      "harmony_score": 53
+    },
+    {
       "title": "Monster Hunter Rise",
       "rankings": {
         "Eurogamer": 49
@@ -4539,7 +4499,7 @@
       "steam_id": 1446780,
       "user_score": 8,
       "total_reviews": 30068,
-      "price": "CDN$ 12.49",
+      "price": "$9.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1446780/header.jpg?t=1730268371",
       "metacritic": 86,
       "release_date": "2021-03-26",
@@ -4592,6 +4552,30 @@
       "harmony_score": 50
     },
     {
+      "title": "Totally Accurate Battle Simulator",
+      "rankings": {
+        "RPS": 51
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": true
+      },
+      "stores": [
+        "Epic Games",
+        "Steam",
+        "Xbox Store"
+      ],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/screenshots/c76/c7664fff1b8665c1be4c665950d85878.jpg",
+      "release_date": "2021-04-01",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/totally-accurate-battle-simulator",
+      "harmony_score": 50
+    },
+    {
       "title": "Spelunky",
       "rankings": {
         "PCGamer": 51
@@ -4622,57 +4606,6 @@
       "harmony_score": 50
     },
     {
-      "title": "Totally Accurate Battle Simulator",
-      "rankings": {
-        "RPS": 51
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": true
-      },
-      "stores": [
-        "Epic Games",
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 508440,
-      "user_score": 9,
-      "total_reviews": 73115,
-      "price": "CDN$ 8.83",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/508440/header.jpg?t=1730715415",
-      "release_date": "2021-04-01",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/totally-accurate-battle-simulator",
-      "protondb_url": "https://www.protondb.com/app/508440",
-      "harmony_score": 50
-    },
-    {
-      "title": "Counter-Strike 1.6",
-      "rankings": {
-        "IGN": 52
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [
-        "Steam"
-      ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/9c4/9c47f320eb73c9a02d462e12f6206b26.jpg",
-      "metacritic": 88,
-      "release_date": "2000-11-01",
-      "reddit_url": "",
-      "metacritic_url": "",
-      "harmony_score": 49
-    },
-    {
       "title": "Wildermyth",
       "rankings": {
         "PCGamer": 52
@@ -4699,6 +4632,29 @@
       "reddit_url": "",
       "metacritic_url": "https://www.metacritic.com/game/pc/wildermyth?ftag=MCD-06-10aaa1f",
       "protondb_url": "https://www.protondb.com/app/763890",
+      "harmony_score": 49
+    },
+    {
+      "title": "Counter-Strike 1.6",
+      "rankings": {
+        "IGN": 52
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [
+        "Steam"
+      ],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/9c4/9c47f320eb73c9a02d462e12f6206b26.jpg",
+      "metacritic": 88,
+      "release_date": "2000-11-01",
+      "reddit_url": "",
+      "metacritic_url": "",
       "harmony_score": 49
     },
     {
@@ -4756,35 +4712,6 @@
       "harmony_score": 48
     },
     {
-      "title": "Warhammer Vermintide 2",
-      "rankings": {
-        "PCGamer": 54
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "PlayStation Store",
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 552500,
-      "user_score": 8,
-      "total_reviews": 40533,
-      "price": "CDN$ 7.79",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/552500/header_alt_assets_7.jpg?t=1732834207",
-      "metacritic": 82,
-      "release_date": "2018-03-08",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/warhammer-vermintide-2?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/552500",
-      "harmony_score": 47
-    },
-    {
       "title": "Metal Gear Solid V: the Phantom Pain",
       "rankings": {
         "RPS": 54
@@ -4815,32 +4742,33 @@
       "harmony_score": 47
     },
     {
-      "title": "Mini Motorways",
+      "title": "Warhammer Vermintide 2",
       "rankings": {
-        "Eurogamer": 55
+        "PCGamer": 54
       },
       "platforms": {
         "windows": true,
-        "macos": true,
+        "macos": false,
         "linux": false,
         "steamdeck": "verified",
         "switch": false
       },
       "stores": [
-        "App Store",
-        "Steam"
+        "PlayStation Store",
+        "Steam",
+        "Xbox Store"
       ],
-      "steam_id": 1127500,
-      "user_score": 9,
-      "total_reviews": 13407,
-      "price": "CDN$ 9.19",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1127500/header.jpg?t=1667780984",
-      "metacritic": 87,
-      "release_date": "2021-07-20",
-      "reddit_url": "https://www.reddit.com/r/MiniMotorways/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/mini-motorways?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/1127500",
-      "harmony_score": 46
+      "steam_id": 552500,
+      "user_score": 8,
+      "total_reviews": 40533,
+      "price": "CDN$ 7.79",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/552500/header_alt_assets_7.jpg?t=1732834207",
+      "metacritic": 82,
+      "release_date": "2018-03-08",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/warhammer-vermintide-2?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/552500",
+      "harmony_score": 47
     },
     {
       "title": "The Binding of Isaac Rebirth",
@@ -4864,8 +4792,8 @@
       ],
       "steam_id": 250900,
       "user_score": 9,
-      "total_reviews": 117773,
-      "price": "$9.89",
+      "total_reviews": 117779,
+      "price": "CDN$ 11.21",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/250900/header.jpg?t=1731977365",
       "metacritic": 86,
       "release_date": "2014-11-03",
@@ -4875,34 +4803,32 @@
       "harmony_score": 46
     },
     {
-      "title": "Tom Clancy S Rainbow Six Siege",
+      "title": "Mini Motorways",
       "rankings": {
-        "PCGamer": 56
+        "Eurogamer": 55
       },
       "platforms": {
         "windows": true,
-        "macos": false,
+        "macos": true,
         "linux": false,
         "steamdeck": "verified",
         "switch": false
       },
       "stores": [
-        "Epic Games",
-        "PlayStation Store",
-        "Steam",
-        "Xbox Store"
+        "App Store",
+        "Steam"
       ],
-      "steam_id": 359550,
-      "user_score": 8,
-      "total_reviews": 562764,
-      "price": "$7.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/header.jpg?t=1731968067",
-      "metacritic": 75,
-      "release_date": "2015-12-01",
-      "reddit_url": "https://www.reddit.com/r/Rainbow6/",
-      "metacritic_url": "https://www.metacritic.com/game/playstation-4/tom-clancys-rainbow-six-siege",
-      "protondb_url": "https://www.protondb.com/app/359550",
-      "harmony_score": 45
+      "steam_id": 1127500,
+      "user_score": 9,
+      "total_reviews": 13409,
+      "price": "CDN$ 9.19",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1127500/header.jpg?t=1667780984",
+      "metacritic": 87,
+      "release_date": "2021-07-20",
+      "reddit_url": "https://www.reddit.com/r/MiniMotorways/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/mini-motorways?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/1127500",
+      "harmony_score": 46
     },
     {
       "title": "Unpacking",
@@ -4934,10 +4860,40 @@
       "harmony_score": 45
     },
     {
+      "title": "Tom Clancy S Rainbow Six Siege",
+      "rankings": {
+        "PCGamer": 56
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "Epic Games",
+        "PlayStation Store",
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 359550,
+      "user_score": 8,
+      "total_reviews": 562785,
+      "price": "CDN$ 9.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/header.jpg?t=1731968067",
+      "metacritic": 75,
+      "release_date": "2015-12-01",
+      "reddit_url": "https://www.reddit.com/r/Rainbow6/",
+      "metacritic_url": "https://www.metacritic.com/game/playstation-4/tom-clancys-rainbow-six-siege",
+      "protondb_url": "https://www.protondb.com/app/359550",
+      "harmony_score": 45
+    },
+    {
       "title": "League of Legends",
       "rankings": {
-        "IGN": 93,
-        "Eurogamer": 73
+        "Eurogamer": 73,
+        "IGN": 93
       },
       "platforms": {
         "windows": false,
@@ -4958,6 +4914,57 @@
       "reddit_url": "https://www.reddit.com/r/leagueoflegends/",
       "metacritic_url": "https://www.metacritic.com/game/pc/league-of-legends",
       "harmony_score": 45
+    },
+    {
+      "title": "Satisfactory",
+      "rankings": {
+        "RPS": 57
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "Epic Games",
+        "Steam"
+      ],
+      "steam_id": 526870,
+      "user_score": 9,
+      "total_reviews": 105326,
+      "price": "CDN$ 41.59",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/header_alt_assets_2.jpg?t=1732783822",
+      "metacritic": 91,
+      "release_date": "2024-09-11",
+      "reddit_url": "https://www.reddit.com/r/SatisfactoryGame/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/satisfactory?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/526870",
+      "harmony_score": 44
+    },
+    {
+      "title": "Uncharted 2: Among Thieves",
+      "rankings": {
+        "IGN": 57
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [
+        "PlayStation Store"
+      ],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/74b/74b239f6ef0216a2f66e652d54abb2e6.jpg",
+      "metacritic": 96,
+      "release_date": "2009-10-13",
+      "reddit_url": "https://www.reddit.com/r/uncharted/",
+      "metacritic_url": "",
+      "harmony_score": 44
     },
     {
       "title": "The Elder Scrolls 3 Morrowind",
@@ -4990,83 +4997,6 @@
       "harmony_score": 44
     },
     {
-      "title": "Uncharted 2: Among Thieves",
-      "rankings": {
-        "IGN": 57
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [
-        "PlayStation Store"
-      ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/74b/74b239f6ef0216a2f66e652d54abb2e6.jpg",
-      "metacritic": 96,
-      "release_date": "2009-10-13",
-      "reddit_url": "https://www.reddit.com/r/uncharted/",
-      "metacritic_url": "",
-      "harmony_score": 44
-    },
-    {
-      "title": "Satisfactory",
-      "rankings": {
-        "RPS": 57
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "Epic Games",
-        "Steam"
-      ],
-      "steam_id": 526870,
-      "user_score": 9,
-      "total_reviews": 105326,
-      "price": "R$ 86,39",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/header_alt_assets_2.jpg?t=1732783822",
-      "metacritic": 91,
-      "release_date": "2024-09-11",
-      "reddit_url": "https://www.reddit.com/r/SatisfactoryGame/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/satisfactory?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/526870",
-      "harmony_score": 44
-    },
-    {
-      "title": "Journey",
-      "rankings": {
-        "IGN": 58
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [
-        "App Store",
-        "Epic Games",
-        "PlayStation Store",
-        "Steam"
-      ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/baf/baf9905270314e07e6850cffdb51df41.jpg",
-      "metacritic": 92,
-      "release_date": "2012-03-13",
-      "reddit_url": "https://www.reddit.com/r/JourneyPS3/",
-      "metacritic_url": "",
-      "harmony_score": 43
-    },
-    {
       "title": "SOMA",
       "rankings": {
         "RPS": 58
@@ -5095,6 +5025,32 @@
       "reddit_url": "",
       "metacritic_url": "https://www.metacritic.com/game/pc/soma?ftag=MCD-06-10aaa1f",
       "protondb_url": "https://www.protondb.com/app/282140",
+      "harmony_score": 43
+    },
+    {
+      "title": "Journey",
+      "rankings": {
+        "IGN": 58
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [
+        "App Store",
+        "Epic Games",
+        "PlayStation Store",
+        "Steam"
+      ],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/baf/baf9905270314e07e6850cffdb51df41.jpg",
+      "metacritic": 92,
+      "release_date": "2012-03-13",
+      "reddit_url": "https://www.reddit.com/r/JourneyPS3/",
+      "metacritic_url": "",
       "harmony_score": 43
     },
     {
@@ -5158,6 +5114,35 @@
       "harmony_score": 42
     },
     {
+      "title": "Unavowed",
+      "rankings": {
+        "PCGamer": 59
+      },
+      "platforms": {
+        "windows": true,
+        "macos": true,
+        "linux": true,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "App Store",
+        "GOG",
+        "Steam"
+      ],
+      "steam_id": 336140,
+      "user_score": 9,
+      "total_reviews": 1635,
+      "price": "CDN$ 5.94",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/336140/header.jpg?t=1728040693",
+      "metacritic": 87,
+      "release_date": "2018-08-07",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/unavowed?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/336140",
+      "harmony_score": 42
+    },
+    {
       "title": "Terraria",
       "rankings": {
         "RPS": 59
@@ -5180,7 +5165,7 @@
       ],
       "steam_id": 105600,
       "user_score": 9,
-      "total_reviews": 538696,
+      "total_reviews": 538697,
       "price": "$4.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg?t=1731252354",
       "metacritic": 83,
@@ -5214,84 +5199,6 @@
       "harmony_score": 42
     },
     {
-      "title": "Unavowed",
-      "rankings": {
-        "PCGamer": 59
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": true,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "App Store",
-        "GOG",
-        "Steam"
-      ],
-      "steam_id": 336140,
-      "user_score": 9,
-      "total_reviews": 1635,
-      "price": "CDN$ 5.94",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/336140/header.jpg?t=1728040693",
-      "metacritic": 87,
-      "release_date": "2018-08-07",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/unavowed?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/336140",
-      "harmony_score": 42
-    },
-    {
-      "title": "Grand Theft Auto Online",
-      "rankings": {
-        "Eurogamer": 60
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/bbd/bbd7af2d6dab31e0b3bbfb5f63575ab8.jpg",
-      "metacritic": 82,
-      "release_date": "2013-10-01",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/playstation-3/grand-theft-auto-online",
-      "harmony_score": 41
-    },
-    {
-      "title": "System Shock Remake",
-      "rankings": {
-        "PCGamer": 60
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "GOG",
-        "Steam"
-      ],
-      "steam_id": 482400,
-      "user_score": 8,
-      "total_reviews": 6222,
-      "price": "CDN$ 21.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/482400/header.jpg?t=1712909914",
-      "metacritic": 85,
-      "release_date": "1994-09-23",
-      "reddit_url": "https://www.reddit.com/r/systemshock/",
-      "metacritic_url": "",
-      "protondb_url": "https://www.protondb.com/app/482400",
-      "harmony_score": 41
-    },
-    {
       "title": "Before Your Eyes",
       "rankings": {
         "RPS": 60
@@ -5321,6 +5228,81 @@
       "harmony_score": 41
     },
     {
+      "title": "Grand Theft Auto Online",
+      "rankings": {
+        "Eurogamer": 60
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/bbd/bbd7af2d6dab31e0b3bbfb5f63575ab8.jpg",
+      "metacritic": 82,
+      "release_date": "2013-10-01",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/playstation-3/grand-theft-auto-online",
+      "harmony_score": 41
+    },
+    {
+      "title": "System Shock Remake",
+      "rankings": {
+        "PCGamer": 60
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [
+        "GOG",
+        "Steam"
+      ],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/202/20253cf9a7bd4f3ddb26bf68cf9117ba.jpg",
+      "metacritic": 85,
+      "release_date": "1994-09-23",
+      "reddit_url": "https://www.reddit.com/r/systemshock/",
+      "metacritic_url": "",
+      "harmony_score": 41
+    },
+    {
+      "title": "Batman: Arkham City",
+      "rankings": {
+        "IGN": 61
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": true
+      },
+      "stores": [
+        "Nintendo Store",
+        "PlayStation Store",
+        "Steam",
+        "Xbox 360 Store"
+      ],
+      "steam_id": 200260,
+      "user_score": 9,
+      "total_reviews": 21553,
+      "price": "CDN$ 3.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/200260/header.jpg?t=1702934622",
+      "metacritic": 91,
+      "release_date": "2011-10-18",
+      "reddit_url": "https://www.reddit.com/r/BatmanArkham/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/batman-arkham-city?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/200260",
+      "harmony_score": 40
+    },
+    {
       "title": "Space Giraffe",
       "rankings": {
         "Eurogamer": 61
@@ -5347,31 +5329,31 @@
       "harmony_score": 40
     },
     {
-      "title": "Batman: Arkham City",
+      "title": "Rise of the Tomb Raider",
       "rankings": {
-        "IGN": 61
+        "IGN": 62
       },
       "platforms": {
         "windows": false,
         "macos": false,
         "linux": false,
         "steamdeck": "",
-        "switch": true
+        "switch": false
       },
       "stores": [
-        "Nintendo Store",
-        "PlayStation Store",
+        "App Store",
+        "Epic Games",
         "Steam",
-        "Xbox 360 Store"
+        "Xbox 360 Store",
+        "Xbox Store"
       ],
-      "steam_id": 57419,
       "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/b5a/b5a1226bfd971284a735a4a0969086b3.jpg",
-      "metacritic": 94,
-      "release_date": "2011-10-18",
-      "reddit_url": "https://www.reddit.com/r/BatmanArkham/",
-      "metacritic_url": "https://www.metacritic.com/game/playstation-3/batman-arkham-city",
-      "harmony_score": 40
+      "header_image": "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg",
+      "metacritic": 86,
+      "release_date": "2015-11-10",
+      "reddit_url": "",
+      "metacritic_url": "",
+      "harmony_score": 39
     },
     {
       "title": "Dragon Age II",
@@ -5402,65 +5384,29 @@
       "harmony_score": 39
     },
     {
-      "title": "Rise of the Tomb Raider",
+      "title": "Fallout 2",
       "rankings": {
-        "IGN": 62
+        "IGN": 94,
+        "RPS": 77
       },
       "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": true,
-        "steamdeck": "verified",
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
         "switch": false
       },
       "stores": [
-        "App Store",
         "Epic Games",
-        "Steam",
-        "Xbox 360 Store",
-        "Xbox Store"
+        "GOG",
+        "Steam"
       ],
-      "steam_id": 391220,
-      "user_score": 8,
-      "total_reviews": 26408,
-      "price": "CDN$ 5.84",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/391220/header.jpg?t=1729011444",
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/218/218167ff4011acc825c844d0070940a0.jpg",
       "metacritic": 86,
-      "release_date": "2015-11-10",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/rise-of-the-tomb-raider?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/391220",
-      "harmony_score": 39
-    },
-    {
-      "title": "Stray",
-      "rankings": {
-        "RPS": 63
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": true
-      },
-      "stores": [
-        "App Store",
-        "Nintendo Store",
-        "PlayStation Store",
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 1332010,
-      "user_score": 9,
-      "total_reviews": 68636,
-      "price": "CDN$ 23.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1332010/header.jpg?t=1733260906",
-      "metacritic": 82,
-      "release_date": "2022-07-19",
-      "reddit_url": "https://www.reddit.com/r/stray/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/stray?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/1332010",
+      "release_date": "1998-09-30",
+      "reddit_url": "https://www.reddit.com/r/Fallout2/",
+      "metacritic_url": "",
       "harmony_score": 38
     },
     {
@@ -5493,91 +5439,35 @@
       "harmony_score": 38
     },
     {
-      "title": "Fallout 2",
+      "title": "Stray",
       "rankings": {
-        "IGN": 94,
-        "RPS": 77
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "Epic Games",
-        "GOG",
-        "Steam"
-      ],
-      "steam_id": 38410,
-      "user_score": 8,
-      "total_reviews": 7609,
-      "price": "11,24zł",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/38410/header.jpg?t=1572025546",
-      "metacritic": 86,
-      "release_date": "1998-09-30",
-      "reddit_url": "https://www.reddit.com/r/Fallout2/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/fallout-2?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/38410",
-      "harmony_score": 38
-    },
-    {
-      "title": "Invisible Inc.",
-      "rankings": {
-        "Eurogamer": 64
+        "RPS": 63
       },
       "platforms": {
         "windows": true,
         "macos": true,
-        "linux": true,
+        "linux": false,
         "steamdeck": "verified",
         "switch": true
       },
       "stores": [
         "App Store",
-        "GOG",
-        "Steam"
-      ],
-      "steam_id": 243970,
-      "user_score": 8,
-      "total_reviews": 3383,
-      "price": "CDN$ 5.49",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/243970/header.jpg?t=1728420140",
-      "metacritic": 82,
-      "release_date": "2015-05-12",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/invisible-inc?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/243970",
-      "harmony_score": 37
-    },
-    {
-      "title": "Forza Horizon 4",
-      "rankings": {
-        "RPS": 64
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
+        "Nintendo Store",
+        "PlayStation Store",
         "Steam",
         "Xbox Store"
       ],
-      "steam_id": 1293830,
-      "user_score": 8,
-      "total_reviews": 48029,
-      "price": "CDN$ 15.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/header.jpg?t=1730830821",
-      "metacritic": 90,
-      "release_date": "2018-10-02",
-      "reddit_url": "https://www.reddit.com/r/ForzaHorizon/",
-      "metacritic_url": "https://www.metacritic.com/game/xbox-one/forza-horizon-4",
-      "protondb_url": "https://www.protondb.com/app/1293830",
-      "harmony_score": 37
+      "steam_id": 1332010,
+      "user_score": 9,
+      "total_reviews": 68638,
+      "price": "CDN$ 23.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1332010/header.jpg?t=1733260906",
+      "metacritic": 82,
+      "release_date": "2022-07-19",
+      "reddit_url": "https://www.reddit.com/r/stray/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/stray?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/1332010",
+      "harmony_score": 38
     },
     {
       "title": "Inside",
@@ -5614,30 +5504,90 @@
       "harmony_score": 37
     },
     {
-      "title": "Rust",
+      "title": "Forza Horizon 4",
       "rankings": {
-        "PCGamer": 65
+        "RPS": 64
       },
       "platforms": {
         "windows": true,
-        "macos": true,
+        "macos": false,
         "linux": false,
         "steamdeck": "verified",
         "switch": false
       },
       "stores": [
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 1293830,
+      "user_score": 8,
+      "total_reviews": 48029,
+      "price": "CDN$ 15.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1293830/header.jpg?t=1730830821",
+      "metacritic": 90,
+      "release_date": "2018-10-02",
+      "reddit_url": "https://www.reddit.com/r/ForzaHorizon/",
+      "metacritic_url": "https://www.metacritic.com/game/xbox-one/forza-horizon-4",
+      "protondb_url": "https://www.protondb.com/app/1293830",
+      "harmony_score": 37
+    },
+    {
+      "title": "Invisible Inc.",
+      "rankings": {
+        "Eurogamer": 64
+      },
+      "platforms": {
+        "windows": true,
+        "macos": true,
+        "linux": true,
+        "steamdeck": "verified",
+        "switch": true
+      },
+      "stores": [
+        "App Store",
+        "GOG",
         "Steam"
       ],
-      "steam_id": 252490,
+      "steam_id": 243970,
       "user_score": 8,
-      "total_reviews": 468221,
-      "price": "CDN$ 30.29",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg?t=1727957298",
-      "metacritic": 69,
-      "release_date": "2018-02-09",
-      "reddit_url": "https://www.reddit.com/r/playrust/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/rust?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/252490",
+      "total_reviews": 3383,
+      "price": "CDN$ 5.49",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/243970/header.jpg?t=1728420140",
+      "metacritic": 82,
+      "release_date": "2015-05-12",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/invisible-inc?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/243970",
+      "harmony_score": 37
+    },
+    {
+      "title": "Resident Evil 2 (Remake)",
+      "rankings": {
+        "IGN": 84,
+        "RPS": 89
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": true
+      },
+      "stores": [
+        "PlayStation Store",
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 883710,
+      "user_score": 9,
+      "total_reviews": 42787,
+      "price": "CDN$ 13.74",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/883710/header.jpg?t=1728438541",
+      "metacritic": 89,
+      "release_date": "2019-01-25",
+      "reddit_url": "https://www.reddit.com/r/residentevil/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/resident-evil-2?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/883710",
       "harmony_score": 36
     },
     {
@@ -5665,33 +5615,30 @@
       "harmony_score": 36
     },
     {
-      "title": "Resident Evil 2 (Remake)",
+      "title": "Rust",
       "rankings": {
-        "RPS": 89,
-        "IGN": 84
+        "PCGamer": 65
       },
       "platforms": {
         "windows": true,
-        "macos": false,
+        "macos": true,
         "linux": false,
         "steamdeck": "verified",
-        "switch": true
+        "switch": false
       },
       "stores": [
-        "PlayStation Store",
-        "Steam",
-        "Xbox Store"
+        "Steam"
       ],
-      "steam_id": 883710,
-      "user_score": 9,
-      "total_reviews": 42787,
-      "price": "CDN$ 13.74",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/883710/header.jpg?t=1728438541",
-      "metacritic": 89,
-      "release_date": "2019-01-25",
-      "reddit_url": "https://www.reddit.com/r/residentevil/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/resident-evil-2?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/883710",
+      "steam_id": 252490,
+      "user_score": 8,
+      "total_reviews": 468221,
+      "price": "CDN$ 30.29",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg?t=1727957298",
+      "metacritic": 69,
+      "release_date": "2018-02-09",
+      "reddit_url": "https://www.reddit.com/r/playrust/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/rust?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/252490",
       "harmony_score": 36
     },
     {
@@ -5753,39 +5700,6 @@
       "harmony_score": 35
     },
     {
-      "title": "Grand Theft Auto: San Andreas",
-      "rankings": {
-        "IGN": 66
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "App Store",
-        "Epic Games",
-        "Google Play",
-        "PlayStation Store",
-        "Steam",
-        "Xbox 360 Store",
-        "Xbox Store"
-      ],
-      "steam_id": 1547000,
-      "user_score": 6,
-      "total_reviews": 2097,
-      "price": "$23.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1547000/header.jpg?t=1676922466",
-      "metacritic": 93,
-      "release_date": "2004-10-26",
-      "reddit_url": "https://www.reddit.com/r/sanandreas/",
-      "metacritic_url": "",
-      "protondb_url": "https://www.protondb.com/app/1547000",
-      "harmony_score": 35
-    },
-    {
       "title": "Heaven's Vault",
       "rankings": {
         "RPS": 66
@@ -5815,6 +5729,39 @@
       "harmony_score": 35
     },
     {
+      "title": "Grand Theft Auto: San Andreas",
+      "rankings": {
+        "IGN": 66
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "App Store",
+        "Epic Games",
+        "Google Play",
+        "PlayStation Store",
+        "Steam",
+        "Xbox 360 Store",
+        "Xbox Store"
+      ],
+      "steam_id": 1547000,
+      "user_score": 6,
+      "total_reviews": 2097,
+      "price": "CDN$ 31.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1547000/header.jpg?t=1676922466",
+      "metacritic": 93,
+      "release_date": "2004-10-26",
+      "reddit_url": "https://www.reddit.com/r/sanandreas/",
+      "metacritic_url": "",
+      "protondb_url": "https://www.protondb.com/app/1547000",
+      "harmony_score": 35
+    },
+    {
       "title": "Silent Hill 2",
       "rankings": {
         "IGN": 67
@@ -5832,7 +5779,7 @@
       ],
       "steam_id": 2124490,
       "user_score": 9,
-      "total_reviews": 13654,
+      "total_reviews": 13665,
       "price": "CDN$ 74.79",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124490/header.jpg?t=1728470029",
       "release_date": "2024-10-08",
@@ -5840,27 +5787,6 @@
       "metacritic_url": "",
       "protondb_url": "https://www.protondb.com/app/2124490",
       "harmony_score": 34
-    },
-    {
-      "title": "Super Mario World 2: Yoshi's Island",
-      "rankings": {
-        "IGN": 68
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/98d/98d8fbc56c9a322a84ee38128e487bc8.jpg",
-      "metacritic": 91,
-      "release_date": "1995-08-05",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/game-boy-advance/yoshis-island-super-mario-advance-3",
-      "harmony_score": 33
     },
     {
       "title": "Sid Meier's Pirates! Live the Life",
@@ -5918,6 +5844,27 @@
       "harmony_score": 33
     },
     {
+      "title": "Super Mario World 2: Yoshi's Island",
+      "rankings": {
+        "IGN": 68
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/98d/98d8fbc56c9a322a84ee38128e487bc8.jpg",
+      "metacritic": 91,
+      "release_date": "1995-08-05",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/game-boy-advance/yoshis-island-super-mario-advance-3",
+      "harmony_score": 33
+    },
+    {
       "title": "Splinter Cell: Chaos Theory",
       "rankings": {
         "IGN": 69
@@ -5943,6 +5890,34 @@
       "release_date": "2005-03-21",
       "reddit_url": "",
       "metacritic_url": "",
+      "harmony_score": 32
+    },
+    {
+      "title": "The Last of Us Part I",
+      "rankings": {
+        "RPS": 69
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "Epic Games",
+        "PlayStation Store",
+        "Steam"
+      ],
+      "steam_id": 1888930,
+      "user_score": 6,
+      "total_reviews": 17734,
+      "price": "CDN$ 47.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/header.jpg?t=1728603021",
+      "release_date": "2022-09-02",
+      "reddit_url": "https://www.reddit.com/r/thelastofus/",
+      "metacritic_url": "https://www.metacritic.com/game/playstation-5/the-last-of-us-part-i",
+      "protondb_url": "https://www.protondb.com/app/1888930",
       "harmony_score": 32
     },
     {
@@ -5973,37 +5948,9 @@
       "harmony_score": 32
     },
     {
-      "title": "The Last of Us Part I",
+      "title": "The Sims 3",
       "rankings": {
-        "RPS": 69
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "Epic Games",
-        "PlayStation Store",
-        "Steam"
-      ],
-      "steam_id": 1888930,
-      "user_score": 6,
-      "total_reviews": 17732,
-      "price": "CDN$ 47.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/header.jpg?t=1728603021",
-      "release_date": "2022-09-02",
-      "reddit_url": "https://www.reddit.com/r/thelastofus/",
-      "metacritic_url": "https://www.metacritic.com/game/playstation-5/the-last-of-us-part-i",
-      "protondb_url": "https://www.protondb.com/app/1888930",
-      "harmony_score": 32
-    },
-    {
-      "title": "The Secret of Monkey Island",
-      "rankings": {
-        "RPS": 70
+        "IGN": 70
       },
       "platforms": {
         "windows": false,
@@ -6012,69 +5959,17 @@
         "steamdeck": "",
         "switch": false
       },
-      "stores": [],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/951/951f914b28b246835a811894bbc38403.jpeg",
-      "release_date": "1990-10-01",
-      "reddit_url": "",
-      "metacritic_url": "",
-      "harmony_score": 31
-    },
-    {
-      "title": "Forza Horizon 5",
-      "rankings": {
-        "Eurogamer": 70
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "App Store",
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 1551360,
-      "user_score": 8,
-      "total_reviews": 71243,
-      "price": "CDN$ 39.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg?t=1730830713",
-      "release_date": "2021-11-08",
-      "reddit_url": "https://www.reddit.com/r/ForzaHorizon/",
-      "metacritic_url": "https://www.metacritic.com/game/forza-horizon-5/",
-      "protondb_url": "https://www.protondb.com/app/1551360",
-      "harmony_score": 31
-    },
-    {
-      "title": "The Sims 3",
-      "rankings": {
-        "IGN": 70
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
       "stores": [
         "Nintendo Store",
         "Steam",
         "Xbox 360 Store"
       ],
-      "steam_id": 47890,
-      "user_score": 8,
-      "total_reviews": 19060,
-      "price": "CDN$ 26.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/47890/header.jpg?t=1728678220",
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/369/36914d895c20e35f273286145c267764.jpg",
       "metacritic": 86,
       "release_date": "2009-06-02",
       "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/the-sims-3?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/47890",
+      "metacritic_url": "",
       "harmony_score": 31
     },
     {
@@ -6107,6 +6002,54 @@
       "harmony_score": 31
     },
     {
+      "title": "Forza Horizon 5",
+      "rankings": {
+        "Eurogamer": 70
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "App Store",
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 1551360,
+      "user_score": 8,
+      "total_reviews": 71243,
+      "price": "CDN$ 39.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg?t=1730830713",
+      "release_date": "2021-11-08",
+      "reddit_url": "https://www.reddit.com/r/ForzaHorizon/",
+      "metacritic_url": "https://www.metacritic.com/game/forza-horizon-5/",
+      "protondb_url": "https://www.protondb.com/app/1551360",
+      "harmony_score": 31
+    },
+    {
+      "title": "The Secret of Monkey Island",
+      "rankings": {
+        "RPS": 70
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/951/951f914b28b246835a811894bbc38403.jpeg",
+      "release_date": "1990-10-01",
+      "reddit_url": "",
+      "metacritic_url": "",
+      "harmony_score": 31
+    },
+    {
       "title": "Alien Isolation",
       "rankings": {
         "PCGamer": 71
@@ -6131,7 +6074,7 @@
       ],
       "steam_id": 214490,
       "user_score": 8,
-      "total_reviews": 23363,
+      "total_reviews": 23364,
       "price": "CDN$ 10.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/214490/header.jpg?t=1728557065",
       "metacritic": 81,
@@ -6185,7 +6128,7 @@
       ],
       "steam_id": 239030,
       "user_score": 9,
-      "total_reviews": 35784,
+      "total_reviews": 35786,
       "price": "CDN$ 12.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/239030/header.jpg?t=1678266428",
       "metacritic": 85,
@@ -6226,6 +6169,38 @@
       "harmony_score": 28
     },
     {
+      "title": "Cities: Skylines",
+      "rankings": {
+        "RPS": 88,
+        "Eurogamer": 92
+      },
+      "platforms": {
+        "windows": true,
+        "macos": true,
+        "linux": true,
+        "steamdeck": "verified",
+        "switch": true
+      },
+      "stores": [
+        "Epic Games",
+        "Nintendo Store",
+        "PlayStation Store",
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 255710,
+      "user_score": 8,
+      "total_reviews": 92956,
+      "price": "CDN$ 3.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/255710/header.jpg?t=1730278697",
+      "metacritic": 85,
+      "release_date": "2015-03-10",
+      "reddit_url": "https://www.reddit.com/r/CitiesSkylines/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/cities-skylines?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/255710",
+      "harmony_score": 27
+    },
+    {
       "title": "Max Payne",
       "rankings": {
         "PCGamer": 74
@@ -6255,36 +6230,33 @@
       "harmony_score": 27
     },
     {
-      "title": "Cities: Skylines",
+      "title": "Psychonauts 2",
       "rankings": {
-        "Eurogamer": 92,
-        "RPS": 88
+        "Eurogamer": 75
       },
       "platforms": {
         "windows": true,
         "macos": true,
         "linux": true,
         "steamdeck": "verified",
-        "switch": true
+        "switch": false
       },
       "stores": [
-        "Epic Games",
-        "Nintendo Store",
-        "PlayStation Store",
+        "GOG",
         "Steam",
         "Xbox Store"
       ],
-      "steam_id": 255710,
-      "user_score": 8,
-      "total_reviews": 92956,
-      "price": "CDN$ 3.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/255710/header.jpg?t=1730278697",
-      "metacritic": 85,
-      "release_date": "2015-03-10",
-      "reddit_url": "https://www.reddit.com/r/CitiesSkylines/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/cities-skylines?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/255710",
-      "harmony_score": 27
+      "steam_id": 607080,
+      "user_score": 9,
+      "total_reviews": 7019,
+      "price": "CDN$ 7.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/607080/header.jpg?t=1732551903",
+      "metacritic": 89,
+      "release_date": "2021-08-24",
+      "reddit_url": "https://www.reddit.com/r/Psychonauts2/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/psychonauts-2?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/607080",
+      "harmony_score": 26
     },
     {
       "title": "Chivalry 2",
@@ -6317,44 +6289,15 @@
       "harmony_score": 26
     },
     {
-      "title": "Psychonauts 2",
-      "rankings": {
-        "Eurogamer": 75
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": true,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "GOG",
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 607080,
-      "user_score": 9,
-      "total_reviews": 7019,
-      "price": "CDN$ 7.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/607080/header.jpg?t=1732551903",
-      "metacritic": 89,
-      "release_date": "2021-08-24",
-      "reddit_url": "https://www.reddit.com/r/Psychonauts2/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/psychonauts-2?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/607080",
-      "harmony_score": 26
-    },
-    {
       "title": "Tekken 7",
       "rankings": {
         "RPS": 76
       },
       "platforms": {
-        "windows": true,
+        "windows": false,
         "macos": false,
         "linux": false,
-        "steamdeck": "verified",
+        "steamdeck": "",
         "switch": false
       },
       "stores": [
@@ -6362,23 +6305,19 @@
         "Steam",
         "Xbox Store"
       ],
-      "steam_id": 389730,
-      "user_score": 8,
-      "total_reviews": 29553,
-      "price": "CDN$ 53.49",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/389730/header.jpg?t=1703657219",
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/62b/62b035add7205737540d66e082b85930.jpg",
       "metacritic": 82,
       "release_date": "2015-03-18",
       "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/tekken-7?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/389730",
+      "metacritic_url": "",
       "harmony_score": 25
     },
     {
       "title": "Dead Cells",
       "rankings": {
-        "RPS": 91,
-        "PCGamer": 91
+        "PCGamer": 91,
+        "RPS": 91
       },
       "platforms": {
         "windows": false,
@@ -6406,6 +6345,33 @@
       "harmony_score": 25
     },
     {
+      "title": "Deep Rock Galactic",
+      "rankings": {
+        "PCGamer": 77
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "Steam"
+      ],
+      "steam_id": 548430,
+      "user_score": 9,
+      "total_reviews": 153385,
+      "price": "A$ 14.83",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/header_alt_assets_25.jpg?t=1733148613",
+      "metacritic": 85,
+      "release_date": "2020-05-13",
+      "reddit_url": "https://www.reddit.com/r/DeepRockGalactic/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/deep-rock-galactic?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/548430",
+      "harmony_score": 24
+    },
+    {
       "title": "GoldenEye 007",
       "rankings": {
         "IGN": 77
@@ -6427,31 +6393,28 @@
       "harmony_score": 24
     },
     {
-      "title": "Deep Rock Galactic",
+      "title": "Fable 2",
       "rankings": {
-        "PCGamer": 77
+        "IGN": 78
       },
       "platforms": {
-        "windows": true,
+        "windows": false,
         "macos": false,
         "linux": false,
-        "steamdeck": "verified",
+        "steamdeck": "",
         "switch": false
       },
       "stores": [
-        "Steam"
+        "Xbox 360 Store",
+        "Xbox Store"
       ],
-      "steam_id": 548430,
-      "user_score": 9,
-      "total_reviews": 153385,
-      "price": "CDN$ 11.54",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/header_alt_assets_25.jpg?t=1733148613",
-      "metacritic": 85,
-      "release_date": "2020-05-13",
-      "reddit_url": "https://www.reddit.com/r/DeepRockGalactic/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/deep-rock-galactic?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/548430",
-      "harmony_score": 24
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/cec/cec82d526f9d056d426c985562963eec.jpg",
+      "metacritic": 89,
+      "release_date": "2008-10-21",
+      "reddit_url": "https://www.reddit.com/r/Fable/",
+      "metacritic_url": "https://www.metacritic.com/game/xbox-360/fable-ii",
+      "harmony_score": 23
     },
     {
       "title": "Plants Vs. Zombies",
@@ -6479,30 +6442,6 @@
       "release_date": "2009-05-05",
       "reddit_url": "https://www.reddit.com/r/PlantsVSZombies/",
       "metacritic_url": "https://www.metacritic.com/game/pc/plants-vs-zombies",
-      "harmony_score": 23
-    },
-    {
-      "title": "Fable 2",
-      "rankings": {
-        "IGN": 78
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [
-        "Xbox 360 Store",
-        "Xbox Store"
-      ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/cec/cec82d526f9d056d426c985562963eec.jpg",
-      "metacritic": 89,
-      "release_date": "2008-10-21",
-      "reddit_url": "https://www.reddit.com/r/Fable/",
-      "metacritic_url": "https://www.metacritic.com/game/xbox-360/fable-ii",
       "harmony_score": 23
     },
     {
@@ -6646,6 +6585,38 @@
       "harmony_score": 20
     },
     {
+      "title": "Streets of Rage 4",
+      "rankings": {
+        "Eurogamer": 82
+      },
+      "platforms": {
+        "windows": true,
+        "macos": true,
+        "linux": true,
+        "steamdeck": "verified",
+        "switch": true
+      },
+      "stores": [
+        "App Store",
+        "GOG",
+        "Nintendo Store",
+        "PlayStation Store",
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 985890,
+      "user_score": 8,
+      "total_reviews": 6312,
+      "price": "CDN$ 11.59",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/985890/header.jpg?t=1728893320",
+      "metacritic": 84,
+      "release_date": "2020-04-30",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/streets-of-rage-4?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/985890",
+      "harmony_score": 19
+    },
+    {
       "title": "Mortal Kombat 11",
       "rankings": {
         "IGN": 82
@@ -6705,63 +6676,31 @@
       "harmony_score": 19
     },
     {
-      "title": "Streets of Rage 4",
+      "title": "System Shock 2",
       "rankings": {
-        "Eurogamer": 82
+        "IGN": 83
       },
       "platforms": {
         "windows": true,
         "macos": true,
-        "linux": true,
-        "steamdeck": "verified",
-        "switch": true
-      },
-      "stores": [
-        "App Store",
-        "GOG",
-        "Nintendo Store",
-        "PlayStation Store",
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 985890,
-      "user_score": 8,
-      "total_reviews": 6312,
-      "price": "CDN$ 11.59",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/985890/header.jpg?t=1728893320",
-      "metacritic": 84,
-      "release_date": "2020-04-30",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/streets-of-rage-4?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/985890",
-      "harmony_score": 19
-    },
-    {
-      "title": "Sid Meier S Civilization 5",
-      "rankings": {
-        "PCGamer": 83
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": true,
+        "linux": false,
         "steamdeck": "verified",
         "switch": false
       },
       "stores": [
-        "App Store",
+        "GOG",
         "Steam"
       ],
-      "steam_id": 8930,
+      "steam_id": 238210,
       "user_score": 9,
-      "total_reviews": 74445,
-      "price": "CDN$ 32.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/header.jpg?t=1724341158",
-      "metacritic": 90,
-      "release_date": "2010-09-21",
-      "reddit_url": "https://www.reddit.com/r/civ5/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/sid-meiers-civilization-v?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/8930",
+      "total_reviews": 4624,
+      "price": "CDN$ 2.19",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238210/header.jpg?t=1645843384",
+      "metacritic": 92,
+      "release_date": "1999-08-11",
+      "reddit_url": "https://www.reddit.com/r/SystemShock2/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/system-shock-2?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/238210",
       "harmony_score": 18
     },
     {
@@ -6791,31 +6730,31 @@
       "harmony_score": 18
     },
     {
-      "title": "System Shock 2",
+      "title": "Sid Meier S Civilization 5",
       "rankings": {
-        "IGN": 83
+        "PCGamer": 83
       },
       "platforms": {
         "windows": true,
         "macos": true,
-        "linux": false,
+        "linux": true,
         "steamdeck": "verified",
         "switch": false
       },
       "stores": [
-        "GOG",
+        "App Store",
         "Steam"
       ],
-      "steam_id": 238210,
+      "steam_id": 8930,
       "user_score": 9,
-      "total_reviews": 4624,
-      "price": "CDN$ 2.19",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/238210/header.jpg?t=1645843384",
-      "metacritic": 92,
-      "release_date": "1999-08-11",
-      "reddit_url": "https://www.reddit.com/r/SystemShock2/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/system-shock-2?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/238210",
+      "total_reviews": 74446,
+      "price": "CDN$ 32.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8930/header.jpg?t=1724341158",
+      "metacritic": 90,
+      "release_date": "2010-09-21",
+      "reddit_url": "https://www.reddit.com/r/civ5/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/sid-meiers-civilization-v?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/8930",
       "harmony_score": 18
     },
     {
@@ -6824,10 +6763,10 @@
         "Eurogamer": 84
       },
       "platforms": {
-        "windows": false,
-        "macos": false,
+        "windows": true,
+        "macos": true,
         "linux": false,
-        "steamdeck": "",
+        "steamdeck": "verified",
         "switch": true
       },
       "stores": [
@@ -6836,12 +6775,43 @@
         "Nintendo Store",
         "Steam"
       ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/screenshots/aff/affe0e7002de3863da7caa34a175ffcf.jpg",
+      "steam_id": 1634220,
+      "user_score": 7,
+      "total_reviews": 33,
+      "price": "CDN$ 9.74",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1634220/header.jpg?t=1717703106",
       "release_date": "2023-02-28",
       "reddit_url": "",
       "metacritic_url": "https://www.metacritic.com/game/switch/rytmos",
+      "protondb_url": "https://www.protondb.com/app/1634220",
       "harmony_score": 17
+    },
+    {
+      "title": "Ultrakill",
+      "rankings": {
+        "PCGamer": 86
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "GOG",
+        "Steam"
+      ],
+      "steam_id": 1229490,
+      "user_score": 9,
+      "total_reviews": 92578,
+      "price": "$18.74",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229490/header.jpg?t=1726657304",
+      "release_date": "2020-09-02",
+      "reddit_url": "",
+      "metacritic_url": "",
+      "protondb_url": "https://www.protondb.com/app/1229490",
+      "harmony_score": 15
     },
     {
       "title": "Age of Empires II: Definitive Edition",
@@ -6868,6 +6838,33 @@
       "reddit_url": "",
       "metacritic_url": "https://www.metacritic.com/game/pc/age-of-empires-ii-definitive-edition?ftag=MCD-06-10aaa1f",
       "protondb_url": "https://www.protondb.com/app/813780",
+      "harmony_score": 15
+    },
+    {
+      "title": "Tony Hawk's Pro Skater 2",
+      "rankings": {
+        "IGN": 86
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "Steam"
+      ],
+      "steam_id": 2395210,
+      "user_score": 8,
+      "total_reviews": 2362,
+      "price": "CDN$ 23.99",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2395210/header.jpg?t=1696374771",
+      "metacritic": 91,
+      "release_date": "2000-09-19",
+      "reddit_url": "https://www.reddit.com/r/THPS/",
+      "metacritic_url": "https://www.metacritic.com/game/playstation/tony-hawks-pro-skater-2",
+      "protondb_url": "https://www.protondb.com/app/2395210",
       "harmony_score": 15
     },
     {
@@ -6898,36 +6895,9 @@
       "harmony_score": 15
     },
     {
-      "title": "Ultrakill",
+      "title": "Doki Doki Literature Club",
       "rankings": {
-        "PCGamer": 86
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "GOG",
-        "Steam"
-      ],
-      "steam_id": 1229490,
-      "user_score": 9,
-      "total_reviews": 92578,
-      "price": "CDN$ 24.37",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229490/header.jpg?t=1726657304",
-      "release_date": "2020-09-02",
-      "reddit_url": "",
-      "metacritic_url": "",
-      "protondb_url": "https://www.protondb.com/app/1229490",
-      "harmony_score": 15
-    },
-    {
-      "title": "Tony Hawk's Pro Skater 2",
-      "rankings": {
-        "IGN": 86
+        "Eurogamer": 87
       },
       "platforms": {
         "windows": false,
@@ -6936,41 +6906,16 @@
         "steamdeck": "",
         "switch": false
       },
-      "stores": [],
-      "steam_id": 207210,
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/screenshots/c21/c2123c3dea40946f705a54772ed6238b.jpg",
-      "metacritic": 91,
-      "release_date": "2000-09-19",
-      "reddit_url": "https://www.reddit.com/r/THPS/",
-      "metacritic_url": "https://www.metacritic.com/game/playstation/tony-hawks-pro-skater-2",
-      "harmony_score": 15
-    },
-    {
-      "title": "Doki Doki Literature Club",
-      "rankings": {
-        "Eurogamer": 87
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
       "stores": [
         "Steam",
         "itch.io"
       ],
-      "steam_id": 698780,
-      "user_score": 8,
-      "total_reviews": 190,
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/698780/header.jpg?t=1681943582",
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/972/972aea3c9eb253e893947bec2d2cfbb9.jpg",
       "metacritic": 78,
       "release_date": "2017-09-22",
       "reddit_url": "https://www.reddit.com/r/DDLC/",
       "metacritic_url": "https://www.metacritic.com/game/pc/doki-doki-literature-club!",
-      "protondb_url": "https://www.protondb.com/app/698780",
       "harmony_score": 14
     },
     {
@@ -7001,6 +6946,28 @@
       "harmony_score": 13
     },
     {
+      "title": "SimCity 2000",
+      "rankings": {
+        "IGN": 89
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [
+        "GOG"
+      ],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/590/590bd58a61e5842491604130766b13a8.jpg",
+      "release_date": "1993-01-01",
+      "reddit_url": "",
+      "metacritic_url": "",
+      "harmony_score": 12
+    },
+    {
       "title": "Football Manager 2024",
       "rankings": {
         "Eurogamer": 89
@@ -7027,26 +6994,32 @@
       "harmony_score": 12
     },
     {
-      "title": "SimCity 2000",
+      "title": "Thief II: the Metal Age",
       "rankings": {
-        "IGN": 89
+        "IGN": 90
       },
       "platforms": {
-        "windows": false,
+        "windows": true,
         "macos": false,
         "linux": false,
-        "steamdeck": "",
+        "steamdeck": "verified",
         "switch": false
       },
       "stores": [
-        "GOG"
+        "GOG",
+        "Steam"
       ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/590/590bd58a61e5842491604130766b13a8.jpg",
-      "release_date": "1993-01-01",
+      "steam_id": 211740,
+      "user_score": 8,
+      "total_reviews": 1270,
+      "price": "CDN$ 1.25",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/211740/header.jpg?t=1681398228",
+      "metacritic": 87,
+      "release_date": "2000-02-29",
       "reddit_url": "",
-      "metacritic_url": "",
-      "harmony_score": 12
+      "metacritic_url": "https://www.metacritic.com/game/pc/thief-ii-the-metal-age?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/211740",
+      "harmony_score": 11
     },
     {
       "title": "Against the Storm",
@@ -7075,34 +7048,6 @@
       "reddit_url": "",
       "metacritic_url": "https://www.metacritic.com/game/pc/against-the-storm?ftag=MCD-06-10aaa1f",
       "protondb_url": "https://www.protondb.com/app/1336490",
-      "harmony_score": 11
-    },
-    {
-      "title": "Thief II: the Metal Age",
-      "rankings": {
-        "IGN": 90
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "GOG",
-        "Steam"
-      ],
-      "steam_id": 211740,
-      "user_score": 8,
-      "total_reviews": 1270,
-      "price": "CDN$ 1.25",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/211740/header.jpg?t=1681398228",
-      "metacritic": 87,
-      "release_date": "2000-02-29",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/thief-ii-the-metal-age?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/211740",
       "harmony_score": 11
     },
     {
@@ -7330,6 +7275,37 @@
       "harmony_score": 7
     },
     {
+      "title": "Quake",
+      "rankings": {
+        "RPS": 95
+      },
+      "platforms": {
+        "windows": true,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": true
+      },
+      "stores": [
+        "Epic Games",
+        "Nintendo Store",
+        "PlayStation Store",
+        "Steam",
+        "Xbox Store"
+      ],
+      "steam_id": 2310,
+      "user_score": 9,
+      "total_reviews": 8876,
+      "price": "CDN$ 5.39",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2310/header.jpg?t=1691683243",
+      "metacritic": 94,
+      "release_date": "1996-06-22",
+      "reddit_url": "https://www.reddit.com/r/quake/",
+      "metacritic_url": "https://www.metacritic.com/game/pc/quake?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/2310",
+      "harmony_score": 6
+    },
+    {
       "title": "Star Wars Knights of the Old Republic 2",
       "rankings": {
         "PCGamer": 95
@@ -7360,37 +7336,6 @@
       "reddit_url": "https://www.reddit.com/r/kotor/",
       "metacritic_url": "https://www.metacritic.com/game/pc/star-wars-knights-of-the-old-republic",
       "protondb_url": "https://www.protondb.com/app/32370",
-      "harmony_score": 6
-    },
-    {
-      "title": "Quake",
-      "rankings": {
-        "RPS": 95
-      },
-      "platforms": {
-        "windows": true,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": true
-      },
-      "stores": [
-        "Epic Games",
-        "Nintendo Store",
-        "PlayStation Store",
-        "Steam",
-        "Xbox Store"
-      ],
-      "steam_id": 2310,
-      "user_score": 9,
-      "total_reviews": 8876,
-      "price": "CDN$ 5.39",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2310/header.jpg?t=1691683243",
-      "metacritic": 94,
-      "release_date": "1996-06-22",
-      "reddit_url": "https://www.reddit.com/r/quake/",
-      "metacritic_url": "https://www.metacritic.com/game/pc/quake?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/2310",
       "harmony_score": 6
     },
     {
@@ -7486,6 +7431,33 @@
       "harmony_score": 5
     },
     {
+      "title": "Dave the Diver",
+      "rankings": {
+        "PCGamer": 97
+      },
+      "platforms": {
+        "windows": true,
+        "macos": true,
+        "linux": false,
+        "steamdeck": "verified",
+        "switch": true
+      },
+      "stores": [
+        "Steam"
+      ],
+      "steam_id": 1868140,
+      "user_score": 9,
+      "total_reviews": 39394,
+      "price": "CDN$ 18.19",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1868140/header.jpg?t=1732854813",
+      "metacritic": 90,
+      "release_date": "2023-06-28",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/dave-the-diver?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/1868140",
+      "harmony_score": 4
+    },
+    {
       "title": "Assassin's Creed IV: Black Flag",
       "rankings": {
         "IGN": 97
@@ -7517,33 +7489,6 @@
       "harmony_score": 4
     },
     {
-      "title": "Dave the Diver",
-      "rankings": {
-        "PCGamer": 97
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": false,
-        "steamdeck": "verified",
-        "switch": true
-      },
-      "stores": [
-        "Steam"
-      ],
-      "steam_id": 1868140,
-      "user_score": 9,
-      "total_reviews": 39394,
-      "price": "CDN$ 18.19",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1868140/header.jpg?t=1732854813",
-      "metacritic": 90,
-      "release_date": "2023-06-28",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/dave-the-diver?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/1868140",
-      "harmony_score": 4
-    },
-    {
       "title": "Blood",
       "rankings": {
         "RPS": 98
@@ -7563,31 +7508,6 @@
       "header_image": "https://media.rawg.io/media/screenshots/60b/60b74fccd30274db00ef51b97b41862c.jpg",
       "metacritic": 82,
       "release_date": "1997-03-07",
-      "reddit_url": "",
-      "metacritic_url": "",
-      "harmony_score": 3
-    },
-    {
-      "title": "City of Heroes Homecoming",
-      "rankings": {
-        "PCGamer": 98
-      },
-      "platforms": {
-        "windows": false,
-        "macos": false,
-        "linux": false,
-        "steamdeck": "",
-        "switch": false
-      },
-      "stores": [
-        "PlayStation Store",
-        "Steam",
-        "Xbox 360 Store"
-      ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/games/d85/d8542d232461bc856277378b32345bc8.jpg",
-      "metacritic": 64,
-      "release_date": "2008-09-30",
       "reddit_url": "",
       "metacritic_url": "",
       "harmony_score": 3
@@ -7621,6 +7541,31 @@
       "harmony_score": 3
     },
     {
+      "title": "City of Heroes Homecoming",
+      "rankings": {
+        "PCGamer": 98
+      },
+      "platforms": {
+        "windows": false,
+        "macos": false,
+        "linux": false,
+        "steamdeck": "",
+        "switch": false
+      },
+      "stores": [
+        "PlayStation Store",
+        "Steam",
+        "Xbox 360 Store"
+      ],
+      "total_reviews": 0,
+      "header_image": "https://media.rawg.io/media/games/d85/d8542d232461bc856277378b32345bc8.jpg",
+      "metacritic": 64,
+      "release_date": "2008-09-30",
+      "reddit_url": "",
+      "metacritic_url": "",
+      "harmony_score": 3
+    },
+    {
       "title": "No Man's Sky",
       "rankings": {
         "Eurogamer": 99
@@ -7641,8 +7586,8 @@
       ],
       "steam_id": 275850,
       "user_score": 6,
-      "total_reviews": 153275,
-      "price": "RM53.20",
+      "total_reviews": 153283,
+      "price": "CDN$ 31.19",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/275850/header_alt_assets_22.jpg?t=1732716850",
       "metacritic": 61,
       "release_date": "2016-08-09",
@@ -7657,21 +7602,57 @@
         "PCGamer": 99
       },
       "platforms": {
-        "windows": false,
+        "windows": true,
         "macos": false,
         "linux": false,
-        "steamdeck": "",
+        "steamdeck": "verified",
         "switch": false
       },
       "stores": [
         "Steam"
       ],
-      "total_reviews": 0,
-      "header_image": "https://media.rawg.io/media/screenshots/420/4205650e0fd16a5ba7bf4f8524fac1f1.jpg",
+      "steam_id": 1284210,
+      "user_score": 8,
+      "total_reviews": 204,
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1284210/header.jpg?t=1731549758",
+      "metacritic": 90,
       "release_date": "2012-08-28",
       "reddit_url": "",
-      "metacritic_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/guild-wars-2?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/1284210",
       "harmony_score": 2
+    },
+    {
+      "title": "Borderlands 2",
+      "rankings": {
+        "IGN": 100
+      },
+      "platforms": {
+        "windows": true,
+        "macos": true,
+        "linux": true,
+        "steamdeck": "verified",
+        "switch": false
+      },
+      "stores": [
+        "App Store",
+        "Google Play",
+        "PlayStation Store",
+        "Steam",
+        "Xbox 360 Store",
+        "Xbox Store"
+      ],
+      "steam_id": 49520,
+      "user_score": 9,
+      "total_reviews": 111061,
+      "price": "CDN$ 5.49",
+      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/49520/header.jpg?t=1728608124",
+      "metacritic": 89,
+      "release_date": "2012-09-18",
+      "reddit_url": "",
+      "metacritic_url": "https://www.metacritic.com/game/pc/borderlands-2?ftag=MCD-06-10aaa1f",
+      "protondb_url": "https://www.protondb.com/app/49520",
+      "harmony_score": 1
     },
     {
       "title": "Valheim",
@@ -7690,8 +7671,8 @@
       ],
       "steam_id": 892970,
       "user_score": 9,
-      "total_reviews": 236627,
-      "price": "CDN$ 11.39",
+      "total_reviews": 236629,
+      "price": "$9.99",
       "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/892970/header.jpg?t=1732095031",
       "release_date": "2021-02-02",
       "reddit_url": "https://www.reddit.com/r/valheim/",
@@ -7720,38 +7701,6 @@
       "reddit_url": "",
       "metacritic_url": "",
       "harmony_score": 1
-    },
-    {
-      "title": "Borderlands 2",
-      "rankings": {
-        "IGN": 100
-      },
-      "platforms": {
-        "windows": true,
-        "macos": true,
-        "linux": true,
-        "steamdeck": "verified",
-        "switch": false
-      },
-      "stores": [
-        "App Store",
-        "Google Play",
-        "PlayStation Store",
-        "Steam",
-        "Xbox 360 Store",
-        "Xbox Store"
-      ],
-      "steam_id": 49520,
-      "user_score": 9,
-      "total_reviews": 111061,
-      "price": "$4.99",
-      "header_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/49520/header.jpg?t=1728608124",
-      "metacritic": 89,
-      "release_date": "2012-09-18",
-      "reddit_url": "",
-      "metacritic_url": "https://www.metacritic.com/game/pc/borderlands-2?ftag=MCD-06-10aaa1f",
-      "protondb_url": "https://www.protondb.com/app/49520",
-      "harmony_score": 1
     }
   ],
   "metadata": {
@@ -7759,8 +7708,8 @@
       "Polygon - PS5 Top 25",
       "IGN",
       "PCGamer",
-      "Eurogamer",
-      "RPS"
+      "RPS",
+      "Eurogamer"
     ],
     "enrichment_used": {
       "steam": true,
