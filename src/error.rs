@@ -10,6 +10,8 @@ pub enum GameError {
     Serialization(#[from] serde_json::Error),
     #[error("Selector error: {0}")]
     Selector(String),
+    #[error("{0}")]
+    Other(String),
 }
 
 pub type Result<T> = std::result::Result<T, GameError>;

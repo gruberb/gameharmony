@@ -9,9 +9,9 @@ use std::sync::Arc;
 use tokio::time::{sleep, Duration};
 
 pub struct Enrichment {
-    steam_client: SteamClient,
-    rawg_client: RawgClient,
-    store: Arc<dyn Storage>,
+    pub steam_client: SteamClient,
+    pub rawg_client: RawgClient,
+    pub store: Arc<dyn Storage>,
 }
 
 impl Enrichment {

@@ -1,10 +1,11 @@
 use crate::domain::storage::Storage;
-use crate::error::Result;
+use crate::error::{GameError, Result};
 use crate::infrastructure::SteamApp;
 use crate::services::merging::MergedGame;
-use crate::services::text_utils::{TitleNormalizer, DLC_PATTERN};
+use crate::services::text_utils::TitleNormalizer;
 use ahash::AHashMap;
 use rayon::prelude::*;
+use regex::Regex;
 use rustc_hash::FxHashMap;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
@@ -34,6 +35,24 @@ pub struct IndexedGame {
     pub name: String,
 }
 
+pub struct MatchingConfig {
+    pub similarity_threshold: f64,
+    pub dlc_pattern: String,
+    pub filter_dlc: bool,
+}
+
+impl Default for MatchingConfig {
+    fn default() -> Self {
+        Self {
+            similarity_threshold: 0.9,
+            dlc_pattern: String::from(
+                r"(?i)(DLC|Soundtrack|OST|Bonus|Season Pass|Content Pack|\bVR\b|\bBeta\b|\bDemo\b|\bArt\sof\b|\bUpgrade\b|\bPack\b|\bBundle\b)",
+            ),
+            filter_dlc: true,
+        }
+    }
+}
+
 // Internal structure used during index building
 struct AppIndex {
     name_index: FxHashMap<String, Arc<SteamApp>>,
@@ -41,8 +60,14 @@ struct AppIndex {
 }
 
 impl AppIndex {
-    fn build_index(steam_apps: Vec<SteamApp>) -> Result<Self> {
-        info!("Build app index");
+    fn build_index(
+        steam_apps: Vec<SteamApp>,
+        dlc_pattern: &str,
+        should_filter: bool,
+    ) -> Result<Self> {
+        let dlc_pattern = Regex::new(dlc_pattern)
+            .map_err(|e| GameError::Other(format!("Invalid regex pattern: {}", e)))?;
+
         let total_start = Instant::now();
         let mut last_checkpoint = total_start;
 
@@ -58,8 +83,12 @@ impl AppIndex {
         let processed_apps: Vec<_> = steam_apps
             .into_par_iter()
             .filter(|app| {
-                let should_filter = DLC_PATTERN.is_match(&app.name);
-                !should_filter
+                if should_filter {
+                    let filtered = dlc_pattern.is_match(&app.name);
+                    !filtered
+                } else {
+                    true
+                }
             })
             .map(|app| {
                 let app = Arc::new(app);
@@ -153,13 +182,18 @@ impl AppIndex {
 }
 
 pub struct MatchingService {
-    name_index: FxHashMap<String, Arc<SteamApp>>,
-    letter_index: AHashMap<char, Vec<(Arc<SteamApp>, String)>>,
+    pub name_index: FxHashMap<String, Arc<SteamApp>>,
+    pub letter_index: AHashMap<char, Vec<(Arc<SteamApp>, String)>>,
     store: Arc<dyn Storage>,
+    config: MatchingConfig,
 }
 
 impl MatchingService {
-    pub fn new(steam_apps: Vec<SteamApp>, store: Arc<dyn Storage>) -> Result<Self> {
+    pub fn new(
+        steam_apps: Vec<SteamApp>,
+        store: Arc<dyn Storage>,
+        config: MatchingConfig,
+    ) -> Result<Self> {
         let index_data = match store.load_indexed_games()? {
             Some(cached) => {
                 info!("Found cached indexed games");
@@ -167,17 +201,22 @@ impl MatchingService {
             }
             None => {
                 info!("Building new index");
-                let app_index = AppIndex::build_index(steam_apps)?;
+                let app_index =
+                    AppIndex::build_index(steam_apps, &config.dlc_pattern, config.filter_dlc)?;
                 let index_data = app_index.create_indexed_games();
                 store.save_indexed_games(&index_data)?;
                 index_data
             }
         };
 
-        Ok(Self::from_indexed_games(index_data, store))
+        Ok(Self::from_indexed_games(index_data, store, config))
     }
 
-    fn from_indexed_games(indexed: IndexedGames, store: Arc<dyn Storage>) -> Self {
+    fn from_indexed_games(
+        indexed: IndexedGames,
+        store: Arc<dyn Storage>,
+        config: MatchingConfig,
+    ) -> Self {
         let name_index = indexed
             .name_index
             .into_iter()
@@ -216,6 +255,7 @@ impl MatchingService {
             name_index,
             letter_index,
             store,
+            config,
         }
     }
 
@@ -230,8 +270,10 @@ impl MatchingService {
             .into_par_iter()
             .map(|game| {
                 let steam_id = self.find_steam_id(&game.original_names[0]);
-                info!("Game: {} - SteamID: {:?}", game.original_names[0], steam_id);
 
+                if steam_id.is_none() {
+                    info!("No Steam ID found for: {}", game.original_names[0]);
+                }
                 GameWithSteamId {
                     name: game.original_names[0].clone(),
                     rankings: game.rankings,
@@ -243,7 +285,7 @@ impl MatchingService {
         Ok(matched_games)
     }
 
-    fn find_steam_id(&self, game_name: &str) -> Option<String> {
+    pub fn find_steam_id(&self, game_name: &str) -> Option<String> {
         info!("Finding Steam ID for: {}", game_name);
         let normalized_search = TitleNormalizer::normalize(game_name);
 
@@ -256,15 +298,13 @@ impl MatchingService {
         let first_char = normalized_search.chars().next()?;
         let candidates = self.letter_index.get(&first_char)?;
 
-        const SIMILARITY_THRESHOLD: f64 = 0.9;
-
         candidates
             .par_iter()
             .map(|(app, normalized_name)| {
                 let similarity = normalized_levenshtein(&normalized_search, normalized_name);
                 (app, similarity)
             })
-            .filter(|(_, similarity)| *similarity > SIMILARITY_THRESHOLD)
+            .filter(|(_, similarity)| *similarity > self.config.similarity_threshold)
             .max_by(|a, b| a.1.partial_cmp(&b.1).unwrap_or(std::cmp::Ordering::Equal))
             .map(|(app, _)| app.appid.to_string())
     }

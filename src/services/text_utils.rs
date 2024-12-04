@@ -1,4 +1,3 @@
-use once_cell::sync::Lazy;
 use regex::Regex;
 use unicode_normalization::UnicodeNormalization;
 
@@ -52,7 +51,7 @@ impl TitleNormalizer {
     /// replacing hyphens with spaces, removing punctuation, and collapsing multiple spaces.
     pub fn normalize(title: &str) -> String {
         // Remove year suffixes in parentheses
-        let year_suffix_re = Regex::new(r"\s*\(\d{4}\)").unwrap();
+        let year_suffix_re = Regex::new(r"\s*(?:\(?\d{4}\)?)\b").unwrap();
         let title = year_suffix_re
             .replace_all(&title.to_lowercase(), "")
             .to_string();
@@ -179,10 +178,3 @@ impl TitleNormalizer {
         title.nfkd().collect::<String>().trim().to_string()
     }
 }
-
-// Create common patterns as statics
-pub static DLC_PATTERN: Lazy<Regex> = Lazy::new(|| {
-    Regex::new(
-        r"(?i)(^DLC:|^Soundtrack|^OST|^Bonus|Season Pass|Content Pack|\bDemo\b|\bArt\sof\b|\bUpgrade to|DLC Pack|Sound Pack)"
-    ).unwrap()
-});

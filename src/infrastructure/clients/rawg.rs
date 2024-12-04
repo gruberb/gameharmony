@@ -3,8 +3,6 @@ use crate::error::Result;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
-use std::time::Duration;
-use tokio::time::sleep;
 use tracing::{error, info};
 
 #[derive(Debug, Deserialize)]
@@ -124,8 +122,6 @@ impl RawgClient {
         let detailed_info: RawgGameDetailed = detailed_response.json().await?;
 
         self.store.save_rawg_info(title, detailed_info.clone())?;
-
-        sleep(Duration::from_millis(100)).await; // Rate limiting
 
         Ok(Some(detailed_info))
     }

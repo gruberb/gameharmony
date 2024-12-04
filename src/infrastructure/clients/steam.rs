@@ -128,8 +128,8 @@ pub struct SteamClient {
 
 impl SteamClient {
     pub async fn new(client: Client, store: Arc<dyn Storage>) -> Result<Self> {
-        let steam_apps = Self::fetch_steam_apps(&client).await?;
-        info!("Created new Steam client and fetched steam apps");
+        let steam_apps = Self::fetch_combined_steam_apps(&client).await?;
+        info!("Created new Steam client and fetched steam apps from both endpoints");
         Ok(Self {
             client,
             store,
@@ -137,17 +137,47 @@ impl SteamClient {
         })
     }
 
-    async fn fetch_steam_apps(client: &Client) -> Result<Vec<SteamApp>> {
+    async fn fetch_combined_steam_apps(client: &Client) -> Result<Vec<SteamApp>> {
+        let v2_apps = Self::fetch_steam_apps_v2(client).await?;
+        let legacy_apps = Self::fetch_steam_apps_legacy(client).await?;
+
+        info!(
+        "Fetched {} apps from v2 and {} apps from legacy",
+        v2_apps.len(),
+        legacy_apps.len()
+    );
+
+        let mut unique_apps = HashMap::new();
+
+        // Insert apps from both endpoints, using appid as key
+        for app in v2_apps {
+            unique_apps.insert(app.appid, app);
+        }
+
+        for app in legacy_apps {
+            unique_apps.insert(app.appid, app);
+        }
+
+        let combined_apps = unique_apps.into_values().collect::<Vec<_>>();
+        info!("Combined into {} unique apps", combined_apps.len());
+
+        Ok(combined_apps)
+    }
+
+    async fn fetch_steam_apps_v2(client: &Client) -> Result<Vec<SteamApp>> {
         let url = "https://api.steampowered.com/ISteamApps/GetAppList/v2/";
         let response: SteamResponse = client.get(url).send().await?.json().await?;
         Ok(response.applist.apps)
     }
 
-    pub async fn get_store_info(&self, app_id: u64) -> Result<Option<StoreInfo>> {
-        info!("Get store info for: {app_id}");
+    async fn fetch_steam_apps_legacy(client: &Client) -> Result<Vec<SteamApp>> {
+        let url = "https://api.steampowered.com/ISteamApps/GetAppList/v0002/";
+        let response: SteamResponse = client.get(url).send().await?.json().await?;
+        Ok(response.applist.apps)
+    }
 
+    pub async fn get_store_info(&self, app_id: u64) -> Result<Option<StoreInfo>> {
         if let Some(cached) = self.store.load_app_info(app_id)? {
-            info!("Using cached data for Steam app {}", app_id);
             return Ok(Some(cached));
         }
 

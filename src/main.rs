@@ -12,7 +12,7 @@ use crate::infrastructure::RawgClient;
 use crate::infrastructure::SteamClient;
 use crate::services::enrichment::Enrichment;
 use crate::services::game_service::GameService;
-use crate::services::matching::MatchingService;
+use crate::services::matching::{MatchingConfig, MatchingService};
 use crate::services::merging::MergingService;
 use crate::services::scraping::ScrapingService;
 use std::sync::Arc;
@@ -36,7 +36,11 @@ async fn main() -> Result<()> {
 
     let scraping = ScrapingService::new(config.http_client.clone());
     let merging = MergingService::new(Arc::clone(&store));
-    let matching = MatchingService::new(steam_client.steam_apps.clone(), Arc::clone(&store))?;
+    let matching = MatchingService::new(
+        steam_client.steam_apps.clone(),
+        Arc::clone(&store),
+        MatchingConfig::default(),
+    )?;
     let enrichment = Enrichment::new(
         steam_client,
         RawgClient::new(
