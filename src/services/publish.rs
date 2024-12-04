@@ -67,7 +67,7 @@ impl PublishService {
                 }
 
                 game.header_image = Some(format!(
-                    "https://raw.githubusercontent.com/{}/{}/main/public/images/{}.jpg",
+                    "https://{}.github.io/{}/images/{}.jpg",
                     self.username, self.repo, filename
                 ));
 
