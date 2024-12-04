@@ -1,18 +1,26 @@
 use crate::domain::storage::Storage;
-use crate::domain::{MergedGame, WebsiteGames};
 use crate::error::Result;
+use crate::services::scraping::WebsiteGames;
 use crate::services::text_utils::TitleNormalizer;
 use regex::Regex;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::sync::Arc;
 use tracing::info;
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct MergedGame {
+    pub normalized_name: String,
+    pub original_names: Vec<String>,
+    pub rankings: HashMap<String, u64>,
+}
 
 struct GameData {
     original_name: String,
     normalized_title: String,
     numeric_tokens: Vec<String>,
     non_numeric_title: String,
-    rank: i32,
+    rank: u64,
     source: String,
 }
 

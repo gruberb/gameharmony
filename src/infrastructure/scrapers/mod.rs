@@ -8,7 +8,7 @@ pub(crate) mod polygon_ps5_top25;
 pub(crate) mod rockpapershotgun;
 
 pub trait WebsiteScraper {
-    fn extract_games(&self, document: &Html, selectors: &Selectors) -> Result<Vec<(String, i32)>>;
+    fn extract_games(&self, document: &Html, selectors: &Selectors) -> Result<Vec<(String, u64)>>;
 }
 
 pub struct Selectors {

@@ -1,16 +1,38 @@
 use crate::domain::storage::Storage;
-use crate::domain::{GameWithSteamId, IndexedGame, IndexedGames, MergedGame};
 use crate::error::Result;
 use crate::infrastructure::SteamApp;
+use crate::services::merging::MergedGame;
 use crate::services::text_utils::{TitleNormalizer, DLC_PATTERN};
 use ahash::AHashMap;
 use rayon::prelude::*;
 use rustc_hash::FxHashMap;
+use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 use std::sync::Arc;
 use std::time::{SystemTime, UNIX_EPOCH};
 use strsim::normalized_levenshtein;
 use tokio::time::Instant;
 use tracing::info;
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct GameWithSteamId {
+    pub name: String,
+    pub rankings: HashMap<String, u64>,
+    pub steam_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct IndexedGames {
+    pub created_at: u64,
+    pub name_index: HashMap<String, IndexedGame>,
+    pub letter_index: HashMap<char, Vec<(IndexedGame, String)>>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct IndexedGame {
+    pub appid: u64,
+    pub name: String,
+}
 
 // Internal structure used during index building
 struct AppIndex {
@@ -37,9 +59,6 @@ impl AppIndex {
             .into_par_iter()
             .filter(|app| {
                 let should_filter = DLC_PATTERN.is_match(&app.name);
-                if should_filter {
-                    info!("Filtering out: {} ({})", app.name, app.appid);
-                }
                 !should_filter
             })
             .map(|app| {

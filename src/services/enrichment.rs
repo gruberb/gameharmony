@@ -1,7 +1,8 @@
 use crate::domain::storage::Storage;
-use crate::domain::{Game, GameWithSteamId};
+use crate::domain::Game;
 use crate::error::Result;
 use crate::infrastructure::{RawgClient, SteamClient};
+use crate::services::matching::GameWithSteamId;
 use crate::services::scoring::calculate_harmony_score;
 use crate::services::text_utils::TitleNormalizer;
 use std::sync::Arc;
@@ -55,9 +56,8 @@ impl Enrichment {
                 }
             }
 
-            if let Ok(Some((basic, detailed))) = self.rawg_client.get_game_info(&entry.title).await
-            {
-                entry = entry.with_rawg_info(&basic, &detailed);
+            if let Ok(Some(detailed)) = self.rawg_client.get_game_info(&entry.title).await {
+                entry = entry.with_rawg_info(&detailed);
             }
 
             entry.title = TitleNormalizer::format_for_display(&entry.title);

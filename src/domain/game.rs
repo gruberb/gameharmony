@@ -1,5 +1,5 @@
 use crate::infrastructure::{
-    ExtendedPlatforms, RawgGameBasic, RawgGameDetailed, SteamDeckVerifiedResponse, StoreInfo,
+    ExtendedPlatforms, RawgGameDetailed, SteamDeckVerifiedResponse, StoreInfo,
 };
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
@@ -7,21 +7,21 @@ use std::collections::HashMap;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Game {
     pub title: String,
-    pub rankings: HashMap<String, i32>,
+    pub rankings: HashMap<String, u64>,
     pub platforms: ExtendedPlatforms,
     pub stores: Vec<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub steam_id: Option<u64>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub user_score: Option<i32>,
+    pub user_score: Option<u64>,
     #[serde(default)]
-    pub total_reviews: i32,
+    pub total_reviews: u64,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub price: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub header_image: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub metacritic: Option<i32>,
+    pub metacritic: Option<u64>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub release_date: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -30,11 +30,11 @@ pub struct Game {
     pub metacritic_url: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub protondb_url: Option<String>,
-    pub harmony_score: i32,
+    pub harmony_score: u64,
 }
 
 impl Game {
-    pub fn new(title: String, rankings: HashMap<String, i32>, harmony_score: i32) -> Self {
+    pub fn new(title: String, rankings: HashMap<String, u64>, harmony_score: u64) -> Self {
         Self {
             title,
             rankings,
@@ -80,19 +80,19 @@ impl Game {
         self
     }
 
-    pub fn with_rawg_info(mut self, basic: &RawgGameBasic, detailed: &RawgGameDetailed) -> Self {
+    pub fn with_rawg_info(mut self, detailed: &RawgGameDetailed) -> Self {
         if self.header_image.is_none() {
-            self.header_image = basic.background_image.clone();
+            self.header_image = detailed.background_image.clone();
         }
 
         if !self.platforms.switch {
-            self.platforms.switch = basic
+            self.platforms.switch = detailed
                 .platforms
                 .iter()
                 .any(|p| p.platform.name == "Nintendo Switch");
         }
 
-        if let Some(stores) = &basic.stores {
+        if let Some(stores) = &detailed.stores {
             let mut updated_stores = self.stores.clone();
             for store in stores {
                 if !updated_stores.contains(&store.store.name) {
@@ -118,43 +118,4 @@ impl Game {
 
         self
     }
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct WebsiteGames {
-    pub source: String,
-    pub games: Vec<ScrapedGame>,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct ScrapedGame {
-    pub name: String,
-    pub rank: i32,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct MergedGame {
-    pub normalized_name: String,
-    pub original_names: Vec<String>,
-    pub rankings: HashMap<String, i32>,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct GameWithSteamId {
-    pub name: String,
-    pub rankings: HashMap<String, i32>,
-    pub steam_id: Option<String>,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct IndexedGames {
-    pub created_at: u64,
-    pub name_index: HashMap<String, IndexedGame>,
-    pub letter_index: HashMap<char, Vec<(IndexedGame, String)>>,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct IndexedGame {
-    pub appid: u64,
-    pub name: String,
 }

@@ -1,6 +1,9 @@
-use super::{Game, GameWithSteamId, IndexedGames, Manifest, MergedGame, WebsiteGames};
+use super::{Game, Manifest};
 use crate::error::Result;
-use crate::infrastructure::StoreInfo;
+use crate::infrastructure::{RawgGameDetailed, StoreInfo};
+use crate::services::matching::{GameWithSteamId, IndexedGames};
+use crate::services::merging::MergedGame;
+use crate::services::scraping::WebsiteGames;
 
 pub trait Storage: Send + Sync {
     fn load_indexed_games(&self) -> Result<Option<IndexedGames>>;
@@ -13,6 +16,8 @@ pub trait Storage: Send + Sync {
     fn save_matched_games(&self, games: &[GameWithSteamId]) -> Result<()>;
     fn load_app_info(&self, app_id: u64) -> Result<Option<StoreInfo>>;
     fn save_app_info(&self, app_id: u64, store_info: StoreInfo) -> Result<()>;
+    fn load_rawg_info(&self, name: &str) -> Result<Option<RawgGameDetailed>>;
+    fn save_rawg_info(&self, name: &str, rawg_info: RawgGameDetailed) -> Result<()>;
     fn load_enriched_games(&self) -> Result<Option<Vec<Game>>>;
     fn save_enriched_games(&self, games: &[Game]) -> Result<()>;
     fn save_manifest(&self, manifest: &Manifest) -> Result<()>;
@@ -24,6 +29,7 @@ impl StorageKeys {
     // Base directories
     pub const SOURCES_DIR: &'static str = "sources";
     pub const STEAM_APPS_DIR: &'static str = "steam_apps";
+    pub const RAWG_APPS_DIR: &'static str = "rawg_apps";
     pub const ENHANCEMENTS_DIR: &'static str = "enhancements";
 
     pub const STEAM_APPS_INDEX: &'static str = "index_apps";

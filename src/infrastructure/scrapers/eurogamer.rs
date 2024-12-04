@@ -5,7 +5,7 @@ use scraper::Html;
 pub struct EurogamerScraper;
 
 impl WebsiteScraper for EurogamerScraper {
-    fn extract_games(&self, document: &Html, selectors: &Selectors) -> Result<Vec<(String, i32)>> {
+    fn extract_games(&self, document: &Html, selectors: &Selectors) -> Result<Vec<(String, u64)>> {
         let mut games = Vec::new();
 
         // Uses same structure as RockPaperShotgun
@@ -14,11 +14,11 @@ impl WebsiteScraper for EurogamerScraper {
             .map(|el| el.text().collect::<String>().trim().to_string())
             .collect();
 
-        let ranks: Vec<i32> = document
+        let ranks: Vec<u64> = document
             .select(selectors.rank.as_ref().unwrap())
             .filter_map(|el| {
                 let rank_str = el.text().collect::<String>();
-                rank_str.trim().parse::<i32>().ok()
+                rank_str.trim().parse::<u64>().ok()
             })
             .collect();
 

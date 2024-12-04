@@ -1,5 +1,4 @@
 use crate::config::Website;
-use crate::domain::{ScrapedGame, WebsiteGames};
 use crate::error::Result;
 use crate::infrastructure::EurogamerScraper;
 use crate::infrastructure::IGNScraper;
@@ -9,9 +8,22 @@ use crate::infrastructure::RPSScraper;
 use crate::infrastructure::{Selectors, WebsiteScraper};
 use reqwest::Client;
 use scraper::Html;
+use serde::{Deserialize, Serialize};
 use std::time::Duration;
 use tokio::time::sleep;
 use tracing::info;
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct WebsiteGames {
+    pub source: String,
+    pub games: Vec<ScrapedGame>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ScrapedGame {
+    pub name: String,
+    pub rank: u64,
+}
 
 pub struct ScrapingService {
     client: Client,

@@ -16,7 +16,7 @@ fn clean_name(raw_name: &str) -> String {
 }
 
 impl WebsiteScraper for PCGamerScraper {
-    fn extract_games(&self, document: &Html, selectors: &Selectors) -> Result<Vec<(String, i32)>> {
+    fn extract_games(&self, document: &Html, selectors: &Selectors) -> Result<Vec<(String, u64)>> {
         let mut games = Vec::new();
 
         for element in document.select(&selectors.name) {
@@ -28,7 +28,7 @@ impl WebsiteScraper for PCGamerScraper {
 
                     // Parse rank and clean name
                     if let (Some(rank_str), Some(name_str)) = (rank_str, name_str) {
-                        if let Ok(rank) = rank_str.parse::<i32>() {
+                        if let Ok(rank) = rank_str.parse::<u64>() {
                             if (1..=100).contains(&rank) {
                                 let clean_name = clean_name(name_str);
                                 games.push((clean_name, rank));

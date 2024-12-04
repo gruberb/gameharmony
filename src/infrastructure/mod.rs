@@ -3,7 +3,7 @@ mod scrapers;
 mod storage;
 
 pub use clients::{
-    rawg::{RawgClient, RawgGameBasic, RawgGameDetailed},
+    rawg::{RawgClient, RawgGameDetailed},
     steam::{ExtendedPlatforms, SteamApp, SteamClient, SteamDeckVerifiedResponse, StoreInfo},
 };
 pub use scrapers::{

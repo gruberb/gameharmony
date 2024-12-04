@@ -1,7 +1,10 @@
 use crate::config::Config;
 use crate::domain::storage::Storage;
-use crate::domain::{Game, GameWithSteamId, Manifest, MergedGame, WebsiteGames};
+use crate::domain::{Game, Manifest};
 use crate::error::Result;
+use crate::services::matching::GameWithSteamId;
+use crate::services::merging::MergedGame;
+use crate::services::scraping::WebsiteGames;
 use crate::services::{
     enrichment::Enrichment, matching::MatchingService, merging::MergingService,
     scraping::ScrapingService,

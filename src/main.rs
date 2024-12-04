@@ -39,7 +39,11 @@ async fn main() -> Result<()> {
     let matching = MatchingService::new(steam_client.steam_apps.clone(), Arc::clone(&store))?;
     let enrichment = Enrichment::new(
         steam_client,
-        RawgClient::new(config.http_client.clone(), config.args.rawg_api_key.clone()),
+        RawgClient::new(
+            config.http_client.clone(),
+            config.args.rawg_api_key.clone(),
+            Arc::clone(&store),
+        ),
         Arc::clone(&store),
     );
 

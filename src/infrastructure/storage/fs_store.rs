@@ -1,7 +1,10 @@
 use crate::domain::storage::{Storage, StorageKeys};
-use crate::domain::{Game, GameWithSteamId, IndexedGames, Manifest, MergedGame, WebsiteGames};
+use crate::domain::{Game, Manifest};
 use crate::error::Result;
-use crate::infrastructure::StoreInfo;
+use crate::infrastructure::{RawgGameDetailed, StoreInfo};
+use crate::services::matching::{GameWithSteamId, IndexedGames};
+use crate::services::merging::MergedGame;
+use crate::services::scraping::WebsiteGames;
 use std::fs;
 use std::path::PathBuf;
 
@@ -159,6 +162,14 @@ impl Storage for FileSystemStore {
             &store_info,
             false,
         )
+    }
+
+    fn load_rawg_info(&self, name: &str) -> Result<Option<RawgGameDetailed>> {
+        self.read_json_file(name, Some(StorageKeys::RAWG_APPS_DIR), false)
+    }
+
+    fn save_rawg_info(&self, name: &str, rawg_info: RawgGameDetailed) -> Result<()> {
+        self.write_json_file(name, Some(StorageKeys::RAWG_APPS_DIR), &rawg_info, false)
     }
 
     fn load_enriched_games(&self) -> Result<Option<Vec<Game>>> {

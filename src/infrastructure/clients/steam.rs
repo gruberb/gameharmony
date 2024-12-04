@@ -43,7 +43,7 @@ pub struct PriceOverview {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Metacritic {
-    pub score: i32,
+    pub score: u64,
     pub url: String,
 }
 
@@ -61,22 +61,22 @@ pub struct SteamReviewsResponse {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ReviewsSummary {
-    pub total_positive: i64,
-    pub total_reviews: i64,
-    pub review_score: i32,
+    pub total_positive: u64,
+    pub total_reviews: u64,
+    pub review_score: u64,
     pub review_score_desc: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct SteamDeckVerifiedResponse {
-    pub success: i32,
+    pub success: u64,
     pub results: Option<DeckResults>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct DeckResults {
     pub appid: u64,
-    pub resolved_category: i32,
+    pub resolved_category: u64,
     pub resolved_items: Vec<DeckResultItem>,
     pub steam_deck_blog_url: String,
     pub search_id: Option<String>,
@@ -84,7 +84,7 @@ pub struct DeckResults {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct DeckResultItem {
-    pub display_type: i32,
+    pub display_type: u64,
     pub loc_token: String,
 }
 
@@ -93,9 +93,9 @@ pub struct StoreInfo {
     pub price: Option<String>,
     pub platforms: ExtendedPlatforms,
     pub header_image: Option<String>,
-    pub user_score: i32,
-    pub total_reviews: i32,
-    pub metacritic_score: Option<i32>,
+    pub user_score: u64,
+    pub total_reviews: u64,
+    pub metacritic_score: Option<u64>,
     pub metacritic_url: Option<String>,
 }
 
@@ -162,7 +162,7 @@ impl SteamClient {
                 metacritic_score: store.metacritic.clone().map(|m| m.score),
                 metacritic_url: store.metacritic.map(|m| m.url),
                 user_score: reviews.query_summary.review_score,
-                total_reviews: reviews.query_summary.total_reviews as i32,
+                total_reviews: reviews.query_summary.total_reviews,
             }),
             _ => None,
         };
