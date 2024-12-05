@@ -35,7 +35,6 @@ async fn main() -> Result<()> {
             prepare_service.prepare(manifest).await?;
         }
         None => {
-            // Your existing main program logic
             let config = Config::new()?;
             config.ensure_directories()?;
 
