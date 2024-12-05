@@ -57,12 +57,9 @@ impl PublishService {
 
                 // Download image if it doesn't exist
                 if !image_path.exists() {
-                    match self.download_image(url, &image_path).await {
-                        Ok(_) => info!("Downloaded image for {}", game.title),
-                        Err(e) => {
-                            info!("Failed to download image for {}: {}", game.title, e);
-                            continue;
-                        }
+                    if let Err(e) =  self.download_image(url, &image_path).await {
+                        info!("Failed to download image for {}: {}", game.title, e);
+                        continue;
                     }
                 }
 

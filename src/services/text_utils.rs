@@ -56,6 +56,19 @@ impl TitleNormalizer {
             // Add other specific cases as needed
         ];
 
+        // Remove game status suffixes
+        let status_patterns = [
+            (r"\s*\(early access\)", ""),
+            (r"\s*early access", ""),
+            (r"\s*\(full release\)", ""),
+            // Add other status patterns as needed
+        ];
+
+        for (pattern, replacement) in status_patterns {
+            let re = Regex::new(pattern).unwrap();
+            title = re.replace_all(&title, replacement).to_string();
+        }
+
         // Remove apostrophes and normalize possessives first
         let possessive_re = Regex::new(r"(?:'\s*s|\s+s)\b").unwrap();
         title = possessive_re.replace_all(&title, "s").to_string();
