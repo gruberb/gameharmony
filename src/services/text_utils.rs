@@ -1,5 +1,6 @@
 use regex::Regex;
 use unicode_normalization::UnicodeNormalization;
+use crate::config::ScraperConfig;
 
 /// Utilities for processing and normalizing game titles
 pub struct TitleNormalizer;
@@ -29,22 +30,11 @@ impl TitleNormalizer {
             .join(" ")
     }
 
-    pub fn normalize_source(source: &str) -> String {
-        if source.contains("rockpapershotgun") {
-            "RPS".to_string()
-        } else if source.contains("pcgamer") {
-            "PCGamer".to_string()
-        } else if source.contains("eurogamer") {
-            "Eurogamer".to_string()
-        } else if source.contains("ign") {
-            "IGN".to_string()
-        } else if source
-            .contains("https://www.polygon.com/ps5/21720698/best-ps5-games-playstation-5")
-        {
-            "Polygon - PS5 Top 25".to_string()
-        } else {
-            source.to_string()
-        }
+    pub fn normalize_source(source: &str, scraper_config: &ScraperConfig) -> String {
+        scraper_config.websites.iter()
+            .find(|w| source.contains(&w.pattern))
+            .map(|w| w.display_name.clone())
+            .unwrap_or_else(|| source.to_string())
     }
 
     /// Normalizes a game title by converting it to lowercase, removing apostrophes,

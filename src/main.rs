@@ -46,7 +46,7 @@ async fn main() -> Result<()> {
             let steam_client =
                 SteamClient::new(config.http_client.clone(), Arc::clone(&store)).await?;
             let scraping = ScrapingService::new(config.http_client.clone());
-            let merging = MergingService::new(Arc::clone(&store));
+            let merging = MergingService::new(Arc::clone(&store), &config.scraper_config);
             let matching = MatchingService::new(
                 steam_client.steam_apps.clone(),
                 Arc::clone(&store),

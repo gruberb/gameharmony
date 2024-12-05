@@ -4,6 +4,7 @@ use scraper::{Html, Selector};
 pub(crate) mod eurogamer;
 pub(crate) mod ign;
 pub(crate) mod pcgamer;
+pub(crate) mod polygon;
 pub(crate) mod polygon_ps5_top25;
 pub(crate) mod rockpapershotgun;
 

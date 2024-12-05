@@ -70,7 +70,6 @@ impl PublishService {
                     "https://{}.github.io/{}/images/{}.jpg",
                     self.username, self.repo, filename
                 ));
-
             }
             pb.inc(1);
         }

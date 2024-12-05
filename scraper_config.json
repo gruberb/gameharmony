@@ -3,27 +3,51 @@
     {
       "url": "https://www.ign.com/articles/the-best-100-video-games-of-all-time",
       "name_selector": "h2[data-cy='title2'] strong",
-      "rank_selector": "h2[data-cy='title2'] strong"
+      "rank_selector": "h2[data-cy='title2'] strong",
+      "scraper_type": "ign",
+      "display_name": "IGN",
+      "pattern": "ign.com"
+
     },
     {
       "url": "https://www.rockpapershotgun.com/the-rps-100-2024",
       "name_selector": "span.top-video-game-name",
-      "rank_selector": "span.top-video-game-pill--rank"
+      "rank_selector": "span.top-video-game-pill--rank",
+      "scraper_type": "rps",
+      "display_name": "RPS",
+      "pattern": "rockpapershotgun.com"
     },
     {
       "url": "https://www.eurogamer.net/the-eurogamer-100",
       "name_selector": "span.top-video-game-name",
-      "rank_selector": "span.top-video-game-pill--rank"
+      "rank_selector": "span.top-video-game-pill--rank",
+      "scraper_type": "eurogamer",
+      "display_name": "Eurogamer",
+      "pattern": "eurogamer.net"
     },
     {
       "url": "https://www.pcgamer.com/games/the-top-100-pc-games-2024",
       "name_selector": "h2[id]",
-      "rank_selector": "h2[id]"
+      "rank_selector": "h2[id]",
+      "scraper_type": "pcgamer",
+      "display_name": "PCGamer",
+      "pattern": "pcgamer.com"
     },
     {
       "url": "https://www.polygon.com/ps5/21720698/best-ps5-games-playstation-5",
       "name_selector": "a._1fpkjp5k",
-      "rank_selector": ""
+      "rank_selector": "",
+      "scraper_type": "polygon_top_ps5",
+      "display_name": "Polygon - PS5 Top 25",
+      "pattern": "best-ps5-games-playstation-5"
+    },
+    {
+      "url": "https://www.polygon.com/what-to-play/24078256/best-video-games-2024",
+      "name_selector": "h3._1fpkjp5j",
+      "rank_selector": "h3._1fpkjp5j",
+      "scraper_type": "polygon",
+      "display_name": "Polygon",
+      "pattern": "best-video-games-2024"
     }
   ]
 }

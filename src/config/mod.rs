@@ -13,9 +13,12 @@ pub struct Website {
     pub url: String,
     pub name_selector: String,
     pub rank_selector: String,
+    pub scraper_type: String,
+    pub display_name: String,
+    pub pattern: String,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct ScraperConfig {
     pub websites: Vec<Website>,
 }

@@ -4,6 +4,7 @@ use crate::infrastructure::EurogamerScraper;
 use crate::infrastructure::IGNScraper;
 use crate::infrastructure::PCGamerScraper;
 use crate::infrastructure::PolygonPS5Top25;
+use crate::infrastructure::PolygonScraper;
 use crate::infrastructure::RPSScraper;
 use crate::infrastructure::{Selectors, WebsiteScraper};
 use reqwest::Client;
@@ -35,14 +36,15 @@ impl ScrapingService {
         Self { client }
     }
 
-    fn get_scraper(&self, url: &str) -> Box<dyn WebsiteScraper> {
-        match url {
-            url if url.contains("ign.com") => Box::new(IGNScraper),
-            url if url.contains("rockpapershotgun.com") => Box::new(RPSScraper),
-            url if url.contains("eurogamer.net") => Box::new(EurogamerScraper),
-            url if url.contains("pcgamer.com") => Box::new(PCGamerScraper),
-            url if url.contains("best-ps5-games-playstation-5") => Box::new(PolygonPS5Top25),
-            _ => Box::new(RPSScraper), // Default scraper
+    fn get_scraper(&self, website: &Website) -> Box<dyn WebsiteScraper> {
+        match website.scraper_type.as_str() {
+            "ign" => Box::new(IGNScraper),
+            "polygon_top_ps5" => Box::new(PolygonPS5Top25),
+            "polygon" => Box::new(PolygonScraper),
+            "eurogamer" => Box::new(EurogamerScraper),
+            "rps" => Box::new(RPSScraper),
+            "pcgamer" => Box::new(PCGamerScraper),
+            _ => panic!("Unknown scraper type")
         }
     }
 
@@ -63,7 +65,7 @@ impl ScrapingService {
         let document = Html::parse_document(&response);
         let selectors = Selectors::new(&website.name_selector, &website.rank_selector)?;
 
-        let scraper = self.get_scraper(&website.url);
+        let scraper = self.get_scraper(website);
         let games = scraper.extract_games(&document, &selectors)?;
 
         Ok(WebsiteGames {

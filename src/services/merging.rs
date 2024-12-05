@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::sync::Arc;
 use tracing::info;
+use crate::config::ScraperConfig;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MergedGame {
@@ -26,12 +27,13 @@ struct GameData {
 
 pub struct MergingService {
     store: Arc<dyn Storage>,
+    scraper_config: ScraperConfig,
 }
 
 impl MergingService {
-    pub fn new(store: Arc<dyn Storage + 'static>) -> Self {
+    pub fn new(store: Arc<dyn Storage + 'static>, scraper_config: &ScraperConfig) -> Self {
         info!("Created new Merging Service");
-        Self { store }
+        Self { store, scraper_config: scraper_config.clone() }
     }
 
     pub fn merge_games(&self, website_games: Vec<WebsiteGames>) -> Result<Vec<MergedGame>> {
@@ -54,7 +56,7 @@ impl MergingService {
         let numbers_re = Regex::new(r"\b\d+\b").unwrap();
 
         for website in website_games {
-            let source = TitleNormalizer::normalize_source(&website.source);
+            let source = TitleNormalizer::normalize_source(&website.source, &self.scraper_config);
             info!("Processing games from {}", source);
 
             for game in &website.games {
